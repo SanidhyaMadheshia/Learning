@@ -182,3 +182,55 @@ Coordination patterns built on these primitives:
 - Martin Kleppmann, *Designing Data-Intensive Applications* — Chapters 8–9 (consistency, consensus, linearizability, fencing tokens).
 - etcd official docs — "Learner nodes", "Linearizable reads", and the Raft implementation notes (etcd.io/docs).
 - Mike Burrows, *"The Chubby lock service for loosely-coupled distributed systems"* (Google, OSDI 2006).
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| **etcd** | [etcd-io/etcd](https://github.com/etcd-io/etcd) | Distributed reliable key-value store built on Raft (~48k★). The backing store for **Kubernetes** cluster state; also used by Rook, CoreDNS, M3, and many control planes. gRPC API, MVCC, leases, range watches. |
+| **Apache ZooKeeper** | [apache/zookeeper](https://github.com/apache/zookeeper) | Wait-free coordination service using the Zab protocol (~12k★). Hierarchical znodes, ephemeral nodes, watches. Powers **Kafka** (legacy), **HBase**, **Solr**, **Hadoop HA**, **Pulsar**, **Flink**. |
+| **HashiCorp Consul** | [hashicorp/consul](https://github.com/hashicorp/consul) | Service discovery, health checking, KV store, and service mesh on Raft (~29k★). Multi-datacenter, built-in DNS. Used across many enterprises for discovery + mesh. |
+| **etcd raft** | [etcd-io/raft](https://github.com/etcd-io/raft) | The standalone, battle-tested Go Raft implementation extracted from etcd. Reused by **CockroachDB**, **TiKV**-adjacent projects, and countless systems needing a proven Raft core. |
+| **HashiCorp raft** | [hashicorp/raft](https://github.com/hashicorp/raft) | Go library implementing Raft with a pluggable FSM + log store (~8k★). Powers **Consul**, **Nomad**, **Vault** HA, and Boltdb-backed clusters. |
+| **TiKV / raft-rs** | [tikv/tikv](https://github.com/tikv/tikv) · [tikv/raft-rs](https://github.com/tikv/raft-rs) | Distributed transactional KV store (CNCF graduated, ~15k★) using **Multi-Raft** (many Raft groups) for horizontal scale; `raft-rs` is its reusable Rust Raft core. Backs **TiDB**. |
+| **Dragonboat** | [lni/dragonboat](https://github.com/lni/dragonboat) | High-performance multi-group Raft library in Go (~5k★). Designed for many concurrent Raft groups with strong throughput; used to build custom replicated stores. |
+| **Apache Curator** | [apache/curator](https://github.com/apache/curator) | High-level ZooKeeper client (~3k★) providing recipes: leader election, distributed locks, barriers, caches. The de-facto way to use ZooKeeper correctly from the JVM. |
+| **CockroachDB** | [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach) | Distributed SQL database (~30k★) that replicates each data range via its own Raft group — a production example of consensus *as the storage layer* (Multi-Raft). |
+| **raft.github.io** | [raft/raft.github.io](https://github.com/raft/raft.github.io) | The official Raft home: the paper, the interactive visualization, and a catalog of Raft implementations across languages. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [In Search of an Understandable Consensus Algorithm (Raft paper)](https://raft.github.io/raft.pdf) — The canonical Raft paper by Ongaro & Ousterhout; leader election, log replication, and safety, explained to be understood.
+- [The Raft Website + Interactive Visualization](https://raft.github.io/) — Watch leader election and log replication happen live; the single best intuition-builder for Raft.
+- [The Secret Lives of Data — Raft](https://thesecretlivesofdata.com/raft/) — A step-by-step animated walkthrough of Raft consensus for absolute beginners.
+- [ZooKeeper: Wait-free Coordination for Internet-scale Systems (USENIX ATC 2010)](https://www.usenix.org/legacy/event/atc10/tech/full_papers/Hunt.pdf) — Foundational paper on ZooKeeper's API, ordering guarantees, and Zab.
+- [The Chubby Lock Service (Google, OSDI 2006)](https://research.google/pubs/pub27897/) — Burrows' paper on Google's Multi-Paxos lock service — the intellectual ancestor of ZooKeeper/etcd.
+- [etcd Official Docs — Learning](https://etcd.io/docs/latest/learning/) — Data model, linearizable vs serializable reads, the Raft implementation, and learner nodes.
+- [Jepsen Analyses (etcd, ZooKeeper, Consul)](https://jepsen.io/analyses) — Kyle Kingsbury's rigorous consistency/partition testing of real coordination systems — see how they actually behave under failure.
+- [Martin Kleppmann — How to do distributed locking](https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html) — The definitive explanation of why locks need **fencing tokens**; required reading before you build a lock.
+- [Apache Curator — Recipes](https://curator.apache.org/docs/recipes) — Production-grade patterns (leader election, locks, barriers) done right on ZooKeeper.
+- [Kafka KRaft — Apache Kafka Docs](https://kafka.apache.org/documentation/#kraft) — How Kafka replaced ZooKeeper with an internal Raft metadata quorum, and why.
+- [MIT 6.824 Distributed Systems — Lectures (video)](https://pdos.csail.mit.edu/6.824/) — Robert Morris' course with dedicated Raft lectures + labs; the best free deep dive available.
+- [CockroachDB Blog — Consensus, Made Thrive](https://www.cockroachlabs.com/blog/consensus-made-thrive/) — How a real distributed SQL DB uses Multi-Raft in production and the pragmatic optimizations involved.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **The consensus problem & why it's hard.** Understand FLP impossibility and what "agreement" means. `` `distributed consensus problem FLP impossibility explained` ``
+2. **Replicated state machines.** Learn how an ordered log + deterministic FSM yields identical replicas. `` `replicated state machine consensus explained` ``
+3. **Quorums & majority intersection.** Why ⌊N/2⌋+1 and why odd node counts. `` `quorum majority intersection consensus why odd number of nodes` ``
+4. **Raft fundamentals.** Leader election, terms, log replication, safety. `` `raft consensus leader election log replication explained` ``
+5. **Play with the Raft visualization.** Build intuition for elections, split votes, and commits. `` `raft interactive visualization thesecretlivesofdata` ``
+6. **Paxos vs Raft vs Zab.** Compare the major protocols and their trade-offs. `` `paxos vs raft vs zab comparison consensus protocols` ``
+7. **Linearizability & consistency models.** What "strong consistency" actually guarantees. `` `linearizability vs sequential consistency explained` ``
+8. **Read scaling: read-index & lease reads.** Serving linearizable reads without a log write. `` `etcd linearizable read read-index lease read explained` ``
+9. **ZooKeeper model & primitives.** znodes, ephemeral nodes, watches, sessions. `` `zookeeper ephemeral node watch leader election recipe` ``
+10. **etcd model & primitives.** KV, MVCC, leases, watches, learner nodes. `` `etcd lease watch mvcc learner node tutorial` ``
+11. **Distributed locks & fencing tokens.** Why a lock alone is unsafe; how fencing prevents corruption. `` `distributed lock fencing token martin kleppmann` ``
+12. **Failure behavior (CAP + partitions).** How CP systems behave when a partition loses quorum. `` `zookeeper etcd jepsen partition consistency analysis` ``
+13. **Multi-Raft & scaling consensus.** Sharding the keyspace into many Raft groups. `` `multi-raft cockroachdb tikv range replication explained` ``
+14. **Hands-on: deploy a 3-node etcd cluster locally.** Do writes, kill the leader, watch reelection, run linearizable vs serializable reads. `` `run local 3 node etcd cluster docker compose tutorial` ``
+15. **Hands-on: build a toy Raft.** Implement leader election + log replication (or follow MIT 6.824 Lab 2). `` `mit 6.824 raft lab implementation guide` ``
+
+**✅ You'll know you understand this when:** you can (1) explain why an even-node cluster is a waste and how quorum intersection guarantees safety, (2) design a correct distributed lock with fencing tokens and explain the stale-holder failure it prevents, and (3) choose between leader/read-index/lease/follower reads for a given consistency vs latency requirement.

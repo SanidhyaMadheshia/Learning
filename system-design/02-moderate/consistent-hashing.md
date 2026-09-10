@@ -144,3 +144,57 @@ sequenceDiagram
 - Lamping & Veach, *"A Fast, Minimal Memory, Consistent Hash Algorithm"* (Jump hashing, Google 2014).
 - Mirrokni, Thorup, Zadimoghaddam, *"Consistent Hashing with Bounded Loads"* (Google Research, 2016) — plus the Vimeo/HAProxy engineering blog on applying it.
 - *Designing Data-Intensive Applications* by Martin Kleppmann — Chapter 6, "Partitioning," for practical context in sharded databases.
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+These are real, widely-adopted projects that implement or depend on consistent hashing. Databases and load balancers use it as a core partitioning/routing primitive; the libraries let you drop it into your own service.
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| **Apache Cassandra** | [apache/cassandra](https://github.com/apache/cassandra) | Distributed wide-column DB (~8.8k★). Partitions data over a token ring with virtual nodes (`num_tokens`); replicates to the next N nodes clockwise. The canonical production consistent-hashing datastore. |
+| **Envoy Proxy** | [envoyproxy/envoy](https://github.com/envoyproxy/envoy) | L7 proxy / service-mesh data plane (~26k★). Ships `ring_hash` and `maglev` load-balancing policies for sticky, connection-consistent backend routing. Used by Istio, and at Lyft/Google scale. |
+| **buraksezer/consistent** | [buraksezer/consistent](https://github.com/buraksezer/consistent) | Go library implementing **consistent hashing with bounded loads** (Google's algorithm). Clean, well-documented; a common reference implementation for Go services. |
+| **ketama** | [RJ/ketama](https://github.com/RJ/ketama) | The original C library (from Last.fm) for consistent hashing of memcached pools, with language bindings. The de-facto "ketama" compatibility standard many clients follow. |
+| **uhashring** | [ultrabug/uhashring](https://github.com/ultrabug/uhashring) | Full-featured Python consistent-hashing library, **ketama-compatible**. Popular for Python caching/sharding layers. |
+| **groupcache** | [golang/groupcache](https://github.com/golang/groupcache) | Google's Go caching library (~13k★) that uses consistent hashing (`consistenthash`) to pick the peer that owns a key. Used inside Google-scale services. |
+| **allgood-consistent-hash** | [ishugaliy/allgood-consistent-hash](https://github.com/ishugaliy/allgood-consistent-hash) | Lightweight Java consistent-hash **ring with virtual nodes**, customizable hash & partition rate. Good, readable production-style Java implementation. |
+| **AnchorHash** | [domodwyer/anchorhash](https://github.com/domodwyer/anchorhash) | Go implementation of the AnchorHash algorithm — low memory, 10s–100s of millions of lookups/sec, optimal disruption and uniform balance. A modern alternative to ring hashing. |
+| **Redis / Redis Cluster** | [redis/redis](https://github.com/redis/redis) | In-memory data store (~68k★). Redis Cluster uses 16384 hash slots (a slot-map variant closely related to consistent hashing) so node loss evicts only a slice of keyspace. |
+| **java-consistent-hashing-algorithms** | [SUPSI-DTI-ISIN/java-consistent-hashing-algorithms](https://github.com/SUPSI-DTI-ISIN/java-consistent-hashing-algorithms) | Benchmark suite of the most prominent CH algorithms (Ring, Jump, Maglev, AnchorHash, Dx, …) in Java — great for comparing trade-offs empirically. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [Consistent Hashing and Random Trees (Karger et al., STOC 1997)](https://www.cs.princeton.edu/courses/archive/fall09/cos518/papers/chash.pdf) — The original paper that introduced consistent hashing for web caching. Read for the foundational theory.
+- [Dynamo: Amazon's Highly Available Key-value Store (SOSP 2007)](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf) — How Amazon uses the ring + virtual nodes + preference lists in production. The paper that popularized CH.
+- [Consistent Hashing with Bounded Loads — Google Research blog](https://research.google/blog/consistent-hashing-with-bounded-loads/) — Google's refinement that caps per-node load and spills overflow clockwise; explains why plain CH still overloads nodes.
+- [Consistent Hashing with Bounded Loads (arXiv 1608.01350)](https://arxiv.org/abs/1608.01350) — The full paper behind the blog above, with the max-load guarantees and proofs.
+- [Improving load balancing with a new consistent-hashing algorithm — Vimeo Engineering](https://medium.com/vimeo-engineering-blog/improving-load-balancing-with-a-new-consistent-hashing-algorithm-9f1bd75709ed) — Real-world story of applying bounded-load CH in HAProxy for video caching.
+- [Maglev: A Fast and Reliable Software Network Load Balancer (Google, NSDI 2016)](https://www.usenix.org/system/files/conference/nsdi16/nsdi16-paper-eisenbud-update.pdf) — Google's datacenter LB using consistent hashing + connection tracking; the basis for Envoy's `maglev` mode.
+- [Network Load Balancing with Maglev — The Paper Trail](https://www.the-paper-trail.org/post/2020-06-23-maglev/) — An approachable walkthrough of the Maglev paper and why lookup-table hashing beats a plain ring for LBs.
+- [Envoy: Supported load balancers (ring hash & Maglev)](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/load_balancing/load_balancers) — Official docs on configuring consistent-hashing LB policies in a real proxy.
+- [A Fast, Minimal Memory, Consistent Hash Algorithm — Jump hashing (Lamping & Veach, Google 2014)](https://arxiv.org/abs/1406.2294) — The "jump" algorithm: key→bucket with zero memory overhead; great for fixed/growing bucket counts.
+- [Consistent Hashing Explained — systemdesign.one](https://systemdesign.one/consistent-hashing-explained/) — A clear, diagram-heavy tutorial covering the ring, vnodes, and why modulo hashing fails.
+- [Designing Data-Intensive Applications — Ch. 6 "Partitioning" (Martin Kleppmann)](https://dataintensive.net/) — Best book chapter for practical partitioning context (hash vs range, rebalancing) in real databases.
+- [Consistent Hashing — System Design Interview (YouTube, Gaurav Sen)](https://www.youtube.com/watch?v=zaRkONvyGr8) — Popular 10-minute video that visually builds the ring from scratch; great first watch.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **Understand why modulo hashing breaks on scaling.** Learn how `hash(key) % N` remaps almost everything when `N` changes. Search: `` `why hash mod N fails when adding servers` ``
+2. **Learn the hash ring model.** Both keys and nodes hashed onto a circular keyspace; owner = first node clockwise. Search: `` `consistent hashing ring clockwise explained` ``
+3. **Learn the minimal-movement property.** Why only ~K/N keys move on membership change. Search: `` `consistent hashing minimal key movement K/N` ``
+4. **Learn virtual nodes (vnodes) and why they exist.** Fixing load skew by placing each node at many points. Search: `` `consistent hashing virtual nodes explained` ``
+5. **Learn how lookups are implemented.** Sorted ring + binary search for the first position ≥ hash, with wrap-around. Search: `` `consistent hashing binary search sorted ring implementation` ``
+6. **Learn replication on the ring.** Walking clockwise to the next R distinct physical nodes (Dynamo "preference list"). Search: `` `dynamo preference list replication consistent hashing` ``
+7. **Study the Dynamo paper's real-world design.** Vnodes, gossip membership, hinted handoff, read repair. Search: `` `Amazon Dynamo paper consistent hashing virtual nodes` ``
+8. **Study how Cassandra partitions data.** Token ranges, `num_tokens`, Murmur3 partitioner. Search: `` `Cassandra token ring num_tokens partitioner` ``
+9. **Learn the hot-key problem and its limits.** Why CH doesn't fix a single scorching key; replication/splitting fixes. Search: `` `consistent hashing hot key problem load skew` ``
+10. **Learn consistent hashing with bounded loads.** Capping per-node load and spilling overflow clockwise. Search: `` `consistent hashing with bounded loads google` ``
+11. **Compare alternative algorithms.** Rendezvous (HRW), Jump hashing, Maglev, AnchorHash and their trade-offs. Search: `` `rendezvous vs jump vs maglev consistent hashing comparison` ``
+12. **Learn how load balancers use it.** Envoy `ring_hash` / `maglev`, HAProxy `hash-type consistent`, session affinity. Search: `` `Envoy ring hash maglev load balancing consistent hashing` ``
+13. **Hands-on: build a toy consistent-hash ring.** Implement a ring with vnodes + binary-search lookup in your language; verify ~K/N keys move when adding a node. Search: `` `build consistent hashing ring with virtual nodes tutorial python` ``
+14. **Hands-on: benchmark distribution & rebalancing.** Add/remove nodes, measure key-movement and per-node load; try bounded loads. Search: `` `simulate consistent hashing key distribution rebalancing benchmark` ``
+15. **Hands-on: use it in a real system.** Configure Envoy/HAProxy consistent-hash LB locally, or run a 3-node Cassandra cluster and inspect the token ring. Search: `` `configure Envoy ring hash load balancing example docker` ``
+
+**✅ You'll know you understand this when:** you can (1) explain on a whiteboard why only ~K/N keys move on a membership change and what vnodes fix, (2) implement a ring with virtual nodes and O(log N) lookup from scratch, and (3) name at least two production systems (e.g. Cassandra, Envoy/Maglev) and the specific CH variant each uses.

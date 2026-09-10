@@ -159,3 +159,54 @@ The atomicity of the check-and-increment matters: under concurrency, a naive `GE
 - Cloudflare Blog — "How we built rate limiting capable of scaling to millions of domains" (sliding window counter).
 - NGINX docs — "Rate Limiting with NGINX" (`limit_req` module).
 - MDN Web Docs — `429 Too Many Requests` and the `Retry-After` header specification (RFC 6585 / RFC 9110).
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---------|--------|------------------------------|
+| **Envoy Rate Limit** | [envoyproxy/ratelimit](https://github.com/envoyproxy/ratelimit) | Go/gRPC global rate-limit service backed by Redis, originally built at Lyft (~1.9k★). The canonical global limiter for the Envoy/Istio service mesh — used by many companies running Envoy at scale. |
+| **redis-cell** | [brandur/redis-cell](https://github.com/brandur/redis-cell) | Redis module (in Rust) exposing `CL.THROTTLE`, a single atomic command implementing the GCRA (generic cell rate algorithm) token bucket (~1.3k★). Drops precise, race-free limiting into any Redis. |
+| **express-rate-limit** | [express-rate-limit/express-rate-limit](https://github.com/express-rate-limit/express-rate-limit) | The de-facto rate-limiting middleware for Node/Express (~3k★). Pluggable stores (Redis, Memcached) and standard `RateLimit-*` headers; ubiquitous in JS/TS APIs. |
+| **Bucket4j** | [bucket4j/bucket4j](https://github.com/bucket4j/bucket4j) | Java token-bucket library (~2.5k★) with distributed backends (Redis, Hazelcast, Ignite, JCache). Standard choice for Spring Boot APIs needing per-user quotas. |
+| **Resilience4j** | [resilience4j/resilience4j](https://github.com/resilience4j/resilience4j) | Lightweight Java fault-tolerance library (~10k★) whose `RateLimiter` module pairs with circuit breakers/retries; the modern Hystrix successor for JVM microservices. |
+| **throttled** | [throttled/throttled](https://github.com/throttled/throttled) | Go library implementing the GCRA to rate-limit HTTP handlers and arbitrary resources (~1.3k★). Clean, well-documented reference for GCRA in Go. |
+| **golang.org/x/time/rate** | [golang/time](https://github.com/golang/time) | Go's official token-bucket `Limiter` (in the `x/time` module). The standard building block wrapped by countless Go services and other limiter libraries. |
+| **lua-resty-limit-traffic** | [openresty/lua-resty-limit-traffic](https://github.com/openresty/lua-resty-limit-traffic) | OpenResty/NGINX Lua modules (`limit.req` leaky bucket, `limit.count`, `limit.conn`) for limiting at the edge/reverse-proxy layer; underpins NGINX-based gateways and Kong. |
+| **Kong Gateway** | [Kong/kong](https://github.com/Kong/kong) | Popular API gateway (~40k★) whose `rate-limiting` and `rate-limiting-advanced` plugins provide fixed/sliding-window limiting with Redis clustering — used by many enterprises for API management. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [Stripe — Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters) — Canonical engineering post; explains the 4 limiter types Stripe runs in production (request-rate, concurrent-request, fleet-usage, worker-utilization) with Redis + Lua.
+- [Cloudflare — How we built rate limiting capable of scaling to millions of domains](https://blog.cloudflare.com/counting-things-a-lot-of-different-things/) — Deep dive on the sliding-window-counter approximation and why it beats fixed windows and sliding logs at planetary scale.
+- [Cloudflare — Introducing Advanced Rate Limiting](https://blog.cloudflare.com/advanced-rate-limiting/) — How rule-based, filter-driven edge rate limiting is designed and operated.
+- [Kong — How to Design a Scalable Rate Limiting Algorithm](https://konghq.com/blog/engineering/how-to-design-a-scalable-rate-limiting-algorithm) — Practical comparison of algorithms and their sliding-window implementation in a real API gateway.
+- [NGINX — Rate Limiting with NGINX and NGINX Plus](https://blog.nginx.org/blog/rate-limiting-nginx) — Official guide to the `limit_req` leaky-bucket module, `burst`, and `nodelay`.
+- [GitHub REST API — Rate limits docs](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api) — Real-world reference for primary/secondary limits and the `X-RateLimit-*` header contract.
+- [Stripe — Rate limits docs](https://docs.stripe.com/rate-limits) — How a major payments API communicates limits and expects clients to back off.
+- [MDN — 429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) & [Retry-After](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After) — The HTTP semantics every limiter must get right (RFC 6585 / RFC 9110).
+- [brandur.org — Rate limiting, cells, and GCRA](https://brandur.org/rate-limiting) — The clearest explanation of the generic cell rate algorithm behind redis-cell.
+- [Figma Engineering — An alternative approach to rate limiting](https://www.figma.com/blog/an-alternative-approach-to-rate-limiting/) — Sliding-window log vs. counter trade-offs from a large product team, with Redis sorted-set techniques.
+- [System Design Interview — Design a Rate Limiter (ByteByteGo / Alex Xu, Ch.4)](https://bytebytego.com/courses/system-design-interview/design-a-rate-limiter) — The interview-canonical walkthrough of all four algorithms plus distributed design.
+- [Gaurav Sen — Rate Limiting System Design (YouTube)](https://www.youtube.com/watch?v=mhUQe4BKZXs) — Accessible video covering algorithms, distributed counters, and interview framing.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **Why rate limiting exists** — motivation: abuse, overload, cost control, fairness. Search: `` `why do APIs need rate limiting` ``
+2. **Core vocabulary** — rate vs. quota vs. burst, throttling, client key. Search: `` `rate limiting throttling quota burst explained` ``
+3. **Fixed window counter & its edge-burst flaw** — simplest algorithm and why it double-counts at boundaries. Search: `` `fixed window rate limiting boundary burst problem` ``
+4. **Sliding window log** — exact counting with per-request timestamps; understand its memory cost. Search: `` `sliding window log rate limiter redis sorted set` ``
+5. **Sliding window counter** — the weighted approximation Cloudflare uses. Search: `` `sliding window counter rate limiting formula cloudflare` ``
+6. **Token bucket** — refill rate, capacity, and burst tolerance; the general-purpose default. Search: `` `token bucket algorithm rate limiting explained` ``
+7. **Leaky bucket** — smoothing bursts into constant outflow, and when to prefer it. Search: `` `leaky bucket vs token bucket rate limiting` ``
+8. **HTTP contract** — `429`, `Retry-After`, and `X-RateLimit-*` headers; client backoff. Search: `` `429 too many requests retry-after ratelimit headers best practice` ``
+9. **Atomicity & concurrency** — why GET-then-SET races and how Redis `INCR`/Lua fix it. Search: `` `redis lua script atomic rate limiter INCR EXPIRE` ``
+10. **Distributed rate limiting** — a single global limit across a fleet with a shared store. Search: `` `distributed rate limiting redis multiple servers` ``
+11. **Choosing the key & multi-dimensional limits** — per-user vs. per-IP vs. per-endpoint, NAT pitfalls, cost-based weighting. Search: `` `rate limiting per user per ip cost based weighted` ``
+12. **Failure modes at scale** — fail-open vs. fail-closed, hot keys, local fallback, edge limiting. Search: `` `rate limiter fail open fail closed hot key mitigation` ``
+13. **Study production designs** — read the Stripe and Cloudflare posts and map their choices to the algorithms. Search: `` `stripe rate limiters blog` `` and `` `cloudflare counting things rate limiting` ``
+14. **Hands-on: build a toy limiter** — implement token bucket + sliding window in your language, backed by an in-memory map, then Redis. Search: `` `build rate limiter redis lua token bucket tutorial` ``
+15. **Hands-on: deploy a real one** — run `envoyproxy/ratelimit` with Redis via docker-compose, or add `express-rate-limit`/Bucket4j to an app and load-test with `hey`/`wrk`. Search: `` `envoy ratelimit redis docker-compose example` ``
+
+**✅ You'll know you understand this when:** (1) you can explain why the fixed-window edge burst happens and derive the sliding-window-counter formula from scratch; (2) you can write a race-free distributed limiter using an atomic Redis operation and justify a fail-open vs. fail-closed choice; (3) you can pick token vs. leaky bucket for a given workload and defend the key/dimension you'd limit on.

@@ -157,3 +157,54 @@ Rule of thumb: use **Bully/Ring** only to explain concepts in interviews; use **
 - Martin Kleppmann, *Designing Data-Intensive Applications*, Ch. 8–9 (leaders, consensus, faults) — O'Reilly.
 - Mike Burrows, *"The Chubby lock service for loosely-coupled distributed systems"* (Google, 2006).
 - Leslie Lamport, *"Paxos Made Simple"* (2001) and *"Impossibility of Distributed Consensus with One Faulty Process"* (Fischer, Lynch, Paterson, 1985).
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| **etcd** | [etcd-io/etcd](https://github.com/etcd-io/etcd) | Distributed reliable key-value store built on **Raft**; the leader-election + lease backbone of **Kubernetes** control plane. Used by K8s, CoreOS, Rook. ~48k★ |
+| **etcd raft library** | [etcd-io/raft](https://github.com/etcd-io/raft) | Standalone, production-hardened Raft implementation (leader election + log replication) embedded by CockroachDB, TiKV, Dgraph, and others. |
+| **Apache ZooKeeper** | [apache/zookeeper](https://github.com/apache/zookeeper) | ZAB-based coordination service; ephemeral sequential znodes are the classic primitive for app-level leader election (Kafka, HBase, HDFS ZKFC). ~12k★ |
+| **HashiCorp Consul** | [hashicorp/consul](https://github.com/hashicorp/consul) | Service mesh / KV store using **Raft** for server leader election; sessions + KV locks enable app leader election. ~29k★ |
+| **HashiCorp Raft** | [hashicorp/raft](https://github.com/hashicorp/raft) | Go Raft library powering Consul, Nomad, and Vault leader election. ~8k★ |
+| **Apache Kafka (KRaft)** | [apache/kafka](https://github.com/apache/kafka) | KRaft mode (default 3.3+/4.0) replaces ZooKeeper with a built-in Raft quorum for controller & partition-leader election. ~30k★ |
+| **CockroachDB** | [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach) | Distributed SQL DB running a Raft group per range, each electing its own leaseholder/leader. ~31k★ |
+| **TiKV** | [tikv/tikv](https://github.com/tikv/tikv) | Distributed transactional KV store (CNCF) using Multi-Raft; each region elects a leader. ~16k★ |
+| **Redis / Redis Sentinel** | [redis/redis](https://github.com/redis/redis) | Sentinel performs quorum-based failover, promoting a replica to primary on master failure. ~68k★ |
+| **Kubernetes (leaderelection)** | [kubernetes/client-go](https://github.com/kubernetes/client-go/tree/master/tools/leaderelection) | The `leaderelection` package uses etcd/API-server **Leases** so controllers/schedulers run a single active instance. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [In Search of an Understandable Consensus Algorithm (Raft paper)](https://raft.github.io/raft.pdf) — Ongaro & Ousterhout; the canonical spec for leader election, terms, and log replication.
+- [The Raft website + interactive visualization](https://raft.github.io/) — Watch leader election, split votes, and failover happen live in your browser.
+- [Martin Kleppmann — How to do distributed locking](https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html) — The definitive explanation of leases, GC-pause split-brain, and **fencing tokens** (with the famous timeline diagram).
+- [etcd — Why is etcd needed / Raft docs](https://etcd.io/docs/latest/learning/why/) — Official docs on how etcd uses Raft for elections and how Kubernetes relies on it.
+- [Kubernetes leader election with Leases (Kubernetes blog / docs)](https://kubernetes.io/docs/concepts/architecture/leases/) — How real controllers elect a single active leader using the Lease API.
+- [Mike Burrows — The Chubby lock service (Google, OSDI 2006)](https://research.google/pubs/pub27897/) — Paxos-backed lock service used for master election across Google; foundational reading.
+- [Leslie Lamport — Paxos Made Simple (2001)](https://lamport.azurewebsites.net/pubs/paxos-simple.pdf) — The accessible treatment of the original consensus algorithm underpinning many elections.
+- [Fischer, Lynch, Paterson — Impossibility of Distributed Consensus with One Faulty Process (FLP, 1985)](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf) — Why you can't have both safety and guaranteed liveness on an async network.
+- [ZooKeeper Recipes — Leader Election (Apache docs)](https://zookeeper.apache.org/doc/current/recipes.html#sc_leaderElection) — Official recipe using ephemeral sequential znodes.
+- [The Secret Lives of Data — Raft (animated)](https://thesecretlivesofdata.com/raft/) — A gentle, animated walkthrough perfect for building first intuition.
+- [Razorpay Engineering — Leader Election using Consul and Golang](https://engineering.razorpay.com/leader-election-using-consul-and-golang-73580fb14463) — Practical, code-level production example with a real coordination service.
+- [Kafka KRaft — Apache Kafka docs](https://kafka.apache.org/documentation/#kraft) — How Kafka replaced ZooKeeper with a self-managed Raft quorum for controller election.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **Why a leader at all** — understand serialization, single-writer, and monotonic ordering. Search: `why leader election in distributed systems`
+2. **Failure detection & timeouts** — heartbeats, why you can't tell "slow" from "dead." Search: `heartbeat failure detector distributed systems`
+3. **Classic algorithms (Bully & Ring)** — learn the teaching baselines and their synchronous assumptions. Search: `bully algorithm vs ring algorithm leader election`
+4. **Quorums & majorities** — why ⌊N/2⌋+1 prevents two leaders and why odd node counts matter. Search: `quorum majority split brain distributed consensus`
+5. **The Raft algorithm — leader election** — terms, RequestVote, randomized election timeouts, split votes. Search: `raft leader election term randomized timeout explained`
+6. **Raft hands-on visualization** — watch elections and failovers happen. Search: `raft visualization thesecretlivesofdata`
+7. **Paxos & Multi-Paxos** — the original consensus and how it elects/uses a distinguished proposer. Search: `paxos made simple leader multi-paxos explained`
+8. **ZAB & ZooKeeper election** — ephemeral sequential znodes as an election primitive. Search: `zookeeper leader election ephemeral sequential znode recipe`
+9. **Leases** — time-bounded leadership, renewal, and clock-skew reasoning. Search: `leader lease distributed system clock skew renewal`
+10. **Fencing tokens & split-brain** — Kleppmann's GC-pause example and the storage-side fix. Search: `martin kleppmann distributed locking fencing token`
+11. **FLP impossibility & partial synchrony** — the theoretical limits of election liveness. Search: `FLP impossibility result distributed consensus explained`
+12. **Real systems** — how etcd/Kubernetes, Kafka KRaft, and Consul do it in production. Search: `kubernetes leader election lease etcd how it works`
+13. **Hands-on: elect a leader with etcd/Consul** — build a small service that acquires a lease and steps down on loss. Search: `etcd election API golang leader election example`
+14. **Hands-on: build a toy Raft** — implement RequestVote + AppendEntries and observe elections under partitions. Search: `build raft from scratch implement leader election tutorial`
+
+**✅ You'll know you understand this when:** you can (1) explain why quorum + terms guarantee at most one leader per term, (2) trace the GC-pause/lease-expiry scenario and show how a fencing token prevents the stale write, and (3) stand up a working leader election on etcd or ZooKeeper and demonstrate correct failover.

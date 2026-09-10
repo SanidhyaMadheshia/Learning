@@ -178,3 +178,61 @@ A widely respected default is "**monolith first**": start with a well-modularize
 - Eric Evans, *Domain-Driven Design* — the foundation for bounded contexts and service boundaries.
 - Martin Fowler, "Microservices" and "MonolithFirst" articles (martinfowler.com).
 - Uber Engineering, "Introducing Domain-Oriented Microservice Architecture (DOMA)" — real-world lessons on taming service sprawl.
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| **Kubernetes** | [kubernetes/kubernetes](https://github.com/kubernetes/kubernetes) | The de facto container orchestrator (~110k★) for deploying, scaling, and self-healing microservice fleets. Runs virtually every large-scale microservices platform (Google, Spotify, Airbnb). |
+| **Istio** | [istio/istio](https://github.com/istio/istio) | Leading service mesh (~36k★) for Kubernetes — mTLS, traffic shaping, retries/timeouts, and telemetry via Envoy sidecars, outside app code. Used at Google, IBM, Salesforce. |
+| **Envoy** | [envoyproxy/envoy](https://github.com/envoyproxy/envoy) | High-performance L7 proxy (~25k★) built at **Lyft**; the data plane behind Istio and many API gateways. CNCF graduated. |
+| **Linkerd** | [linkerd/linkerd2](https://github.com/linkerd/linkerd2) | Lightweight, security-first CNCF service mesh (~11k★) with an ultralight Rust proxy — simpler alternative to Istio. |
+| **Kong** | [Kong/kong](https://github.com/Kong/kong) | Cloud-native API gateway (~40k★) for routing, auth, rate limiting, and plugins at the edge of a microservice system. |
+| **gRPC** | [grpc/grpc](https://github.com/grpc/grpc) | High-performance, contract-first RPC framework (~43k★) from **Google** using Protocol Buffers — the standard for typed synchronous inter-service calls. |
+| **Apache Kafka** | [apache/kafka](https://github.com/apache/kafka) | Distributed event-streaming backbone (~29k★) for async inter-service messaging, event sourcing, and the outbox pattern. Used at LinkedIn, Uber, Netflix. |
+| **Temporal** | [temporalio/temporal](https://github.com/temporalio/temporal) | Durable execution / workflow engine (~14k★) ideal for orchestrated **sagas** and long-running distributed transactions with automatic retries and compensation. |
+| **Dapr** | [dapr/dapr](https://github.com/dapr/dapr) | CNCF distributed-application runtime (~25k★) providing building blocks (service invocation, pub/sub, state, secrets) as sidecars — reduces microservice boilerplate. |
+| **OpenTelemetry** | [open-telemetry/opentelemetry-collector](https://github.com/open-telemetry/opentelemetry-collector) | Vendor-neutral standard for traces, metrics, and logs — the backbone of distributed tracing across service hops. |
+| **Jaeger** | [jaegertracing/jaeger](https://github.com/jaegertracing/jaeger) | CNCF distributed tracing system (~21k★) originally built at **Uber** — visualize request paths and latency across many services. |
+| **Consul** | [hashicorp/consul](https://github.com/hashicorp/consul) | Service discovery, health checking, KV config, and service mesh (~28k★) from HashiCorp — connects and secures services across platforms. |
+
+---
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [Microservices — Martin Fowler](https://martinfowler.com/articles/microservices.html) — The canonical definition of the architectural style; read this first to understand what "microservices" actually means.
+- [MonolithFirst — Martin Fowler](https://martinfowler.com/bliki/MonolithFirst.html) — Why you should almost always start with a monolith and extract services only along proven seams.
+- [microservices.io — Chris Richardson](https://microservices.io/patterns/index.html) — A complete, cross-linked pattern catalog (Saga, API Gateway, CQRS, Outbox, Strangler Fig) — the go-to reference.
+- [Introducing Domain-Oriented Microservice Architecture (Uber)](https://www.uber.com/blog/microservice-architecture/) — How Uber tamed thousands of services with DOMA; real lessons on service sprawl.
+- [Scaling the Uber Engineering Codebase (SOA)](https://www.uber.com/blog/service-oriented-architecture/) — Uber's early monolith-to-services journey and the reasoning behind it.
+- [Netflix Tech Blog](https://netflixtechblog.com/) — Deep, battle-tested posts on resilience, circuit breaking, chaos engineering, and running microservices at massive scale.
+- [Pattern: Saga — microservices.io](https://microservices.io/patterns/data/saga.html) — The definitive explanation of managing distributed transactions with local transactions and compensations.
+- [Istio Documentation](https://istio.io/latest/docs/concepts/what-is-istio/) — Official concepts docs for service mesh: traffic management, security (mTLS), and observability.
+- [AWS: Implementing Microservices on AWS (Whitepaper)](https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/microservices.html) — Vendor-neutral-ish practical reference architecture for gateways, service discovery, and data stores.
+- [The Twelve-Factor App](https://12factor.net/) — Foundational principles for building deployable, scalable, cloud-native services (config, statelessness, logs, disposability).
+- [Building Microservices, 2nd Ed — Sam Newman (O'Reilly)](https://samnewman.io/books/building_microservices_2nd_edition/) — The definitive practical book; the author's site links talks and companion articles.
+- [Google Cloud "Online Boutique" microservices demo](https://github.com/GoogleCloudPlatform/microservices-demo) — A 10-service polyglot demo app you can deploy to Kubernetes to see the patterns in action.
+
+---
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **What microservices are (and are not)** — understand the style vs. SOA vs. monolith. Search: `` `microservices vs monolith vs SOA explained` ``
+2. **Conway's Law & why microservices are organizational** — grasp the team/architecture link. Search: `` `Conway's Law microservices team topology` ``
+3. **Domain-Driven Design & bounded contexts** — the basis for drawing service boundaries. Search: `` `DDD bounded context service boundary microservices` ``
+4. **Database-per-service & data ownership** — why shared databases kill autonomy. Search: `` `database per service pattern microservices` ``
+5. **Sync vs async communication** — REST/gRPC vs messaging trade-offs. Search: `` `synchronous vs asynchronous microservices communication tradeoffs` ``
+6. **API Gateway & Backend-for-Frontend** — the client entry point. Search: `` `API gateway pattern vs backend for frontend microservices` ``
+7. **The Saga pattern (choreography vs orchestration)** — distributed transactions without 2PC. Search: `` `saga pattern choreography vs orchestration compensating transaction` ``
+8. **Eventual consistency, Outbox & the dual-write problem** — reliable events. Search: `` `transactional outbox pattern dual write problem microservices` ``
+9. **Resilience patterns** — timeouts, retries with jitter, circuit breakers, bulkheads. Search: `` `circuit breaker bulkhead retry backoff microservices resilience` ``
+10. **Service mesh & sidecars** — Istio/Linkerd/Envoy for cross-cutting concerns. Search: `` `service mesh istio linkerd sidecar explained` ``
+11. **Observability: the three pillars** — distributed tracing, metrics, logs, correlation IDs. Search: `` `distributed tracing OpenTelemetry Jaeger microservices observability` ``
+12. **CQRS & Event Sourcing** — advanced read/write and audit patterns. Search: `` `CQRS event sourcing microservices when to use` ``
+13. **Anti-patterns: the distributed monolith** — how to recognize and avoid it. Search: `` `distributed monolith anti-pattern how to avoid` ``
+14. **Hands-on: deploy a demo microservices app on Kubernetes** — run Google's Online Boutique locally. Search: `` `GoogleCloudPlatform microservices-demo deploy minikube tutorial` ``
+15. **Hands-on: build a toy 2-service saga** — implement an order+payment flow with Kafka or Temporal, including a compensation on failure. Search: `` `build saga microservices example kafka OR temporal tutorial` ``
+
+**✅ You'll know you understand this when:** you can (1) justify a set of service boundaries from a business domain and defend why *not* to split further; (2) design an order workflow across 3 services using a saga with compensating transactions and explain how it handles a mid-flow failure; and (3) explain how you'd trace and debug a single slow request across five service hops in production.

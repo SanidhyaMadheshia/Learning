@@ -161,3 +161,53 @@ Rule of thumb: **shard as late as you responsibly can**, but design the schema s
 - Vitess documentation — [vitess.io/docs](https://vitess.io/docs/) — real-world sharding, resharding workflows, and VReplication.
 - Amazon DynamoDB Developer Guide — partition keys, adaptive capacity, and best practices for avoiding hot partitions.
 - Instagram Engineering — "Sharding & IDs at Instagram" — a classic, readable case study of Postgres logical sharding and ID design.
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| **Vitess** | [vitessio/vitess](https://github.com/vitessio/vitess) | CNCF sharding middleware for MySQL, born at YouTube (~19k★). Presents many sharded MySQL instances as one logical DB, automates resharding via VReplication. Used by **YouTube, Slack, GitHub, HubSpot, Square, Etsy**. |
+| **Citus** | [citusdata/citus](https://github.com/citusdata/citus) | PostgreSQL extension that transparently shards tables across a cluster of Postgres nodes (~11k★). Powers multi-tenant SaaS and real-time analytics; now the engine behind **Azure Cosmos DB for PostgreSQL** (Microsoft). |
+| **Apache ShardingSphere** | [apache/shardingsphere](https://github.com/apache/shardingsphere) | "Database Plus" ecosystem (JDBC driver + proxy) that adds sharding, scaling, and encryption on top of any database (~20k★). Widely adopted in China's fintech/enterprise stacks. |
+| **CockroachDB** | [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach) | Distributed SQL DB that auto-shards rows into "ranges" and rebalances them; Spanner-inspired, strongly consistent (~30k★). Used by **DoorDash, Netflix, Bose**. |
+| **YugabyteDB** | [yugabyte/yugabyte-db](https://github.com/yugabyte/yugabyte-db) | Distributed SQL DB (Postgres-compatible) that auto-shards data into tablets with consistent hashing/range splits (~9k★). |
+| **TiDB** | [pingcap/tidb](https://github.com/pingcap/tidb) | MySQL-compatible distributed SQL DB (~37k★). Auto-shards into Regions via the TiKV key-value layer; used by **PayPay, Pinterest, Databricks, Shopee**. |
+| **Apache Cassandra** | [apache/cassandra](https://github.com/apache/cassandra) | Wide-column NoSQL store using partition key + consistent-hashing token ring with virtual nodes (~9k★). Used by **Apple, Netflix, Instagram, Uber**. |
+| **ScyllaDB** | [scylladb/scylladb](https://github.com/scylladb/scylladb) | C++ rewrite of Cassandra (shard-per-core architecture) for low, predictable latency (~14k★). **Discord** migrated trillions of messages to it. |
+| **MongoDB** | [mongodb/mongo](https://github.com/mongodb/mongo) | Document DB with native sharding via a config-server directory; supports ranged and hashed shard keys and automatic chunk balancing (~27k★). |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [Vitess Documentation — Sharding & Resharding](https://vitess.io/docs/user-guides/configuration-advanced/sharding/) — Official guide to shard schemes (VSchema), resharding workflows, and atomic cutovers on real MySQL clusters.
+- [Lessons learned from sharding Postgres at Notion](https://www.notion.com/blog/sharding-postgres-at-notion) — Canonical case study: why they sharded, how they chose the shard key (workspace ID → 32 shards), and the migration pain points.
+- [Notion — The Great Re-shard (scaling to 96 instances with zero downtime)](https://www.notion.com/blog/the-great-re-shard) — Follow-up on adding Postgres capacity live with dual-writes and backfills; a masterclass in resharding a running system.
+- [How Discord Stores Trillions of Messages](https://discord.com/blog/how-discord-stores-trillions-of-messages/) — Real-world partitioning by channel+time bucket on Cassandra/ScyllaDB, hot-partition handling, and a Rust data-services layer.
+- [Sharding & IDs at Instagram](https://instagram-engineering.com/sharding-ids-at-instagram-1cf5a71e5a5c) — Classic post on Postgres logical sharding via schemas and encoding shard IDs into 64-bit IDs.
+- [AWS — DynamoDB best practices for partition keys & hot partitions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html) — How a managed system shards by partition key, adaptive capacity, and write-sharding techniques to avoid hotspots.
+- [MongoDB Manual — Sharding](https://www.mongodb.com/docs/manual/sharding/) — Official docs on shard keys, ranged vs hashed sharding, config servers, and the balancer.
+- [Citus — Choosing a distribution/shard key](https://docs.citusdata.com/en/stable/sharding/data_modeling.html) — Practical shard-key modeling for multi-tenant vs real-time-analytics workloads on Postgres.
+- ["Consistent Hashing and Random Trees" — Karger et al., 1997 (PDF)](https://www.cs.princeton.edu/courses/archive/fall09/cos518/papers/chash.pdf) — The foundational paper behind consistent hashing, the algorithm most sharded systems rely on.
+- [Designing Data-Intensive Applications — Ch. 6 "Partitioning" (Martin Kleppmann)](https://dataintensive.net/) — The canonical book treatment of shard keys, rebalancing strategies, and partitioning secondary indexes.
+- [ByteByteGo — How Discord Stores Trillions of Messages (video/article)](https://blog.bytebytego.com/p/how-discord-stores-trillions-of-messages) — Accessible walkthrough of Discord's sharding evolution, good for visual learners.
+- [Grokking the shard key — DesignGurus Guide to Database Sharding for Interviews](https://designgurus.substack.com/p/the-complete-guide-to-database-sharding) — Interview-focused synthesis of strategies, trade-offs, and shard-key selection.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **Why scale beyond one node** — understand vertical scaling limits vs horizontal partitioning. Search: `` `vertical vs horizontal scaling database when to shard` ``
+2. **Sharding vs partitioning vs replication** — clarify the vocabulary before anything else. Search: `` `database sharding vs partitioning vs replication difference` ``
+3. **Choosing a shard key** — cardinality, even distribution, and matching the dominant query. Search: `` `how to choose a shard key high cardinality even distribution` ``
+4. **Range sharding** — contiguous key ranges, range scans, and their hotspot risk. Search: `` `range based sharding hotspots monotonic key problem` ``
+5. **Hash sharding** — even spread, and why `hash % N` breaks when you add nodes. Search: `` `hash sharding modulo N resharding problem explained` ``
+6. **Consistent hashing + virtual nodes** — the fix for cheap, incremental rebalancing. Search: `` `consistent hashing virtual nodes explained` ``
+7. **Directory / lookup-based sharding** — flexible key→shard maps and their SPOF trade-off. Search: `` `directory based sharding lookup table pros cons` ``
+8. **Cross-shard queries (scatter-gather & fan-out)** — how global COUNT/top-N work and why they're slow. Search: `` `scatter gather query sharded database fan out` ``
+9. **Cross-shard transactions** — 2PC vs sagas, and designing to keep related data co-located. Search: `` `cross shard transaction two phase commit vs saga` ``
+10. **Resharding a live system with zero downtime** — dual-write, backfill, verify, cutover. Search: `` `zero downtime resharding dual write backfill cutover` ``
+11. **Hotspot mitigation** — salting keys, splitting hot shards, adaptive capacity. Search: `` `database hot partition mitigation write sharding salting` ``
+12. **Study a real production case** — read how a real company did it end to end. Search: `` `sharding Postgres at Notion lessons learned` ``
+13. **Hands-on: deploy Vitess locally** — shard a MySQL DB and run a resharding workflow. Search: `` `Vitess local example sharding tutorial docker` ``
+14. **Hands-on: build a toy consistent-hash router** — code a ring with virtual nodes that maps keys to N nodes and re-test distribution after adding a node. Search: `` `build consistent hashing ring from scratch tutorial` ``
+
+**✅ You'll know you understand this when:** you can (1) pick and justify a shard key for a given workload and predict its hotspots, (2) explain why consistent hashing beats `hash % N` for rebalancing, and (3) sketch a zero-downtime resharding plan (dual-write → backfill → verify → cutover).

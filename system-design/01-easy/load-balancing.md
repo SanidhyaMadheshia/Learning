@@ -200,3 +200,55 @@ flowchart LR
 - **NGINX documentation** — HTTP load balancing and upstream module: <https://docs.nginx.com/nginx/admin-guide/load-balancer/>
 - **AWS Elastic Load Balancing docs** — ALB vs NLB vs GWLB comparison: <https://docs.aws.amazon.com/elasticloadbalancing/>
 - **Envoy Proxy docs** — load balancing algorithms and health checking: <https://www.envoyproxy.io/docs/>
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---------|--------|------------------------------|
+| **NGINX** | [nginx/nginx](https://github.com/nginx/nginx) | The classic reverse proxy / L4+L7 load balancer (~26k★ on the GitHub mirror). Round robin, least-conn, IP-hash, and the "power of two choices" algorithm. Ubiquitous edge and upstream LB across the industry. |
+| **HAProxy** | [haproxy/haproxy](https://github.com/haproxy/haproxy) | High-performance, single-process TCP/HTTP load balancer (~5k★) prized for reliability, rich health checks, and predictable throughput. Used by GitHub, Stack Overflow, Reddit, and many CDNs. |
+| **Envoy** | [envoyproxy/envoy](https://github.com/envoyproxy/envoy) | Cloud-native L7 edge/service proxy (~26k★). Powers service meshes (Istio, Consul) and client-side LB; dynamic xDS config, outlier detection, zone-aware routing. Born at Lyft, a CNCF graduated project. |
+| **Traefik** | [traefik/traefik](https://github.com/traefik/traefik) | Modern cloud-native HTTP reverse proxy/LB (~55k★) with automatic service discovery for Docker/Kubernetes and automatic HTTPS. Popular default ingress for container platforms. |
+| **Caddy** | [caddyserver/caddy](https://github.com/caddyserver/caddy) | HTTP server + reverse proxy (~65k★) with automatic HTTPS and simple config; used as an easy-to-run L7 load balancer. |
+| **MetalLB** | [metallb/metallb](https://github.com/metallb/metallb) | Bare-metal LoadBalancer implementation for Kubernetes (~8k★) using standard L2 (ARP) or BGP routing — provides external IPs where no cloud LB exists. |
+| **Katran** | [facebookincubator/katran](https://github.com/facebookincubator/katran) | Meta's high-performance L4 load balancer (~5k★) built on eBPF/XDP for in-kernel packet forwarding at massive scale. |
+| **Seesaw** | [google/seesaw](https://github.com/google/seesaw) | Google's LVS/IPVS-based L4 load balancing platform (~5k★): anycast, DSR, multi-VLAN, centralized config. |
+| **Keepalived** | [acassen/keepalived](https://github.com/acassen/keepalived) | VRRP + IPVS routing software (~4k★) for LB high availability — floating VIP failover for active/passive HAProxy/NGINX pairs. |
+| **Cloudflare Pingora** | [cloudflare/pingora](https://github.com/cloudflare/pingora) | Rust framework (~24k★) Cloudflare uses to build fast, programmable proxies/load balancers that replaced NGINX at their edge. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [NGINX — HTTP Load Balancing (official docs)](https://docs.nginx.com/nginx/admin-guide/load-balancer/) — Hands-on reference for upstreams, algorithms, health checks, and session persistence.
+- [Envoy Proxy — Load Balancing docs](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/load_balancing/overview) — Modern LB concepts: subsetting, zone-aware routing, outlier detection, panic thresholds.
+- [AWS — Elastic Load Balancing docs](https://docs.aws.amazon.com/elasticloadbalancing/) — When to use ALB (L7) vs NLB (L4) vs GWLB, target groups, and connection draining.
+- [Cloudflare — High Availability Load Balancers with Maglev](https://blog.cloudflare.com/high-availability-load-balancers-with-maglev/) — How Cloudflare uses ECMP + consistent hashing (Maglev) to route TCP/UDP across data centers.
+- [Google Cloud — Cloud Load Balancing Deconstructed](https://cloud.google.com/blog/products/networking/google-cloud-networking-in-depth-cloud-load-balancing-deconstructed/) — How Maglev + Andromeda power Google's global L4/L7 LB in production since 2008.
+- ["Maglev: A Fast and Reliable Software Network Load Balancer" (NSDI 2016, PDF)](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44824.pdf) — The foundational paper on software L4 LB with consistent hashing and connection tracking.
+- [F5/NGINX — The "Power of Two Choices" Load-Balancing Algorithm](https://www.f5.com/company/blog/nginx/nginx-power-of-two-choices-load-balancing-algorithm) — Why sampling two random servers avoids the herd behavior of naive least-connections at scale.
+- [HAProxy — Load Balancing Algorithms explained (blog)](https://www.haproxy.com/blog/) — Practical guidance on roundrobin, leastconn, source hashing, and when each fits.
+- [Cloudflare — What is Load Balancing? (Learning Center)](https://www.cloudflare.com/learning/performance/what-is-load-balancing/) — Clean beginner primer on L4 vs L7, algorithms, and global vs local LB.
+- [The Morning Paper — Maglev walkthrough](https://blog.acolyer.org/2016/03/21/maglev-a-fast-and-reliable-software-network-load-balancer/) — An accessible summary of the Maglev paper's key ideas.
+- [awesome-load-balancing (curated list)](https://github.com/cristaloleg/awesome-load-balancing) — Community-maintained index of load balancers, proxies, papers, and talks.
+- [Hussein Nasser — Load Balancing (YouTube)](https://www.youtube.com/results?search_query=hussein+nasser+load+balancing+layer+4+layer+7) — Video walkthroughs of L4 vs L7, connection handling, and TLS termination trade-offs.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **What a load balancer is and why it exists** — understand horizontal scaling, availability, and single points of failure. Search: `` `what is a load balancer explained scalability availability` ``
+2. **L4 vs L7 load balancing** — learn the difference between transport-layer and application-layer routing. Search: `` `layer 4 vs layer 7 load balancing difference` ``
+3. **Distribution algorithms (fundamentals)** — round robin, weighted round robin, least connections, IP hash. Search: `` `load balancing algorithms round robin least connections ip hash` ``
+4. **Health checks: active vs passive, liveness vs readiness** — how the pool stays healthy. Search: `` `load balancer health checks liveness vs readiness` ``
+5. **Sticky sessions vs stateless backends** — session affinity, its costs, and externalizing state. Search: `` `sticky sessions vs stateless backend session affinity load balancer` ``
+6. **TLS termination and reverse proxying** — why the LB is a natural TLS + routing point. Search: `` `tls termination reverse proxy load balancer explained` ``
+7. **Consistent hashing** — hash rings, virtual nodes, and minimal reshuffling on scale events. Search: `` `consistent hashing virtual nodes explained` ``
+8. **Power of two choices** — the smarter randomized algorithm used at scale. Search: `` `power of two choices load balancing nginx` ``
+9. **High availability for the LB itself** — VRRP/keepalived floating VIPs, ECMP + anycast. Search: `` `keepalived vrrp floating vip active passive load balancer high availability` ``
+10. **Global / DNS-based load balancing (GSLB)** — routing users to the nearest healthy region. Search: `` `global server load balancing dns route53 geo routing` ``
+11. **Maglev — Google's software LB** — read the paper/blogs on ECMP + consistent hashing at Google scale. Search: `` `google maglev software network load balancer paper summary` ``
+12. **Service mesh & client-side load balancing** — Envoy sidecars, subsetting, zone-aware routing. Search: `` `envoy client side load balancing service mesh zone aware` ``
+13. **Hands-on: run NGINX/HAProxy locally** — configure an upstream pool and test the algorithms + health checks. Search: `` `nginx upstream load balancing tutorial least_conn health check` ``
+14. **Hands-on: deploy a load balancer in Kubernetes** — try MetalLB on a bare-metal/kind cluster or a cloud LB service. Search: `` `metallb kubernetes loadbalancer service tutorial kind` ``
+15. **Hands-on: build a toy L7 load balancer** — write a small reverse proxy that round-robins across two backends with health checks. Search: `` `build a simple load balancer from scratch go python round robin` ``
+
+**✅ You'll know you understand this when:** you can (1) choose L4 vs L7 and the right algorithm for a given workload and justify it, (2) explain how health checks + connection draining enable zero-downtime deploys, and (3) design an LB tier that isn't itself a single point of failure (VIP failover or anycast/ECMP) and stand up a working NGINX/HAProxy or Kubernetes LB.

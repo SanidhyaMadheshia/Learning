@@ -163,3 +163,54 @@ flowchart LR
 - Cloudflare Learning Center — *What is a CDN?* and *Cache invalidation / Anycast* articles.
 - *Designing Data-Intensive Applications* by Martin Kleppmann — background on caching, replication, and consistency trade-offs.
 - Fastly Documentation — *Caching and cache freshness* (surrogate keys, instant purge, VCL).
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---------|--------|------------------------------|
+| Apache Traffic Server | [apache/trafficserver](https://github.com/apache/trafficserver) | High-performance HTTP/1.1 & HTTP/2 caching proxy server (~2.3k★). The caching edge that powers large CDNs; historically used by Yahoo!, Comcast, LinkedIn, Apple, Verizon. |
+| Apache Traffic Control | [apache/trafficcontrol](https://github.com/apache/trafficcontrol) | Full open-source **CDN control plane** (~1k★) — builds a tiered CDN on top of Traffic Server. Originated at Comcast to run their video CDN; a CNCF-adjacent, complete "build your own CDN" stack. |
+| Varnish Cache | [varnishcache/varnish-cache](https://github.com/varnishcache/varnish-cache) | Blazing-fast HTTP reverse-proxy accelerator with the powerful VCL config language (~4k★). The classic edge/origin-shield cache behind Fastly's platform and countless high-traffic sites. |
+| NGINX | [nginx/nginx](https://github.com/nginx/nginx) | The world's most popular web server, reverse proxy and **content cache** (~27k★ on GitHub mirror). `proxy_cache` turns it into an edge/origin cache; the base for OpenResty-powered custom CDNs. |
+| OpenResty | [openresty/openresty](https://github.com/openresty/openresty) | NGINX bundled with LuaJIT and modules (~13k★) for scriptable edge logic — intelligent caching, routing and transforms. Common foundation for homegrown edge caching layers. |
+| Envoy | [envoyproxy/envoy](https://github.com/envoyproxy/envoy) | Cloud-native L7 edge/middle/service proxy (~26k★), a CNCF graduated project. Used as the programmable edge/ingress tier in modern CDN and mesh architectures. |
+| HAProxy | [haproxy/haproxy](https://github.com/haproxy/haproxy) | Ultra-reliable load balancer and reverse proxy (~5k★) frequently deployed as the routing/TLS-termination front tier ahead of cache nodes in DIY CDNs. |
+| Squid | [squid-cache/squid](https://github.com/squid-cache/squid) | Veteran caching proxy (~3k★) supporting forward and reverse (accelerator) caching; long-standing option for HTTP caching and content acceleration. |
+| Ledge | [ledgetech/ledge](https://github.com/ledgetech/ledge) | RFC-compliant, ESI-capable HTTP cache for NGINX/OpenResty backed by Redis — a scriptable, scalable alternative to Squid/Varnish for edge caching. |
+| cdn-up-and-running | [leandromoreira/cdn-up-and-running](https://github.com/leandromoreira/cdn-up-and-running) | Hands-on tutorial repo that builds a working CDN from scratch with NGINX + Lua, Prometheus, Grafana and load balancing — the best way to *learn* CDN internals by doing. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [Cloudflare Learning Center — What is a CDN?](https://www.cloudflare.com/learning/cdn/what-is-a-cdn/) — The canonical plain-English intro to PoPs, edge caching, and why CDNs cut latency.
+- [MDN Web Docs — HTTP Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching) — The authoritative reference on `Cache-Control`, `Vary`, ETags and `stale-while-revalidate` — the headers that actually drive CDN behavior.
+- [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html) — Production-grade docs on origins, cache behaviors, cache keys, invalidations and Origin Shield.
+- [Fastly Docs — Caching & cache freshness](https://www.fastly.com/documentation/guides/concepts/edge-state/cache/) — Learn surrogate keys, instant purge and VCL-driven edge control from a developer-first CDN.
+- [Netflix Tech Blog — Distributing Content to Open Connect](https://netflixtechblog.com/distributing-content-to-open-connect-3e3e391d4dc9) — How Netflix uses **consistent hashing** to pre-position video across thousands of ISP-embedded appliances.
+- [Netflix Tech Blog — Netflix and Fill](https://netflixtechblog.com/netflix-and-fill-c43a32b490c0) — The "fill" pipeline that proactively pushes popular titles to edge caches off-peak (a real-world push-CDN model).
+- [Netflix Open Connect — Overview & Appliances](https://openconnect.netflix.com/en/) — Netflix's own docs on their purpose-built CDN that carries 100% of its video traffic.
+- [Cloudflare CDN Reference Architecture (PDF)](https://cf-assets.www.cloudflare.com/slt3lc6tev37/18dA4NLfq8oXY8EVZxPlpY/b9cab82be79ebefa80f08c09eaa3d93e/Cloudflare_CDN_Reference_Architecture.pdf) — A vendor-neutral blueprint of a modern global Anycast CDN.
+- [Cloudflare — What is Anycast?](https://www.cloudflare.com/learning/cdn/glossary/anycast-network/) — Understand how one IP + BGP routes users to the nearest PoP and fails over fast.
+- [A Glimpse at the Internet Ecosystem through the Lens of the Netflix CDN (paper)](https://arxiv.org/abs/1606.05519) — Academic measurement study of how a "content hypergiant" builds a CDN over IXPs.
+- [High Scalability — CDN & caching case studies](https://highscalability.com/) — Deep dives into how large companies architect delivery and caching at scale.
+- [cdn-up-and-running (tutorial)](https://github.com/leandromoreira/cdn-up-and-running) — Follow-along guide/repo that builds a CDN with NGINX, Lua, Prometheus and Grafana — the best hands-on learning path.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **CDN fundamentals & the latency problem.** Understand why the speed of light and TCP/TLS handshakes make distance expensive. Search: `` `what is a CDN and how does it work` ``
+2. **PoPs, edge servers & origin.** Learn the physical topology and the request lifecycle. Search: `` `CDN point of presence edge server vs origin explained` ``
+3. **HTTP caching headers.** Master `Cache-Control`, `max-age`/`s-maxage`, `Expires`, `ETag`, `Vary`. Search: `` `HTTP Cache-Control max-age s-maxage vary explained MDN` ``
+4. **Cache hit/miss, hit ratio & cache keys.** Learn what fragments a cache and how to keep hit ratio high. Search: `` `CDN cache key normalization query string hit ratio` ``
+5. **Pull vs Push CDNs.** Understand lazy fetch vs pre-positioning and when to use each. Search: `` `pull CDN vs push CDN difference when to use` ``
+6. **Cache invalidation & versioned URLs.** Learn TTL expiry, purge APIs and fingerprinted filenames. Search: `` `CDN cache invalidation vs versioned URL cache busting` ``
+7. **Request routing: GeoDNS vs Anycast.** Learn how users are steered to the nearest PoP. Search: `` `anycast vs geodns CDN routing explained` ``
+8. **Multi-tier caching & origin shield.** Understand mid-tier/shield caches that protect the origin. Search: `` `CDN origin shield mid-tier cache thundering herd` ``
+9. **Cache stampede & request coalescing.** Learn `stale-while-revalidate`, `stale-if-error` and coalescing. Search: `` `cache stampede request coalescing stale-while-revalidate` ``
+10. **Caching dynamic content & edge compute.** Learn micro-caching, ESI, Cloudflare Workers / Lambda@Edge. Search: `` `micro-caching dynamic content edge compute Cloudflare Workers` ``
+11. **Real-world CDN architecture — Netflix Open Connect.** Study consistent hashing and pre-fill. Search: `` `Netflix Open Connect distributing content consistent hashing` ``
+12. **CDN security — TLS, WAF, DDoS at the edge.** Learn how CDNs double as a security layer. Search: `` `CDN DDoS mitigation WAF TLS termination edge` ``
+13. **Hands-on: configure a real CDN.** Put a static site behind CloudFront or Cloudflare and inspect cache headers. Search: `` `Amazon CloudFront S3 static website tutorial cache behaviors` ``
+14. **Hands-on: build a toy CDN locally.** Stand up NGINX `proxy_cache` (or the cdn-up-and-running repo) with an origin, add a shield tier, and measure hit ratio. Search: `` `nginx proxy_cache reverse proxy caching tutorial` ``
+
+**✅ You'll know you understand this when:** you can (1) trace a request from user → edge → shield → origin and explain what sets each object's TTL, (2) choose pull vs push and design a cache-invalidation strategy (TTL + versioned URLs vs purge) for a given workload, and (3) explain how Anycast routing and origin shielding raise hit ratio and availability while preventing cache stampedes.

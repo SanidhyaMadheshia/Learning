@@ -149,3 +149,55 @@ Rate-limiting strategies worth naming: **token bucket** (allows bursts), **leaky
 - NGINX Blog — "Deploying NGINX as an API Gateway" series.
 - Netflix Technology Blog — Zuul / edge gateway posts on routing and resilience at scale.
 - Envoy Proxy documentation — architecture of a modern L7 proxy/gateway.
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| Kong | [Kong/kong](https://github.com/Kong/kong) | Cloud-native, Lua/OpenResty (NGINX)-based API gateway with a rich plugin ecosystem (auth, rate limiting, transformations). ~40k★. One of the most widely deployed self-hosted gateways. |
+| Envoy | [envoyproxy/envoy](https://github.com/envoyproxy/envoy) | High-performance C++ L7 proxy from Lyft; the data plane behind Istio and many modern gateways. CNCF graduated. ~25k★. Used at Lyft, Google, Airbnb. |
+| Apache APISIX | [apache/apisix](https://github.com/apache/apisix) | Dynamic, high-performance cloud-native gateway (OpenResty + etcd) with hot-reloaded plugins. ~14k★. Used across the Apache ecosystem and many China-scale deployments. |
+| Traefik | [traefik/traefik](https://github.com/traefik/traefik) | Go-based edge router/gateway with automatic service discovery (Docker/Kubernetes) and Let's Encrypt integration. ~52k★. Popular for containerized/K8s edge routing. |
+| KrakenD | [krakend/krakend-ce](https://github.com/krakend/krakend-ce) | Stateless, ultra-high-performance Go gateway specialized in API aggregation/composition (fan-out/fan-in). ~2k★ (CE). No single point of failure by design. |
+| Tyk | [TykTechnologies/tyk](https://github.com/TykTechnologies/tyk) | Go, open-source enterprise-ready gateway supporting REST, GraphQL, TCP and gRPC with built-in auth, quotas, and analytics. ~10k★. |
+| Netflix Zuul | [Netflix/zuul](https://github.com/Netflix/zuul) | JVM edge gateway from Netflix providing dynamic routing, monitoring, resiliency and security; historically routed tens of billions of requests/day. ~13k★. |
+| Spring Cloud Gateway | [spring-cloud/spring-cloud-gateway](https://github.com/spring-cloud/spring-cloud-gateway) | Reactive (Project Reactor / Netty) gateway for the Spring ecosystem; the modern JVM successor to Zuul 1. ~4k★. |
+| Emissary-ingress (Ambassador) | [emissary-ingress/emissary](https://github.com/emissary-ingress/emissary) | Kubernetes-native, Envoy-powered API gateway/ingress. CNCF incubating project. ~4k★. |
+| Gloo Gateway | [solo-io/gloo](https://github.com/solo-io/gloo) | Envoy-based, Kubernetes-native API gateway from Solo.io with function-level routing and gateway-API support. ~4k★. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [API Gateway pattern — microservices.io (Chris Richardson)](https://microservices.io/patterns/apigateway.html) — The canonical definition of the pattern, forces, and trade-offs; pair it with the BFF and API Composition patterns.
+- [API Composition pattern — microservices.io](https://microservices.io/patterns/data/api-composition.html) — How the gateway aggregates data from multiple services (fan-out/fan-in) and its limits.
+- [AWS Prescriptive Guidance — API Gateway pattern](https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-integrating-microservices/api-gateway-pattern.html) — Vendor-neutral explanation of the reverse-proxy/routing role in microservices modernization.
+- [Amazon API Gateway — Get started](https://docs.aws.amazon.com/serverless/latest/devguide/starter-apigw.html) — Official docs for a managed gateway fronting Lambda/HTTP backends (REST, HTTP, WebSocket APIs).
+- [Kong Gateway developer docs](https://developer.konghq.com/gateway/) — Practical, hands-on docs for routes, services, plugins, and rate limiting in a real gateway.
+- [Envoy Proxy documentation](https://www.envoyproxy.io/docs) — Architecture of a modern L7 proxy: listeners, filters, clusters, circuit breaking, and observability.
+- [Apache APISIX documentation](https://apisix.apache.org/docs/apisix/getting-started/) — How a plugin-driven, dynamically configurable gateway works with etcd.
+- [Zuul 2: Netflix's journey to asynchronous, non-blocking systems (Netflix Tech Blog)](https://netflixtechblog.com/zuul-2-the-netflix-journey-to-asynchronous-non-blocking-systems-45947377fb5c) — How Netflix rebuilt its edge gateway on async I/O at massive scale.
+- [Open Sourcing Zuul 2 (Netflix Tech Blog)](https://netflixtechblog.com/open-sourcing-zuul-2-82ea476cb2b3) — Filters, routing, resiliency, and the design of a real production edge gateway.
+- [The Single Point of Entry or Failure — a Path to Non-Blocking API Gateway (Habr / Rosbank)](https://habr.com/ru/companies/rosbank/articles/790360/) — Deep engineering write-up on non-blocking gateway design, HA, and avoiding the SPOF trap.
+- [KrakenD: API Gateway aggregation docs](https://www.krakend.io/docs/) — Focused resource on gateway-level aggregation, decoration, and stateless design.
+- [Traefik documentation](https://doc.traefik.io/traefik/) — Dynamic service discovery, middleware chains, and automatic TLS for containerized edge routing.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **What an API Gateway is and the problem it solves** — `` `API gateway pattern microservices.io` ``
+2. **Gateway vs. reverse proxy vs. load balancer** — `` `api gateway vs reverse proxy vs load balancer difference` ``
+3. **Core responsibilities (routing, auth, rate limiting, TLS termination)** — `` `api gateway responsibilities cross cutting concerns` ``
+4. **Request routing: path/host/header-based matching** — `` `api gateway path based routing upstream services` ``
+5. **Authentication & authorization at the edge (JWT, API keys, OAuth2)** — `` `api gateway JWT validation authentication OAuth2` ``
+6. **Rate limiting algorithms (token bucket, leaky bucket, sliding window)** — `` `token bucket vs sliding window rate limiting explained` ``
+7. **Distributed rate limiting with a shared store (Redis)** — `` `distributed rate limiting redis api gateway` ``
+8. **Request aggregation / composition and the BFF pattern** — `` `backend for frontend BFF pattern api aggregation` ``
+9. **Protocol translation (REST↔gRPC, HTTP↔WebSocket)** — `` `api gateway rest to grpc protocol translation` ``
+10. **Resilience: timeouts, retries, circuit breakers** — `` `api gateway circuit breaker timeout retry pattern` ``
+11. **High availability: avoiding the single point of failure** — `` `api gateway high availability avoid single point of failure` ``
+12. **Real-world case study: Netflix Zuul at scale** — `` `Netflix Zuul 2 asynchronous non-blocking architecture` ``
+13. **Compare production gateways (Kong, Envoy, APISIX, Traefik, KrakenD)** — `` `Kong vs Envoy vs APISIX vs Traefik comparison` ``
+14. **Hands-on: run Kong locally with Docker and add rate-limiting + auth plugins** — `` `Kong gateway docker quickstart rate limiting plugin tutorial` ``
+15. **Hands-on: build a toy gateway (routing + JWT + Redis rate limit) or configure Traefik/APISIX in Kubernetes** — `` `build simple api gateway from scratch nodejs express reverse proxy` ``
+
+**✅ You'll know you understand this when:** you can (1) explain when to use a gateway/BFF vs. a plain load balancer and where each cross-cutting concern belongs, (2) design a horizontally-scaled, stateless gateway with distributed rate limiting that isn't a SPOF, and (3) stand up a real gateway (e.g., Kong or Traefik) locally with routing, auth, and rate limiting configured.

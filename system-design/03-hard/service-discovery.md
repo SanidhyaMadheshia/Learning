@@ -165,3 +165,55 @@ Common concrete strategies:
 - HashiCorp Consul documentation — service discovery, health checks, and the consistency model.
 - Kubernetes official docs — "Service", "DNS for Services and Pods", and "Configure Liveness, Readiness and Startup Probes".
 - etcd documentation and the Raft paper ("In Search of an Understandable Consensus Algorithm", Ongaro & Ousterhout) for the consistency foundations behind CP registries.
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| Consul | [hashicorp/consul](https://github.com/hashicorp/consul) | Distributed service discovery + health checking + KV store with DNS **and** HTTP APIs; Raft-based (CP), multi-datacenter, and includes Consul Connect service mesh. ~28k★. Used by Cloudflare, Shopify, and many HashiCorp shops. |
+| etcd | [etcd-io/etcd](https://github.com/etcd-io/etcd) | Strongly consistent (Raft) distributed key-value store used for coordination and discovery; the **backing store for Kubernetes**. ~48k★. A CNCF graduated project. |
+| Netflix Eureka | [Netflix/eureka](https://github.com/Netflix/eureka) | AP-oriented client-side discovery registry from Netflix OSS; the backbone of Netflix's microservices, paired with Ribbon for client load balancing. ~12k★. Integrated into Spring Cloud Netflix. |
+| Nacos | [alibaba/nacos](https://github.com/alibaba/nacos) | Alibaba's dynamic service discovery, config, and service management platform; supports both AP and CP modes and DNS/RPC discovery. ~31k★. Heavily used in the Alibaba/Spring Cloud Alibaba ecosystem. |
+| CoreDNS | [coredns/coredns](https://github.com/coredns/coredns) | Pluggable DNS server that is the **default DNS/service-discovery layer in Kubernetes**; resolves `svc.cluster.local` names. ~13k★. CNCF graduated. |
+| Apache ZooKeeper | [apache/zookeeper](https://github.com/apache/zookeeper) | CP coordination service using ephemeral znodes for registration/discovery, leader election, and locking; historically used by Kafka, HBase, and older SOA stacks. ~12k★. |
+| HashiCorp Serf | [hashicorp/serf](https://github.com/hashicorp/serf) | Lightweight gossip-based (SWIM) membership, failure detection, and event system; the cluster-membership library underpinning Consul. ~6k★. |
+| Linkerd | [linkerd/linkerd2](https://github.com/linkerd/linkerd2) | Ultralight Kubernetes service mesh; its control plane handles service discovery, load balancing, retries, and mTLS via sidecar proxies. ~11k★. CNCF graduated. |
+| Istio | [istio/istio](https://github.com/istio/istio) | Feature-rich service mesh (Envoy data plane) that layers discovery, traffic management, and mTLS on top of Kubernetes' native discovery. ~36k★. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [Microservices.io — Service Discovery Patterns (Chris Richardson)](https://microservices.io/patterns/service-registry.html) — Canonical pattern catalog covering service registry, client-side vs server-side discovery, and self- vs third-party registration.
+- [Microservices.io — Client-side discovery](https://microservices.io/patterns/client-side-discovery.html) & [Server-side discovery](https://microservices.io/patterns/server-side-discovery.html) — The two core discovery patterns explained with concrete trade-offs.
+- [Kubernetes Docs — DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) — How CoreDNS names, Services, and EndpointSlices provide server-side DNS discovery in K8s.
+- [Kubernetes Docs — Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) — The health-check model that drives which pods appear in a Service's endpoints.
+- [HashiCorp — What is Service Discovery?](https://www.hashicorp.com/resources/what-is-service-discovery) & [Consul Service Discovery docs](https://developer.hashicorp.com/consul/docs/concepts/service-discovery) — Vendor-neutral intro plus Consul's registration, health-check, and consistency model.
+- [Netflix TechBlog — Eureka! Why You Shouldn't Use ZooKeeper for Service Discovery](https://medium.com/knerd/eureka-why-you-shouldnt-use-zookeeper-for-service-discovery-4931c5c7e764) — The classic argument for AP-over-CP registries in the discovery data path.
+- [AWS — Implementing Microservices on AWS: Service Discovery](https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/distributed-systems-components.html) — AWS whitepaper on discovery with ELB, Cloud Map, and ECS/EKS.
+- [AWS Cloud Map Developer Guide](https://docs.aws.amazon.com/cloud-map/latest/dg/what-is-cloud-map.html) — Managed service registry with DNS-based and API-based discovery; hands-on tutorials included.
+- [etcd Documentation](https://etcd.io/docs/latest/) — Watches, leases/TTLs, and the consistency guarantees behind the store powering Kubernetes.
+- [Raft paper — "In Search of an Understandable Consensus Algorithm" (Ongaro & Ousterhout)](https://raft.github.io/raft.pdf) — The consensus foundation behind CP registries (etcd, Consul, ZooKeeper's ZAB is similar).
+- [SWIM: Scalable Weakly-consistent Infection-style Membership Protocol (paper)](https://www.cs.cornell.edu/projects/Quicksilver/public_pdfs/SWIM.pdf) — The gossip failure-detection algorithm behind Serf/Consul membership.
+- [Baeldung — Service Discovery in Microservices](https://www.baeldung.com/cs/service-discovery-microservices) — Accessible walkthrough of registry, patterns, and health checks with examples.
+- [Video: HashiCorp Consul — Service Discovery and Health Checking (HashiConf talks on YouTube)](https://www.youtube.com/results?search_query=hashicorp+consul+service+discovery+deep+dive) — Conference talks demonstrating Consul discovery, health checks, and mesh.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **Understand the core problem** — why hardcoded IPs fail with ephemeral instances. Search: `` `why service discovery is needed microservices dynamic instances` ``
+2. **The service registry concept** — registration, lookup, metadata, and health. Search: `` `service registry pattern microservices Chris Richardson` ``
+3. **Client-side vs server-side discovery** — who does the lookup and load balancing. Search: `` `client side vs server side service discovery difference` ``
+4. **Self-registration vs third-party registration** — keeping app code clean. Search: `` `self registration vs third party registration service discovery` ``
+5. **Health checks: liveness vs readiness vs startup** — and heartbeat/TTL vs active probes. Search: `` `liveness vs readiness probe difference kubernetes` ``
+6. **CP vs AP registries and the CAP trade-off** — behavior under network partitions. Search: `` `CP vs AP service registry CAP theorem service discovery` ``
+7. **DNS-based discovery and its pitfalls** — TTL caching, SRV records, JVM DNS caching. Search: `` `dns based service discovery ttl caching problems srv records` ``
+8. **Consensus underpinnings (Raft / ZAB)** — how CP registries stay consistent. Search: `` `raft consensus algorithm explained visualization` ``
+9. **Gossip & failure detection (SWIM)** — how Consul/Serf track membership. Search: `` `SWIM gossip protocol failure detection explained` ``
+10. **Kubernetes-native discovery** — Services, EndpointSlices, kube-proxy, CoreDNS. Search: `` `kubernetes service discovery coredns endpointslices how it works` ``
+11. **Service mesh discovery** — sidecars (Envoy), control plane, mTLS. Search: `` `service mesh service discovery istio linkerd envoy how it works` ``
+12. **Resilience patterns** — retries with jitter, circuit breakers, outlier ejection, connection draining. Search: `` `circuit breaker jittered backoff outlier ejection service discovery` ``
+13. **Hands-on: run Consul locally** — register a service, add an HTTP health check, resolve it via DNS. Search: `` `consul agent local dev service registration health check tutorial` ``
+14. **Hands-on: discovery in Kubernetes** — deploy two services, use readiness probes, curl one via its ClusterIP/DNS name, then test a headless Service. Search: `` `kubernetes service discovery tutorial clusterip headless service dns` ``
+15. **Hands-on: build a toy registry** — a tiny HTTP service that stores instances with TTL heartbeats and evicts stale ones; add a client that watches for changes. Search: `` `build a simple service registry with heartbeat ttl from scratch` ``
+
+**✅ You'll know you understand this when:** you can (1) explain why an AP registry (Eureka) may be preferable to a CP one for the discovery data path and describe how each behaves during a partition; (2) trace a request through Kubernetes discovery from readiness probe → EndpointSlice → CoreDNS → kube-proxy; and (3) design health-check timing plus client-side retries/deregistration that avoids both black-holing to dead instances and flapping healthy ones.

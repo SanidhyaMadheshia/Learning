@@ -175,3 +175,59 @@ The quorum-intersection property is what makes this safe: because any two majori
 - Fischer, Lynch, Paterson, *"Impossibility of Distributed Consensus with One Faulty Process"* (1985) — the FLP paper.
 - Castro & Liskov, *"Practical Byzantine Fault Tolerance"* (OSDI 1999) — foundational BFT.
 - Martin Kleppmann, *Designing Data-Intensive Applications* (O'Reilly), Chapter 9 ("Consistency and Consensus") — the best single-chapter synthesis for interviews.
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| **etcd** | [etcd-io/etcd](https://github.com/etcd-io/etcd) | Distributed, strongly-consistent key-value store built on Raft (~48k★). The backing store for **Kubernetes** cluster state; the de-facto reference for production Raft. |
+| **etcd raft library** | [etcd-io/raft](https://github.com/etcd-io/raft) | Standalone, battle-tested Raft library extracted from etcd. Embedded by **CockroachDB, TiKV, Dgraph** and many others as their consensus core. |
+| **HashiCorp Raft** | [hashicorp/raft](https://github.com/hashicorp/raft) | Go Raft library (~8k★) powering **Consul, Nomad, and Vault** for leader election and replicated state. Clean FSM + log-store abstraction. |
+| **TiKV** | [tikv/tikv](https://github.com/tikv/tikv) | Distributed transactional key-value store (~15k★, CNCF graduated) using **Multi-Raft** (one Raft group per data region). Storage engine behind **TiDB**. |
+| **Dragonboat** | [lni/dragonboat](https://github.com/lni/dragonboat) | High-performance **multi-group Raft** library in pure Go (~5k★). Designed for many concurrent Raft groups with low latency. |
+| **SOFAJRaft** | [sofastack/sofa-jraft](https://github.com/sofastack/sofa-jraft) | Production-grade Java Raft with Multi-Raft-Group support (~3.6k★), from **Ant Group**; used in high-load financial systems. |
+| **Apache ZooKeeper** | [apache/zookeeper](https://github.com/apache/zookeeper) | Coordination service using the **Zab** atomic-broadcast protocol (~12k★). Historically the coordination layer for **Kafka, HBase, Hadoop**. |
+| **Apache Kafka (KRaft)** | [apache/kafka](https://github.com/apache/kafka) | KRaft mode (~29k★) replaces Kafka's ZooKeeper dependency with a self-managed **Raft** metadata quorum (KIP-500). |
+| **CockroachDB** | [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach) | Distributed SQL DB (~30k★) running an independent Raft group **per data range** — a real-world Multi-Raft at massive scale. |
+| **BFT-SMaRt** | [bft-smart/library](https://github.com/bft-smart/library) | Mature Java **Byzantine fault-tolerant** (PBFT-style) state-machine replication library, widely cited in BFT research and used in Hyperledger Fabric ordering. |
+
+---
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [In Search of an Understandable Consensus Algorithm (Raft paper)](https://raft.github.io/raft.pdf) — Ongaro & Ousterhout's original paper; the single best source for how Raft actually works.
+- [The Raft website + interactive visualization](https://raft.github.io/) — Official Raft hub with the live node-animation demo and a huge list of implementations.
+- [The Secret Lives of Data — Raft](https://thesecretlivesofdata.com/raft/) ([source](https://github.com/benbjohnson/thesecretlivesofdata)) — Scrolling, animated walkthrough of leader election and log replication; the friendliest first exposure.
+- [Paxos Made Simple (Lamport, 2001)](https://lamport.azurewebsites.net/pubs/paxos-simple.pdf) — Lamport's own "accessible" explanation of Paxos; short and foundational.
+- [Impossibility of Distributed Consensus with One Faulty Process (FLP, 1985)](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf) — The FLP impossibility result every engineer should understand conceptually.
+- [Practical Byzantine Fault Tolerance (PBFT, Castro & Liskov, 1999)](https://pmg.csail.mit.edu/papers/osdi99.pdf) — The foundational practical BFT protocol; basis for many blockchain consensus schemes.
+- [Paxos vs Raft: Have we reached consensus on distributed consensus?](https://arxiv.org/abs/2004.05074) — Rigorous comparison showing the two are more alike than folklore suggests (differ mainly in leader election).
+- [CockroachDB — Scaling Raft](https://www.cockroachlabs.com/blog/scaling-raft/) & [Consensus, Made Thrive](https://www.cockroachlabs.com/blog/consensus-made-thrive/) — How Cockroach runs hundreds of thousands of Raft groups (Multi-Raft) in production.
+- [CockroachDB — Joint Consensus for membership changes](https://www.cockroachlabs.com/blog/joint-consensus-raft/) — Real-world treatment of the hardest part of Raft: safe reconfiguration.
+- [etcd Raft library README & design docs](https://github.com/etcd-io/raft/blob/main/README.md) — How a real, embeddable Raft is structured (proposals, snapshots, ReadIndex, membership).
+- [Martin Kleppmann — *Designing Data-Intensive Applications*, Ch. 9 "Consistency and Consensus"](https://dataintensive.net/) — The best single-chapter synthesis linking linearizability, total order broadcast, and consensus.
+- [MIT 6.824 Distributed Systems (video lectures + labs)](https://pdos.csail.mit.edu/6.824/) — Free graduate course where you implement Raft yourself; the gold-standard hands-on path.
+
+---
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **Why consensus exists** — replicated state machines and the problems (split brain, lost writes). Search: `` `replicated state machine consensus explained` ``
+2. **Correctness properties** — Agreement, Validity, Termination; safety vs liveness. Search: `` `consensus safety liveness agreement validity termination` ``
+3. **Quorums & majorities** — why any two majorities intersect and why that guarantees safety. Search: `` `majority quorum intersection consensus 2f+1` ``
+4. **FLP impossibility** — what it proves and why real systems use partial synchrony + timeouts. Search: `` `FLP impossibility distributed consensus explained` ``
+5. **Basic Paxos** — Prepare/Promise and Accept/Accepted phases for a single value. Search: `` `Paxos made simple prepare accept phases explained` ``
+6. **Multi-Paxos** — stable leader skipping Phase 1 for a log of values. Search: `` `multi-paxos stable leader log replication` ``
+7. **Raft fundamentals** — leader election, log replication, terms; play with the animation. Search: `` `raft.github.io interactive visualization leader election` ``
+8. **Raft safety & log matching** — commit rules, log matching property, up-to-date vote restriction. Search: `` `raft log matching property commit safety` ``
+9. **Membership changes** — joint consensus and single-server changes done safely. Search: `` `raft joint consensus membership change` ``
+10. **Linearizable reads** — ReadIndex, leader leases, and stale-read pitfalls. Search: `` `raft linearizable read ReadIndex leader lease` ``
+11. **Multi-Raft / sharded consensus** — running many Raft groups (TiKV, CockroachDB). Search: `` `multi-raft sharding one raft group per range` ``
+12. **Zab & Viewstamped Replication** — how ZooKeeper and VR compare to Raft. Search: `` `Zab protocol vs raft zookeeper atomic broadcast` ``
+13. **Byzantine fault tolerance** — PBFT and modern HotStuff/Tendermint, 3f+1 requirement. Search: `` `PBFT byzantine fault tolerance 3f+1 hotstuff` ``
+14. **Hands-on: implement Raft (MIT 6.824)** — build leader election + log replication + persistence. Search: `` `MIT 6.824 raft lab implementation guide` ``
+15. **Hands-on: run a real cluster** — bootstrap a 3-node etcd cluster, kill the leader, watch re-election. Search: `` `etcd 3 node cluster setup leader election demo` ``
+
+**✅ You'll know you understand this when:** you can (1) explain why an odd-sized cluster of `2f+1` nodes tolerates exactly `f` failures using quorum intersection, (2) trace a Raft write from client request → majority ack → commit → apply and explain how a stale leader is prevented from committing, and (3) articulate why FLP doesn't stop real systems and what assumption they add to get liveness.

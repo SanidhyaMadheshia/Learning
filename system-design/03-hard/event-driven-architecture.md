@@ -175,3 +175,55 @@ A pragmatic rule: use EDA at service boundaries where decoupling pays off; keep 
 - Gregor Hohpe & Bobby Woolf — *Enterprise Integration Patterns* (the canonical messaging patterns catalog).
 - *Designing Data-Intensive Applications* — Martin Kleppmann (Ch. 11 on stream processing; logs, ordering, consistency).
 - Confluent documentation & blog — Apache Kafka design, exactly-once semantics, and event-driven microservices.
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| **Apache Kafka** | [apache/kafka](https://github.com/apache/kafka) | The de facto durable, partitioned, replicated event log (~29k★). Backbone of EDA at LinkedIn (its origin), Uber, Netflix, and 80%+ of the Fortune 100. The default choice for high-throughput event streaming. |
+| **RabbitMQ** | [rabbitmq/rabbitmq-server](https://github.com/rabbitmq/rabbitmq-server) | Battle-tested AMQP message broker (~13k★) for queues, routing, and pub/sub. Great for task queues, RPC, and flexible routing topologies where per-message ordering across queues isn't required. |
+| **Apache Pulsar** | [apache/pulsar](https://github.com/apache/pulsar) | Cloud-native distributed pub/sub + streaming (~14k★), originally from Yahoo!. Separates compute from storage (BookKeeper), supports multi-tenancy, geo-replication, and tiered storage. Used by Yahoo!, Tencent, Splunk. |
+| **NATS / JetStream** | [nats-io/nats-server](https://github.com/nats-io/nats-server) | Lightweight, high-performance messaging (~16k★). JetStream adds persistence, streaming, and replay. Popular for edge, IoT, and microservice-to-microservice messaging where simplicity and latency matter. |
+| **Redpanda** | [redpanda-data/redpanda](https://github.com/redpanda-data/redpanda) | Kafka-API-compatible streaming platform written in C++ (~10k★), no JVM/ZooKeeper. Drop-in Kafka replacement optimized for lower latency and simpler ops. |
+| **Debezium** | [debezium/debezium](https://github.com/debezium/debezium) | Change Data Capture (CDC) platform (~11k★). Streams row-level database changes into Kafka — the practical way to implement the transactional outbox and turn DB changes into events. |
+| **Temporal** | [temporalio/temporal](https://github.com/temporalio/temporal) | Durable workflow/orchestration engine (~14k★) for sagas and long-running processes. Descendant of Uber's Cadence; used by Uber, Netflix, Stripe, Coinbase, Snap for reliable async workflows. |
+| **EventStoreDB (KurrentDB)** | [EventStore/EventStore](https://github.com/EventStore/EventStore) | Database purpose-built for event sourcing (~5k★). Stores immutable event streams as the source of truth with built-in projections and subscriptions. |
+| **NSQ** | [nsqio/nsq](https://github.com/nsqio/nsq) | Realtime distributed messaging platform in Go (~25k★), built at Bitly. Simple, no single point of failure, great for decoupled at-least-once delivery. |
+| **CloudEvents** | [cloudevents/spec](https://github.com/cloudevents/spec) | CNCF specification (~5k★) for describing event data in a common, vendor-neutral format. Standardizes event envelopes across brokers, clouds, and languages. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [Martin Fowler — What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html) — Untangles the four distinct meanings of "event-driven" (notification, state transfer, event sourcing, CQRS); essential vocabulary before anything else.
+- [Martin Fowler — Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) & [CQRS](https://martinfowler.com/bliki/CQRS.html) — The canonical, still-relevant definitions of the two patterns most conflated with EDA.
+- [microservices.io — Pattern catalog (Saga, Transactional Outbox, CQRS, Event Sourcing)](https://microservices.io/patterns/index.html) — Chris Richardson's reference catalog; each pattern with problem/solution/trade-offs and diagrams.
+- [Confluent — How Netflix Uses Kafka for Distributed Streaming](https://www.confluent.io/blog/how-kafka-is-used-by-netflix/) — Real-world look at trillions of events/day through Kafka at Netflix.
+- [Confluent — Event-Driven Microservices blog series & docs](https://developer.confluent.io/patterns/) — Practical patterns for events, streams, exactly-once, and stream processing with worked examples.
+- [Uber Engineering — Introducing Cadence (durable workflow orchestration)](https://www.uber.com/blog/cadence/) — Why Uber built a fault-tolerant orchestration engine for sagas (predecessor to Temporal).
+- [AWS — Event-Driven Architecture (whitepaper & Prescriptive Guidance)](https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-integrating-microservices/eda.html) — EDA patterns using SNS/SQS/EventBridge/Kinesis, with routing and filtering guidance.
+- [Kafka — The Log: What every software engineer should know (Jay Kreps)](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying-abstraction) — Foundational essay on the log as the unifying data abstraction; the intellectual root of Kafka.
+- [Debezium blog — Event Sourcing vs. Change Data Capture](https://debezium.io/blog/2020/02/10/event-sourcing-vs-cdc/) — Clear comparison of two approaches to producing reliable event streams from state changes.
+- *Designing Data-Intensive Applications* — Martin Kleppmann (Ch. 11, Stream Processing) — Rigorous treatment of logs, ordering, delivery semantics, and stream/table duality. [Book site](https://dataintensive.net/)
+- *Enterprise Integration Patterns* — Gregor Hohpe & Bobby Woolf — The canonical messaging patterns catalog. [enterpriseintegrationpatterns.com](https://www.enterpriseintegrationpatterns.com/)
+- [Video — "Kafka in 100 Seconds" + Confluent's free Apache Kafka 101 course](https://developer.confluent.io/courses/apache-kafka/events/) — Fast conceptual intro plus a structured free course to go hands-on with topics, partitions, and consumers.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **Grasp what an "event" is and how EDA differs from request/response.** Search: `` `event driven architecture vs request response explained` ``
+2. **Learn the four flavors of event-driven (notification, state transfer, event sourcing, CQRS).** Search: `` `Martin Fowler what do you mean by event driven` ``
+3. **Distinguish events from commands and understand producers/consumers/brokers.** Search: `` `event vs command message difference microservices` ``
+4. **Understand the log abstraction: topics, partitions, offsets, consumer groups.** Search: `` `kafka topics partitions offsets consumer groups explained` ``
+5. **Study delivery semantics: at-most-once, at-least-once, exactly-once.** Search: `` `at least once vs exactly once delivery kafka` ``
+6. **Master idempotency and deduplication for consumers.** Search: `` `idempotent consumer pattern deduplication event id` ``
+7. **Learn ordering guarantees and partition keys.** Search: `` `kafka message ordering partition key guarantee` ``
+8. **Solve the dual-write problem with the Transactional Outbox + CDC.** Search: `` `transactional outbox pattern debezium cdc` ``
+9. **Compare choreography vs orchestration for multi-service workflows.** Search: `` `choreography vs orchestration saga microservices` ``
+10. **Learn the Saga pattern and compensating transactions.** Search: `` `saga pattern compensating transaction distributed` ``
+11. **Understand Event Sourcing and CQRS together (and their downsides).** Search: `` `event sourcing cqrs projections snapshots downsides` ``
+12. **Handle failures: retries, dead-letter queues, poison messages, consumer lag.** Search: `` `dead letter queue poison message consumer lag monitoring` ``
+13. **Study schema evolution and event versioning with a schema registry.** Search: `` `kafka schema registry avro event versioning compatibility` ``
+14. **Hands-on: run Kafka locally and build a toy pub/sub order pipeline.** Search: `` `docker compose kafka quickstart producer consumer tutorial` ``
+15. **Hands-on: implement a saga with an orchestrator (Temporal) or outbox + Debezium.** Search: `` `temporal workflow saga tutorial getting started` ``
+
+**✅ You'll know you understand this when:** you can (1) explain why at-least-once delivery forces idempotent consumers and implement dedup by event ID; (2) design partition keys that preserve ordering for a given entity while still scaling out; and (3) choose choreography vs orchestration for a concrete workflow and justify the trade-off, including how you'd solve the dual-write problem.

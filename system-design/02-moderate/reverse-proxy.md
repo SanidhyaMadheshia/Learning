@@ -157,3 +157,59 @@ sequenceDiagram
 - Envoy Proxy documentation — architecture, L4/L7 filters, and service-mesh usage (envoyproxy.io).
 - RFC 7234 (HTTP Caching) and RFC 7239 (`Forwarded` HTTP Extension) — canonical specs.
 - Cloudflare Learning Center — "What is a reverse proxy?" and CDN/caching articles.
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| **NGINX** | [nginx/nginx](https://github.com/nginx/nginx) | The canonical reverse proxy / web server (~26k★ on the GitHub mirror). TLS termination, caching, compression, and load balancing in one battle-tested binary. Powers a huge share of the web; foundation for `ingress-nginx` and NGINX Plus. |
+| **Envoy** | [envoyproxy/envoy](https://github.com/envoyproxy/envoy) | CNCF graduated L7 proxy (~26k★) built at Lyft. Rich observability, dynamic config via xDS, HTTP/2 & gRPC. The data plane behind **Istio**, **Linkerd** (historically), and **AWS App Mesh**. |
+| **HAProxy** | [haproxy/haproxy](https://github.com/haproxy/haproxy) | High-performance L4/L7 load balancer & reverse proxy (~5k★). Known for reliability and predictable TCP/HTTP throughput; favored for TLS passthrough and precise LB. Used at GitHub, Reddit, Stack Overflow. |
+| **Traefik** | [traefik/traefik](https://github.com/traefik/traefik) | Cloud-native edge router in Go (~55k★). Auto service discovery for Docker/Kubernetes, automatic Let's Encrypt certs, zero-reload config. Popular ingress choice for container platforms. |
+| **Caddy** | [caddyserver/caddy](https://github.com/caddyserver/caddy) | Go web server / reverse proxy (~65k★) with **automatic HTTPS** out of the box and the shortest config. Great default for small-to-medium deployments. |
+| **Apache APISIX** | [apache/apisix](https://github.com/apache/apisix) | Cloud-native, dynamic, high-performance API gateway / reverse proxy (~15k★) built on NGINX + LuaJIT + etcd. Hot-reloadable plugins for auth, rate limiting, and observability. |
+| **Kong** | [Kong/kong](https://github.com/Kong/kong) | Widely-used API gateway (~40k★) built on OpenResty/NGINX. Layers auth, rate limiting, and request transformation on top of proxying; large plugin ecosystem. |
+| **Varnish Cache** | [varnishcache/varnish-cache](https://github.com/varnishcache/varnish-cache) | Specialized HTTP caching reverse proxy (~4k★) with the powerful VCL config language. Used by high-traffic content sites to absorb read load. |
+| **ingress-nginx** | [kubernetes/ingress-nginx](https://github.com/kubernetes/ingress-nginx) | The Kubernetes-maintained NGINX ingress controller (~18k★). The de-facto default reverse proxy for exposing services in K8s clusters. |
+| **Pingora / River** | [cloudflare/pingora](https://github.com/cloudflare/pingora) | Rust async framework (~30k★) Cloudflare built to replace NGINX at its edge, serving millions of requests/sec. `river` is the standalone proxy built on it. |
+
+---
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [Cloudflare — What Is A Reverse Proxy?](https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/) — Clear, canonical intro contrasting forward vs reverse proxies and the security/performance/reliability benefits.
+- [NGINX Docs — Reverse Proxy Guide](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) — Official how-to for `proxy_pass`, upstreams, and header handling; the practical starting point.
+- [NGINX Docs — Content Caching](https://docs.nginx.com/nginx/admin-guide/content-cache/content-caching/) — How proxy caching keys, TTLs, and `Cache-Control` handling actually work in production.
+- [Envoy Proxy — Architecture Overview](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/intro/arch_overview) — Deep dive into listeners, filters, clusters, and the L4/L7 model behind modern service meshes.
+- [Cloudflare Blog — How we built Pingora, the proxy that connects Cloudflare to the Internet](https://blog.cloudflare.com/how-we-built-pingora-the-proxy-that-connects-cloudflare-to-the-internet/) — Real-world engineering story of replacing NGINX at massive scale.
+- [Matt Klein — Lyft's Envoy: Embracing a Service Mesh (blog series)](https://mattklein123.dev/2017/12/06/introducing-the-network-programming-model/) — From Envoy's creator on why modern proxies exist and the service-mesh model.
+- [HAProxy Blog — Reverse Proxy Fundamentals](https://www.haproxy.com/blog) — Engineering posts on load balancing algorithms, TLS, and high-availability proxy design.
+- [Teleport Blog — Reverse Proxy: How It Works & Example Architecture](https://goteleport.com/blog/reverse-proxy/) — Security-focused walkthrough of using a reverse proxy as a policy enforcement point.
+- [RFC 9111 — HTTP Caching](https://www.rfc-editor.org/rfc/rfc9111) — The canonical spec (supersedes RFC 7234) for how caches must behave; essential for correct proxy caching.
+- [RFC 7239 — Forwarded HTTP Extension](https://www.rfc-editor.org/rfc/rfc7239) — The standard for `Forwarded` / `X-Forwarded-*` headers so backends see the real client IP and scheme.
+- [PortSwigger — HTTP Request Smuggling](https://portswigger.net/web-security/request-smuggling) — Must-read on proxy/backend parsing mismatches (Content-Length vs Transfer-Encoding) and how to prevent them.
+- [Hussein Nasser — Proxy vs Reverse Proxy (YouTube)](https://www.youtube.com/watch?v=4NB0NDtOwIQ) — Accessible video explaining the difference and use cases with diagrams.
+
+---
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **Forward vs reverse proxy fundamentals** — understand whose side each proxy represents. Search: `` `forward proxy vs reverse proxy difference explained` ``
+2. **What a reverse proxy solves** — TLS termination, caching, compression, load balancing, hiding topology. Search: `` `reverse proxy benefits security performance reliability` ``
+3. **Layer 4 vs Layer 7 proxying** — routing by IP/port vs parsing HTTP. Search: `` `layer 4 vs layer 7 load balancing reverse proxy` ``
+4. **TLS termination, re-encryption, and passthrough** — where decryption happens and the trade-offs. Search: `` `TLS termination vs passthrough SNI routing reverse proxy` ``
+5. **X-Forwarded-For and the Forwarded header** — preserving client IP and scheme after termination. Search: `` `X-Forwarded-For X-Forwarded-Proto Forwarded header RFC 7239` ``
+6. **HTTP caching at the proxy** — cache keys, Vary, Cache-Control, and avoiding stale/private data. Search: `` `reverse proxy caching Cache-Control Vary header pitfalls` ``
+7. **Load balancing strategies** — round-robin, least-connections, weighted, IP-hash, consistent hashing. Search: `` `load balancing algorithms round robin least connections consistent hashing` ``
+8. **Health checks & timeouts** — active vs passive checks, retries, and avoiding cascading failures. Search: `` `reverse proxy health checks timeouts retries idempotency` ``
+9. **API gateway vs load balancer vs reverse proxy** — how the categories overlap. Search: `` `load balancer vs reverse proxy vs API gateway system design` ``
+10. **Service mesh & sidecar proxies** — Envoy as a data plane for Istio/Linkerd. Search: `` `envoy sidecar service mesh istio architecture` ``
+11. **HTTP request smuggling & proxy security** — parsing mismatches and mitigations. Search: `` `HTTP request smuggling Content-Length Transfer-Encoding attack` ``
+12. **High availability for the proxy tier** — avoiding the single point of failure with anycast/DNS/L4 front. Search: `` `reverse proxy high availability keepalived VRRP anycast` ``
+13. **Hands-on: build a toy reverse proxy** — write one in Go (`httputil.ReverseProxy`) or Node to internalize forwarding & headers. Search: `` `Go httputil.ReverseProxy tutorial build reverse proxy` ``
+14. **Hands-on: deploy NGINX/Traefik locally** — proxy two backends, terminate TLS with Let's Encrypt/self-signed, enable caching. Search: `` `nginx reverse proxy tutorial docker compose two backends tls` ``
+15. **Hands-on: run Envoy or Caddy with routing rules** — path/host routing and observe access logs & metrics. Search: `` `caddy reverse proxy automatic https config example` ``
+
+**✅ You'll know you understand this when:** you can (1) explain the L4/L7 and termination/passthrough trade-offs and when to pick each, (2) configure a proxy to correctly forward client IP/scheme and cache without leaking private data, and (3) reason about why the proxy is a critical component and how to make it highly available.

@@ -167,3 +167,53 @@ On leader failure, a **failover** process runs: detect the failure (usually a ti
 - Ongaro & Ousterhout, *"In Search of an Understandable Consensus Algorithm (Raft)"* (2014) — leader election and consistent replication.
 - PostgreSQL documentation — *"High Availability, Load Balancing, and Replication"*.
 - Apache Kafka documentation — *"Replication"* and *"Designing for Durability"*.
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+| --- | --- | --- |
+| **Debezium** | [debezium/debezium](https://github.com/debezium/debezium) | CDC platform (~11k★) that streams row-level changes from MySQL/Postgres/Mongo/etc. by reading the transaction log (WAL/binlog). The de-facto OSS way to do logical replication into Kafka. Used at scale for cross-system replication and data pipelines. |
+| **PostgreSQL** | [postgres/postgres](https://github.com/postgres/postgres) | Ships built-in **streaming (WAL) replication** and **logical replication** (publish/subscribe). The reference implementation of leader-follower replication in the relational world. |
+| **MySQL / Percona** | [percona/percona-server](https://github.com/percona/percona-server) | MySQL-compatible server with enhanced **binlog (row/statement) replication**, Group Replication, and semi-sync. Powers read-replica fleets across the industry. |
+| **pglogical** | [2ndQuadrant/pglogical](https://github.com/2ndQuadrant/pglogical) | Logical streaming replication extension for Postgres (pub/sub), enabling selective, cross-version, and bidirectional replication — faster than Slony/Bucardo/Londiste. |
+| **Vitess** | [vitessio/vitess](https://github.com/vitessio/vitess) | MySQL clustering/sharding system (~19k★) built at YouTube, now CNCF-graduated. Manages replication topologies + failover; used by Slack, GitHub, HubSpot. |
+| **etcd** | [etcd-io/etcd](https://github.com/etcd-io/etcd) | Strongly-consistent distributed KV store (~48k★) using **Raft** for replicated, consensus-based log replication. Backs Kubernetes control plane. |
+| **Apache Kafka** | [apache/kafka](https://github.com/apache/kafka) | Distributed log with partition-leader + follower replicas and the **ISR (in-sync-replica)** model; `acks=all` gives synchronous durability. Ubiquitous for streaming replication. |
+| **MongoDB** | [mongodb/mongo](https://github.com/mongodb/mongo) | Replica sets with a single primary and Raft-like election-based automatic failover. Common reference for HA document-store replication. |
+| **Maxwell's Daemon** | [zendesk/maxwell](https://github.com/zendesk/maxwell) | Lightweight MySQL binlog → JSON CDC producer (~4k★) from Zendesk. Simpler alternative to Debezium for MySQL replication into Kafka/Kinesis. |
+| **Canal** | [alibaba/canal](https://github.com/alibaba/canal) | Alibaba's MySQL binlog subscription & CDC framework (~29k★), widely used in China for real-time replication and cache invalidation. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [Designing Data-Intensive Applications — Ch. 5 (Replication)](https://dataintensive.net/) — Kleppmann's canonical, must-read treatment of single/multi/leaderless replication and consistency.
+- [Dynamo: Amazon's Highly Available Key-value Store (2007 paper)](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf) — foundational leaderless/quorum + hinted-handoff + read-repair paper.
+- [In Search of an Understandable Consensus Algorithm (Raft paper)](https://raft.github.io/raft.pdf) — leader election and consistent log replication, the basis of etcd/Consul.
+- [The Raft interactive visualization](https://raft.github.io/) — watch leader election and log replication happen step by step.
+- [PostgreSQL Docs — High Availability, Load Balancing & Replication](https://www.postgresql.org/docs/current/high-availability.html) — authoritative on streaming vs. logical replication, sync modes, failover.
+- [Debezium Documentation](https://debezium.io/documentation/) — how log-based CDC works per connector; the practical guide to logical replication pipelines.
+- [Apache Kafka — Replication & Design for Durability](https://kafka.apache.org/documentation/#replication) — ISR, `min.insync.replicas`, and acks trade-offs explained by the source.
+- [AWS Database Blog — Cross-Region Read Replicas & DR](https://aws.amazon.com/blogs/database/) — real production patterns for multi-region RDS/Aurora replicas and disaster recovery.
+- [MySQL Reference — Replication](https://dev.mysql.com/doc/refimg/8.0/en/replication.html) — binlog formats (row/statement/mixed), semi-sync, and Group Replication.
+- [Jepsen analyses](https://jepsen.io/analyses) — rigorous, real-world consistency/replication failure tests of Postgres, Mongo, etcd, Kafka, etc.
+- [Martin Kleppmann — "Please stop calling databases CP or AP"](https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html) — sharpens how to reason about replication consistency guarantees.
+- [MIT 6.824 Distributed Systems (video lectures + labs)](https://pdos.csail.mit.edu/6.824/) — build Raft and a replicated KV store yourself; the gold-standard free course.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **Why replicate at all** (HA, read scaling, locality). Search: `` `why database replication high availability read scaling` ``
+2. **Leader-follower (primary-replica) basics.** Search: `` `leader follower replication explained` ``
+3. **Sync vs. async vs. semi-synchronous replication.** Search: `` `synchronous vs asynchronous replication tradeoffs` ``
+4. **Replication log formats** (statement, WAL shipping, logical/row-based). Search: `` `statement based vs row based vs logical replication` ``
+5. **Replication lag & read-your-writes consistency.** Search: `` `replication lag read your own writes monotonic reads` ``
+6. **Failover, heartbeats, and split-brain.** Search: `` `database failover split brain fencing STONITH` ``
+7. **Multi-leader replication & conflict resolution.** Search: `` `multi leader replication conflict resolution LWW CRDT` ``
+8. **Leaderless / quorum replication (Dynamo-style).** Search: `` `quorum W R N read repair hinted handoff dynamo` ``
+9. **Consensus-based replication with Raft.** Search: `` `raft consensus log replication leader election explained` ``
+10. **Hands-on: set up Postgres streaming + logical replication.** Search: `` `postgresql streaming replication primary standby setup tutorial` ``
+11. **Hands-on: MySQL binlog replication + read replica.** Search: `` `mysql set up replication binlog read replica step by step` ``
+12. **Hands-on: log-based CDC with Debezium + Kafka.** Search: `` `debezium kafka postgres CDC tutorial docker` ``
+13. **Hands-on / capstone: implement Raft yourself.** Search: `` `MIT 6.824 raft lab implement leader election log replication` ``
+
+**✅ You'll know you understand this when:** you can (1) explain when to pick single-leader vs. multi-leader vs. leaderless and defend the consistency/availability trade-off; (2) diagnose a stale-read complaint as replication lag and prescribe read-your-writes routing; and (3) stand up a working Postgres/MySQL replica (or a Debezium CDC pipeline) and reason about what happens on failover.

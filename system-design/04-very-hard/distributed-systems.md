@@ -156,3 +156,55 @@ Because agreement over an unreliable network is fundamentally hard (the FLP resu
 - Daniel Abadi, "Consistency Tradeoffs in Modern Distributed Database System Design" (2012) — the PACELC paper.
 - Leslie Lamport, "Time, Clocks, and the Ordering of Events in a Distributed System" (1978) — happens-before and logical clocks.
 - Peter Deutsch & James Gosling, "The Eight Fallacies of Distributed Computing"; and Martin Kleppmann, "How to do distributed locking" (fencing tokens) blog post.
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| etcd | [etcd-io/etcd](https://github.com/etcd-io/etcd) | Distributed, strongly-consistent key-value store built on Raft (~48k★). The backing store for Kubernetes; used for service discovery, config, leader election, and distributed locks. |
+| etcd raft library | [etcd-io/raft](https://github.com/etcd-io/raft) | Minimalist, battle-tested Raft consensus library. The most widely-used Raft implementation in production — powers etcd, Kubernetes, CockroachDB, TiDB, Docker Swarm, and more. |
+| Apache ZooKeeper | [apache/zookeeper](https://github.com/apache/zookeeper) | Coordination service using the Zab atomic broadcast protocol (~12k★). Used by Kafka, HBase, Hadoop, Solr for config, naming, and distributed synchronization. |
+| HashiCorp Consul | [hashicorp/consul](https://github.com/hashicorp/consul) | Service mesh + discovery + KV store built on the Raft library below (~28k★). Widely deployed for service discovery and health checking. |
+| HashiCorp Raft | [hashicorp/raft](https://github.com/hashicorp/raft) | Go library implementing Raft with replicated log + FSM (~8k★). Powers Consul, Nomad, Vault, and InfluxDB. |
+| Apache Cassandra | [apache/cassandra](https://github.com/apache/cassandra) | AP, leaderless Dynamo-style wide-column store with tunable quorum consistency (~9k★). Used by Netflix, Apple, Instagram at massive scale. |
+| CockroachDB | [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach) | Distributed SQL DB with Raft-per-range replication and HLC-based serializable transactions (~30k★). Google Spanner–inspired, runs on commodity hardware. |
+| TiKV | [tikv/tikv](https://github.com/tikv/tikv) | CNCF distributed transactional KV store using Raft + Percolator-style txns (~16k★). The storage layer behind TiDB. |
+| Dragonboat | [lni/dragonboat](https://github.com/lni/dragonboat) | High-performance multi-group Raft library in Go (~5k★). Used when you need many independent Raft groups (sharded consensus). |
+| Jepsen | [jepsen-io/jepsen](https://github.com/jepsen-io/jepsen) | Framework for testing distributed systems' consistency claims under partitions/faults (~7k★). The industry standard for finding correctness bugs in databases. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [Designing Data-Intensive Applications (Martin Kleppmann)](https://dataintensive.net/) — The canonical book on replication, consistency, consensus, and stream processing; read chapters 5, 7, 8, 9 first.
+- [MIT 6.824 / 6.5840 Distributed Systems](https://pdos.csail.mit.edu/6.824/) — Free graduate course with lectures, papers, and hands-on Go labs (build MapReduce, Raft, a sharded KV store).
+- [In Search of an Understandable Consensus Algorithm (Raft paper)](https://raft.github.io/raft.pdf) — Ongaro & Ousterhout's foundational Raft paper; the clearest entry point into consensus.
+- [The Raft Visualization](https://raft.github.io/) — Interactive animation of leader election and log replication; watch it before reading the paper.
+- [Time, Clocks, and the Ordering of Events (Lamport, 1978)](https://lamport.azurewebsites.net/pubs/time-clocks.pdf) — The origin of happens-before and logical clocks; short and essential.
+- [Brewer's Conjecture / CAP proof (Gilbert & Lynch, 2002)](https://groups.csail.mit.edu/tds/papers/Gilbert/Brewer2.pdf) — The formal statement and proof of the CAP theorem.
+- [Consistency Tradeoffs in Modern Distributed Database Design (Abadi — PACELC)](https://www.cs.umd.edu/~abadi/papers/abadi-pacelc.pdf) — Introduces PACELC, the practical refinement of CAP.
+- [Jepsen Analyses (aphyr.com)](https://jepsen.io/analyses) — Deep, reproducible tests exposing real consistency bugs in etcd, Cassandra, MongoDB, Kafka, and more.
+- [How to do distributed locking (Martin Kleppmann)](https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html) — The fencing-token argument and why naive Redlock is unsafe.
+- [Google Spanner: TrueTime and External Consistency](https://cloud.google.com/spanner/docs/true-time-external-consistency) — How Spanner uses bounded clock uncertainty (commit-wait) to get strict serializability globally.
+- [Amazon Dynamo Paper (2007)](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf) — Werner Vogels' team on quorums, vector clocks, and eventual consistency; the ancestor of Cassandra/Dynamo.
+- [The Fallacies of Distributed Computing Explained](https://www.rgoarchitects.com/Files/fallacies.pdf) — Detailed walkthrough of the eight fallacies with real-world consequences.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **The 8 fallacies & why distribution is hard** — start with the mental model before any algorithm. Search: `` `fallacies of distributed computing explained` ``
+2. **CAP theorem, correctly understood** — learn why "pick 2 of 3" is misleading and P is not optional. Search: `` `CAP theorem explained partition tolerance not optional` ``
+3. **PACELC — the everyday trade-off** — extend CAP to the no-partition (latency vs consistency) case. Search: `` `PACELC theorem latency consistency examples` ``
+4. **Consistency models** — linearizability vs serializability vs eventual vs causal. Search: `` `linearizability vs serializability difference explained` ``
+5. **Logical time & ordering** — Lamport clocks, vector clocks, happens-before. Search: `` `lamport clocks vs vector clocks happens before` ``
+6. **Replication strategies** — single-leader, multi-leader, leaderless quorums (R+W>N). Search: `` `leaderless replication quorum R + W > N explained` ``
+7. **FLP impossibility & consensus** — why guaranteed async consensus is impossible and how systems cope. Search: `` `FLP impossibility result consensus explained` ``
+8. **Raft consensus** — leader election, log replication, safety. Watch the visualization, then read the paper. Search: `` `raft consensus algorithm leader election log replication` ``
+9. **Paxos & compare to Raft** — understand why Raft was created and how they differ. Search: `` `paxos vs raft consensus comparison` ``
+10. **Real clocks: TrueTime & HLC** — how Spanner and CockroachDB order events with bounded uncertainty. Search: `` `google spanner truetime hybrid logical clocks` ``
+11. **Conflict resolution** — LWW, version vectors, and CRDTs for automatic convergence. Search: `` `CRDT conflict-free replicated data types explained` ``
+12. **Distributed locks & fencing tokens** — why naive locks corrupt state and how fencing fixes it. Search: `` `distributed lock fencing token kleppmann` ``
+13. **Failure detection & membership** — heartbeats, phi-accrual, gossip/SWIM. Search: `` `SWIM gossip protocol failure detection distributed` ``
+14. **Hands-on: build a toy Raft in Go** — implement leader election + log replication via MIT 6.824 Lab. Search: `` `MIT 6.824 raft lab implementation guide` ``
+15. **Hands-on: break a DB with Jepsen** — run/read a Jepsen test to see consistency violations under partition. Search: `` `jepsen testing distributed database tutorial` ``
+
+**✅ You'll know you understand this when:** you can (1) explain, for a given system, its CAP/PACELC posture and what happens to reads/writes during a partition; (2) walk through a Raft leader election and log-commit step by step; and (3) diagnose why a "latest-timestamp-wins" or naive distributed lock design silently loses/corrupts data and propose the correct fix (vector clocks/CRDTs, fencing tokens, idempotency keys).

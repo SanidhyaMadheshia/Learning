@@ -177,3 +177,59 @@ Rule of thumb: match redundancy investment to the tier of the dependency. Tier-1
 - **"Designing Data-Intensive Applications"** by Martin Kleppmann — Ch. 5 (Replication), Ch. 8–9 (faults, consistency, consensus, quorum).
 - **"Principles of Chaos Engineering"** (principlesofchaos.org) and Netflix's *Chaos Engineering* O'Reilly book — methodology and hypothesis-driven resilience testing.
 - **AWS Well-Architected — Reliability Pillar** and the AWS Builders' Library articles on *cell-based architecture*, *shuffle sharding*, and *timeouts, retries, and backoff with jitter*.
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---------|--------|------------------------------|
+| **Chaos Monkey (Simian Army)** | [Netflix/chaosmonkey](https://github.com/Netflix/chaosmonkey) | The original chaos-engineering tool (~14k★). Randomly terminates production instances to force engineers to build failure-resilient services. Built by Netflix and now the canonical reference for the discipline. |
+| **Resilience4j** | [resilience4j/resilience4j](https://github.com/resilience4j/resilience4j) | Lightweight JVM fault-tolerance library (~10k★): Circuit Breaker, Retry, Rate Limiter, Bulkhead, Timeout, Fallback as composable decorators. The de facto successor to Netflix Hystrix in the Spring/Java ecosystem. |
+| **Polly** | [App-vNext/Polly](https://github.com/App-vNext/Polly) | The standard .NET resilience library (~13k★). Fluent Retry, Circuit Breaker, Hedging, Timeout, Rate Limiter, Fallback pipelines. Ships integrated with `Microsoft.Extensions.Http.Resilience`. |
+| **Chaos Mesh** | [chaos-mesh/chaos-mesh](https://github.com/chaos-mesh/chaos-mesh) | CNCF-hosted, cloud-native chaos platform for Kubernetes (~7k★). Injects pod, network, I/O, kernel, and time faults via CRDs to validate resilience of k8s workloads. |
+| **LitmusChaos** | [litmuschaos/litmus](https://github.com/litmuschaos/litmus) | CNCF chaos-engineering framework for Kubernetes (~4.5k★). Declarative chaos experiments via ChaosHub, GitOps-friendly, integrates into CI/CD for continuous resilience testing. |
+| **Toxiproxy** | [Shopify/toxiproxy](https://github.com/Shopify/toxiproxy) | TCP proxy that simulates network conditions — latency, timeouts, bandwidth limits, connection drops (~11k★). Built by Shopify to deterministically test failure handling in CI and dev. |
+| **Patroni** | [patroni/patroni](https://github.com/patroni/patroni) | Template for PostgreSQL high availability with automated leader election and failover (~7k★). Uses etcd/Consul/ZooKeeper/Kubernetes as a distributed config store. Created at Zalando; ubiquitous for HA Postgres. |
+| **Chaos Toolkit** | [chaostoolkit/chaostoolkit](https://github.com/chaostoolkit/chaostoolkit) | Open API and CLI for defining chaos experiments as JSON/YAML with hypothesis-driven "steady-state" checks. Vendor-neutral with many driver extensions (AWS, k8s, Toxiproxy). |
+| **Hystrix** | [Netflix/Hystrix](https://github.com/Netflix/Hystrix) | Netflix's original latency/fault-tolerance library (~24k★) that popularized the circuit breaker + bulkhead pattern. Now in maintenance mode — study it for the concepts, use Resilience4j in new code. |
+| **gobreaker** | [sony/gobreaker](https://github.com/sony/gobreaker) | Minimal, widely-used circuit breaker implementation for Go (~4k★), maintained by Sony. Common building block in Go microservices. |
+
+---
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [AWS Builders' Library — Timeouts, retries, and backoff with jitter](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/) — How Amazon builds resilient clients and avoids retry storms; the canonical explanation of backoff + jitter.
+- [AWS Builders' Library — Workload isolation using shuffle-sharding](https://aws.amazon.com/builders-library/workload-isolation-using-shuffle-sharding/) — How Amazon dramatically shrinks blast radius by assigning each customer a random subset of workers.
+- [AWS Architecture Blog — Exponential Backoff and Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/) — The foundational post (with simulations) proving why "full jitter" beats naive exponential backoff.
+- [Google SRE Book — Handling Overload & Addressing Cascading Failures](https://sre.google/sre-book/handling-overload/) — Load shedding, graceful degradation, and how small failures cascade into outages; free online.
+- [Netflix Tech Blog — Fault Tolerance in a High Volume, Distributed System](https://netflixtechblog.com/fault-tolerance-in-a-high-volume-distributed-system-91ab4faae74a) — The origin story and design of Hystrix; circuit breakers and bulkheads at scale.
+- [Netflix Tech Blog — Principles of Chaos Engineering](https://principlesofchaos.org/) — The manifesto defining hypothesis-driven, blast-radius-controlled chaos experiments.
+- [Chaos Mesh Docs](https://chaos-mesh.org/docs/) — Hands-on reference for injecting real faults (network, pod, I/O) into Kubernetes clusters.
+- [Resilience4j Documentation](https://resilience4j.readme.io/docs) — Practical guide to circuit breakers, retries, bulkheads, and rate limiters with real code.
+- [Marc Brooker's Blog — "Metastable Failures" & timeouts](https://brooker.co.za/blog/) — Deep, rigorous essays by an AWS Principal Engineer on retries, timeouts, and metastable failure modes.
+- [Amazon Builders' Library — Static stability using Availability Zones](https://aws.amazon.com/builders-library/static-stability-using-availability-zones/) — How to keep serving during an AZ failure without any control-plane dependency ("static stability").
+- [Paper: "Metastable Failures in Distributed Systems" (HotOS '21)](https://sigops.org/s/conferences/hotos/2021/papers/hotos21-s11-bronson.pdf) — Why systems get stuck in a bad state even after the trigger is gone; essential reading on retry storms.
+- [Video: Nora Jones & Casey Rosenthal — "Chaos Engineering" (O'Reilly / talks)](https://www.youtube.com/results?search_query=Nora+Jones+chaos+engineering+talk) — Practitioner talks from the people who ran chaos at Netflix; search for their QCon/Strange Loop sessions.
+
+---
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **Fundamentals & vocabulary** — Distinguish fault, error, and failure, and how fault tolerance breaks the chain. `fault vs error vs failure distributed systems`
+2. **Availability math** — Learn nines, MTBF, MTTR, and the availability formula so you can reason about redundancy ROI. `availability MTBF MTTR nines calculation explained`
+3. **Redundancy models** — Understand N+1, N+M, 2N, active-active vs active-passive and their cost/failover tradeoffs. `active-active vs active-passive redundancy failover`
+4. **Single points of failure & blast radius** — Learn to find SPOFs and shrink the scope of any single failure. `reduce blast radius cell based architecture`
+5. **Timeouts, retries & backoff** — The client-side basics; why naive retries cause storms and how jitter fixes it. `exponential backoff with jitter retry storm aws`
+6. **Circuit breaker & bulkhead patterns** — Stop cascading failures and isolate resource pools per dependency. `circuit breaker bulkhead pattern resilience4j explained`
+7. **Graceful degradation & load shedding** — Serve a reduced-but-useful experience and protect the core under overload. `graceful degradation load shedding google sre`
+8. **Quorum & consensus** — How Raft/Paxos let systems survive minority node loss while staying consistent; avoid split-brain. `raft consensus quorum split brain prevention`
+9. **Data-layer fault tolerance** — Replication, in-sync replicas, `acks=all`, erasure coding, and durability vs availability. `kafka isr min.insync.replicas durability` and `erasure coding vs replication durability`
+10. **Automated failover in practice** — Leader election, fencing/STONITH, leases, and DNS/VIP redirection. `postgres patroni automatic failover fencing lease`
+11. **Chaos engineering methodology** — Steady-state hypothesis, small blast radius, run in production; validate resilience. `principles of chaos engineering steady state hypothesis`
+12. **Correlated & metastable failures** — Why redundancy doesn't help bad deploys/poison messages, and how systems get stuck. `metastable failures distributed systems paper`
+13. **Case studies** — Read how Netflix, AWS, and Amazon handle AZ/region failures and static stability. `how netflix does chaos engineering regional failover` and `aws static stability availability zones`
+14. **Hands-on: build a toy circuit breaker + retry-with-jitter** — Implement the core patterns from scratch in your language, then wrap a flaky HTTP call. `build a circuit breaker from scratch tutorial <your language>`
+15. **Hands-on: inject real faults** — Run Toxiproxy locally to add latency/drops to a service call, then run a Chaos Mesh experiment on a local k8s cluster and observe self-healing. `toxiproxy tutorial latency injection` and `chaos mesh getting started kind minikube`
+
+**✅ You'll know you understand this when:** you can (1) sketch a request path and point to where each failure is detected, isolated, recovered, and degraded; (2) explain why active-active needs N-1 capacity headroom and how quorum prevents split-brain; and (3) design and run a chaos experiment with a stated hypothesis and a bounded blast radius.

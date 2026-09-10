@@ -183,3 +183,55 @@ TTL and an eviction policy are complementary: TTL bounds *staleness*, eviction b
 - **AWS Caching Best Practices** and the **Amazon ElastiCache / DynamoDB DAX** developer guides.
 - **Redis documentation** — eviction policies (`maxmemory-policy`), client-side caching, and key expiration internals.
 - **"Optimal Probabilistic Cache Stampede Prevention"** — Vattani, Chierichetti, Lowenstein (the XFetch early-recomputation technique).
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| **Redis** | [redis/redis](https://github.com/redis/redis) | The de facto in-memory data-structure store and cache (~68k★). Rich types, TTLs, LRU/LFU eviction, client-side caching, cluster/Sentinel. Used almost everywhere (Twitter, GitHub, Stack Overflow, Snap). |
+| **Valkey** | [valkey-io/valkey](https://github.com/valkey-io/valkey) | Linux Foundation fork of Redis 7.2 after the license change (~19k★). Drop-in compatible; adopted by AWS ElastiCache, Google Cloud, and others wanting a fully-OSS Redis. |
+| **Memcached** | [memcached/memcached](https://github.com/memcached/memcached) | Classic multithreaded, slab-allocated key/value cache (~14k★). Simple and extremely fast; famously scaled by Facebook/Meta and used by Pinterest, Wikipedia. |
+| **Dragonfly** | [dragonflydb/dragonfly](https://github.com/dragonflydb/dragonfly) | Modern Redis/Memcached-compatible in-memory store (~28k★). Multi-threaded shared-nothing design targeting far higher throughput per node on multi-core boxes. |
+| **KeyDB** | [Snapchat/KeyDB](https://github.com/Snapchat/KeyDB) | Multithreaded fork of Redis (~11k★) with active replication; maintained by Snap for higher single-node throughput while staying Redis-compatible. |
+| **Caffeine** | [ben-manes/caffeine](https://github.com/ben-manes/caffeine) | High-performance in-process Java caching library (~16k★) with a near-optimal W-TinyLFU eviction policy. The successor to Guava Cache; used widely across the JVM ecosystem. |
+| **Ehcache** | [ehcache/ehcache3](https://github.com/ehcache/ehcache3) | Mature, full-featured Java (JSR-107) cache with tiered on-heap/off-heap/disk storage and distributed clustering. Long-standing default in many Java/Spring stacks. |
+| **Varnish Cache** | [varnishcache/varnish-cache](https://github.com/varnishcache/varnish-cache) | HTTP reverse-proxy / accelerator (~4k★). Caches web responses with the powerful VCL config language; runs in front of huge news and media sites. |
+| **Netflix EVCache** | [Netflix/EVCache](https://github.com/Netflix/EVCache) | Memcached-based, replicated, multi-AZ caching tier built and open-sourced by Netflix for low-latency reads across AWS regions. |
+| **Twemproxy (nutcracker)** | [twitter/twemproxy](https://github.com/twitter/twemproxy) | Fast, lightweight proxy for Memcached/Redis (~12k★) by Twitter. Enables sharding and connection pooling to scale a cache tier horizontally. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [Redis documentation — Eviction & key expiration](https://redis.io/docs/latest/develop/reference/eviction/) — How `maxmemory-policy`, LRU/LFU sampling, and TTL expiration actually work internally.
+- [Redis — Client-side caching](https://redis.io/docs/latest/develop/reference/client-side-caching/) — The tracking/invalidation protocol for near caches, directly relevant to hot-key and latency problems.
+- [Scaling Memcache at Facebook (NSDI '13, PDF)](https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf) — The canonical large-scale caching paper: leases, memcache clusters, regional pools, and stampede control.
+- [MIT 6.824 — Scaling Memcache reading notes / FAQ](https://pdos.csail.mit.edu/6.824/papers/memcache-faq.txt) — Course-quality companion that clarifies the tricky consistency and staleness points of the Facebook paper.
+- [Cloudflare — Rethinking Cache Purge: fast & scalable global invalidation](https://blog.cloudflare.com/part1-coreless-purge/) — Real engineering-blog deep dive into distributed cache invalidation at edge scale.
+- [AWS — Caching Best Practices](https://aws.amazon.com/caching/best-practices/) — Vendor-neutral overview of cache-aside, write-through/back/around, TTL, and layering with ElastiCache/DAX examples.
+- [AWS Database Blog — Caching patterns with ElastiCache](https://aws.amazon.com/blogs/database/caching-patterns/) — Concrete lazy-loading vs. write-through walkthroughs with pros/cons and code.
+- ["Optimal Probabilistic Cache Stampede Prevention" (Vattani et al., VLDB, PDF)](https://cseweb.ucsd.edu/~avattani/papers/cache_stampede.pdf) — The foundational XFetch paper on probabilistic early recomputation to avoid dogpiles.
+- [Caffeine Wiki — Efficiency & W-TinyLFU](https://github.com/ben-manes/caffeine/wiki/Efficiency) — Why modern in-process caches beat plain LRU, with hit-ratio benchmarks across policies.
+- [MDN — HTTP caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching) — Authoritative reference for `Cache-Control`, `ETag`, `Last-Modified`, and `stale-while-revalidate` at the HTTP layer.
+- ["Designing Data-Intensive Applications" — Martin Kleppmann](https://dataintensive.net/) — Storage, replication, and consistency chapters give the theory behind cache/DB freshness trade-offs.
+- [MIT 6.824 lecture (video) on caching / Memcache](https://www.youtube.com/watch?v=6uc8Vz_-3ic) — A recorded distributed-systems lecture walking through the Facebook memcache design and its consistency choices.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **Why caches exist — the latency/cost hierarchy and locality.** Search: `` `why caching improves performance latency cost hierarchy` ``
+2. **Cache hit ratio, miss, and the fundamental metrics.** Search: `` `cache hit ratio how to calculate why it matters` ``
+3. **Cache layers/tiers: browser → CDN → reverse proxy → app-local → distributed.** Search: `` `caching layers CDN application distributed cache explained` ``
+4. **Cache-aside vs. read-through — who owns the load-on-miss logic.** Search: `` `cache aside vs read through pattern difference` ``
+5. **Write strategies: write-through, write-back, write-around.** Search: `` `write through vs write back vs write around cache` ``
+6. **Eviction policies: LRU, LFU, FIFO, random, and TTL.** Search: `` `LRU vs LFU cache eviction policy when to use` ``
+7. **TTL design and staleness/freshness trade-offs.** Search: `` `how to choose cache TTL staleness tradeoff` ``
+8. **Cache invalidation — invalidate-on-write, double-delete, CDC.** Search: `` `cache invalidation strategies database consistency` ``
+9. **Cache stampede / thundering herd and mitigations.** Search: `` `cache stampede dogpile prevention single flight stale while revalidate` ``
+10. **Hot keys and how to spread load (near cache, replication, key splitting).** Search: `` `redis hot key problem solutions` ``
+11. **HTTP & CDN caching: Cache-Control, ETag, stale-while-revalidate.** Search: `` `HTTP cache control etag stale-while-revalidate explained` ``
+12. **Study the canonical scale story: Scaling Memcache at Facebook.** Search: `` `scaling memcache at facebook paper summary leases` ``
+13. **Hands-on: run Redis locally and implement a cache-aside layer.** Search: `` `redis docker run cache aside example tutorial` ``
+14. **Hands-on: reproduce and fix a cache stampede with single-flight + TTL jitter.** Search: `` `implement single flight cache stampede protection code` ``
+15. **Hands-on: benchmark eviction policies (LRU vs W-TinyLFU) with Caffeine.** Search: `` `caffeine cache hit ratio benchmark W-TinyLFU` ``
+
+**✅ You'll know you understand this when:** you can (1) pick the right write + eviction strategy for a given read/write ratio and staleness budget and justify it; (2) explain and code a fix for a cache stampede and a hot-key problem; and (3) reason clearly about the cache↔database consistency window and how invalidation bounds it.

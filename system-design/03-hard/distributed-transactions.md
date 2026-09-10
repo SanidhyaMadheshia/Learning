@@ -169,3 +169,55 @@ sequenceDiagram
 - Google Research, *"Spanner: Google's Globally-Distributed Database"* (OSDI 2012) — practical distributed commit with TrueTime.
 - Hector Garcia-Molina & Kenneth Salem, *"Sagas"* (ACM SIGMOD 1987) — the original Saga paper.
 - Debezium documentation — Outbox Event Router pattern; and Temporal.io / AWS Step Functions docs for orchestrated Sagas.
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| **Apache Seata** | [apache/incubator-seata](https://github.com/apache/incubator-seata) | High-performance distributed transaction framework (~25k★) supporting AT, TCC, Saga, and XA modes. Born at Alibaba/Ant and battle-tested at massive scale; the de-facto choice in the Java/Spring Cloud + Dubbo ecosystem. |
+| **DTM** | [dtm-labs/dtm](https://github.com/dtm-labs/dtm) | Language-agnostic distributed transaction manager (~11k★) implementing Saga, TCC, XA, 2-phase message, and outbox patterns. Popular in Go microservices; provides cross-service eventual consistency with SDKs for many languages. |
+| **Temporal** | [temporalio/temporal](https://github.com/temporalio/temporal) | Durable-execution / workflow engine (~14k★) used to build orchestrated Sagas with automatic retries, timeouts, and compensation. Used by Netflix, Snap, Datadog, Coinbase, Stripe. Successor to Uber Cadence. |
+| **Uber Cadence** | [cadence-workflow/cadence](https://github.com/cadence-workflow/cadence) | Uber's original fault-tolerant, stateful workflow engine (~8k★) for long-running business transactions and Sagas. Still runs at Uber scale; Temporal is its community fork. |
+| **Netflix Conductor (OSS)** | [conductor-oss/conductor](https://github.com/conductor-oss/conductor) | Durable workflow/orchestration engine built at Netflix (~13k★), now maintained by Orkes. Used in production at Netflix, Tesla, LinkedIn, and J.P. Morgan to orchestrate microservice Sagas. |
+| **Debezium** | [debezium/debezium](https://github.com/debezium/debezium) | Change Data Capture platform (~11k★) with a built-in **Outbox Event Router** SMT. The canonical way to reliably relay outbox rows from the DB transaction log to Kafka, solving the dual-write problem. |
+| **Eventuate Tram** | [eventuate-tram/eventuate-tram-core](https://github.com/eventuate-tram/eventuate-tram-core) | Chris Richardson's transactional messaging library implementing the transactional outbox + CDC and Saga orchestration/choreography for Spring Boot microservices. Reference implementation for *Microservices Patterns*. |
+| **Axon Framework** | [AxonFramework/AxonFramework](https://github.com/AxonFramework/AxonFramework) | Java framework (~3k★) for CQRS/Event Sourcing with first-class **Saga** support, deadlines, and compensation. Widely used for event-driven distributed transactions in the JVM world. |
+| **MassTransit** | [MassTransit/MassTransit](https://github.com/MassTransit/MassTransit) | .NET distributed application framework (~6k★) with built-in **state-machine Sagas**, outbox, and retry/redelivery over RabbitMQ/Azure Service Bus/Kafka. The go-to for Saga orchestration in .NET. |
+| **NServiceBus** | [Particular/NServiceBus](https://github.com/Particular/NServiceBus) | Mature .NET messaging platform with saga persistence, outbox, and reliable messaging; used in production for long-running distributed business processes. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [Saga pattern — microservices.io](https://microservices.io/patterns/data/saga.html) — Chris Richardson's canonical definition of the Saga pattern, choreography vs orchestration, and its trade-offs.
+- [Transactional outbox — microservices.io](https://microservices.io/patterns/data/transactional-outbox.html) — The reference write-up on solving the dual-write problem with an outbox table.
+- [Reliable Microservices Data Exchange With the Outbox Pattern — Debezium blog](https://debezium.io/blog/2019/02/19/reliable-microservices-data-exchange-with-the-outbox-pattern/) — Hands-on walkthrough of implementing outbox + CDC with Debezium and Kafka.
+- [Saga Orchestration for Microservices Using the Outbox Pattern — InfoQ](https://www.infoq.com/articles/saga-orchestration-outbox/) — Combines orchestrated Sagas with the outbox pattern end-to-end.
+- [Outbox Event Router — Debezium docs](https://debezium.io/documentation/reference/stable/transformations/outbox-event-router.html) — Official configuration reference for the CDC-based outbox relay.
+- [Designing Data-Intensive Applications, Ch. 9 (Martin Kleppmann)](https://dataintensive.net/) — Definitive treatment of distributed transactions, 2PC, linearizability, and consensus.
+- [Sagas (Garcia-Molina & Salem, 1987) — the original paper](https://www.cs.cornell.edu/andru/cs711/2002fa/reading/sagas.pdf) — The foundational academic paper that introduced the Saga concept.
+- [Spanner: Google's Globally-Distributed Database (OSDI 2012)](https://research.google/pubs/pub39966/) — How Google combines 2PC with Paxos and TrueTime for practical distributed commit.
+- [Life beyond Distributed Transactions (Pat Helland)](https://www.ics.uci.edu/~cs223/papers/cidr07p15.pdf) — Influential essay on why you scale by avoiding distributed transactions and using entities + workflows instead.
+- [Temporal — What is a Saga? / docs](https://docs.temporal.io/encyclopedia/) — Practical guide to implementing Sagas with a durable-execution engine, including compensation.
+- [Patterns for distributed transactions within a microservices architecture — Red Hat Developer](https://developers.redhat.com/blog/2018/10/01/patterns-for-distributed-transactions-within-a-microservices-architecture) — Compares 2PC, event-driven, and Saga approaches with concrete guidance.
+- [Distributed Transactions & Two-Phase Commit — Martin Kleppmann (video lecture)](https://www.youtube.com/watch?v=-_Mdo1Fc9Nc) — Clear video explanation of 2PC, its blocking failure mode, and alternatives.
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **Foundations: ACID & why local transactions are easy.** Understand atomicity/isolation before going distributed. `` `ACID properties transactions explained` ``
+2. **The problem: database-per-service & the dual-write problem.** Learn why microservices break single-DB atomicity. `` `microservices database per service dual write problem` ``
+3. **CAP theorem & consistency models.** Understand the availability-vs-consistency trade-off that forces protocol choice. `` `CAP theorem consistency vs availability partition` ``
+4. **Two-Phase Commit (2PC) & why it blocks.** Learn prepare/commit phases and the coordinator-failure blocking problem. `` `two phase commit protocol blocking coordinator failure` ``
+5. **Three-Phase Commit & XA/JTA.** Learn 3PC's pre-commit phase and the classic XA standard for DB/MQ transactions. `` `three phase commit XA transaction JTA explained` ``
+6. **The Saga pattern fundamentals.** Learn local transactions + compensating transactions. `` `saga pattern compensating transaction microservices` ``
+7. **Choreography vs Orchestration.** Learn the two Saga coordination styles and when each fits. `` `saga choreography vs orchestration tradeoffs` ``
+8. **The Transactional Outbox pattern.** Learn to atomically persist state and an event to publish. `` `transactional outbox pattern kafka explained` ``
+9. **Change Data Capture (CDC) with Debezium.** Learn how CDC relays outbox rows reliably. `` `debezium outbox event router kafka tutorial` ``
+10. **Idempotency & exactly-once semantics.** Learn idempotency keys and dedup for at-least-once delivery. `` `idempotency key exactly once messaging design` ``
+11. **Saga isolation anomalies & countermeasures.** Learn semantic locks, commutative updates, versioning. `` `saga pattern lack of isolation countermeasures semantic lock` ``
+12. **Modern distributed commit: Spanner & CockroachDB.** Learn how consensus (Paxos/Raft) + 2PC + TrueTime make commit practical. `` `spanner cockroachdb distributed transaction paxos raft truetime` ``
+13. **Durable execution engines: Temporal / Cadence / Conductor.** Learn how orchestrators implement resilient Sagas. `` `temporal workflow saga compensation tutorial` ``
+14. **Hands-on: build a toy orchestrated Saga (Order → Payment → Inventory) with compensations.** `` `saga orchestration spring boot payment inventory example github` ``
+15. **Hands-on: run the outbox + CDC stack locally with Debezium, Kafka, and Postgres via Docker Compose.** `` `debezium postgres kafka outbox docker compose example` ``
+
+**✅ You'll know you understand this when:** you can (1) explain why 2PC blocks and why microservices prefer Sagas + eventual consistency; (2) design an orchestrated Saga with correct compensating transactions and identify non-compensatable steps; and (3) implement an idempotent consumer fed by a transactional outbox + CDC relay without any dual-write.

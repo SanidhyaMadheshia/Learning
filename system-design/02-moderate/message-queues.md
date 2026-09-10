@@ -180,3 +180,55 @@ flowchart LR
 - Amazon SQS Developer Guide — Standard vs. FIFO, visibility timeout, and DLQ configuration.
 - RabbitMQ documentation — tutorials on work queues, pub/sub, and acknowledgements/prefetch.
 - Confluent blog: "Exactly-Once Semantics Are Possible" and microservices articles on the transactional outbox pattern (also on microservices.io).
+
+---
+
+## 🛠️ Open-Source Tools & Projects (Used in Production)
+
+| Project | GitHub | What it does / Why it's used |
+|---|---|---|
+| Apache Kafka | [apache/kafka](https://github.com/apache/kafka) | Distributed, partitioned commit log for high-throughput event streaming with durable retention & replay (~29k★). Born at LinkedIn; used by Uber, Netflix, Airbnb, and most large-scale data pipelines/CDC. |
+| RabbitMQ | [rabbitmq/rabbitmq-server](https://github.com/rabbitmq/rabbitmq-server) | The most widely deployed open-source AMQP broker (~13k★). Rich routing (exchanges/bindings), per-message acks, DLQ, low-latency task queues & RPC. Used broadly across microservice stacks. |
+| Apache Pulsar | [apache/pulsar](https://github.com/apache/pulsar) | Cloud-native pub/sub + queuing with separated compute/storage (BookKeeper), multi-tenancy, geo-replication, tiered storage (~14k★). Born at Yahoo; used by Yahoo, Tencent, Splunk. |
+| Redpanda | [redpanda-data/redpanda](https://github.com/redpanda-data/redpanda) | Kafka API-compatible streaming platform in C++, no JVM/ZooKeeper, lower latency & simpler ops (~10k★). Drop-in Kafka replacement. |
+| NATS / JetStream | [nats-io/nats-server](https://github.com/nats-io/nats-server) | Lightweight, high-performance cloud-native messaging; JetStream adds persistence, streaming replay, and KV/object store (~16k★). CNCF project used in edge/IoT and Kubernetes-native systems. |
+| Apache RocketMQ | [apache/rocketmq](https://github.com/apache/rocketmq) | Low-latency, financial-grade distributed messaging & streaming (~21k★). Built and battle-tested at Alibaba for e-commerce scale. |
+| NSQ | [nsqio/nsq](https://github.com/nsqio/nsq) | Realtime distributed messaging platform, decentralized & easy to operate, handles billions of msgs/day (~25k★). Created at bitly. |
+| Celery | [celery/celery](https://github.com/celery/celery) | Distributed task/job queue for Python, backed by Redis or RabbitMQ (~26k★). The default for background jobs in Python/Django apps. |
+| Debezium | [debezium/debezium](https://github.com/debezium/debezium) | Change-Data-Capture platform that streams DB row changes into Kafka topics (~11k★). Core to the transactional outbox / CDC pattern. |
+| ZeroMQ | [zeromq/libzmq](https://github.com/zeromq/libzmq) | Brokerless, embeddable messaging library for ultra-low-latency socket-style patterns (~10k★). Used where a central broker is undesirable. |
+
+## 📖 Blogs, Articles & Learning Resources
+
+- [The Log: What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying) — Jay Kreps' foundational essay on logs as the core abstraction behind Kafka; essential reading.
+- [Kafka: a Distributed Messaging System for Log Processing (original paper, NetDB 2011)](https://netman.aiops.org/~peidan/ANM2016/BigDataSystems/ReadingLists/2011NetDB_Kafka.pdf) — the original design paper explaining Kafka's architecture and goals.
+- [Apache Kafka Documentation — Design & Exactly-Once Semantics](https://kafka.apache.org/documentation/#design) — authoritative reference on partitions, replication, offsets, and delivery guarantees.
+- [RabbitMQ Tutorials (Work Queues, Pub/Sub, Routing, Acks)](https://www.rabbitmq.com/tutorials) — hands-on official tutorials covering competing consumers, exchanges, and acknowledgements.
+- [Amazon SQS Developer Guide](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html) — Standard vs. FIFO, visibility timeout, and DLQ configuration explained by AWS.
+- [Confluent: Using logs to build a solid data infrastructure (why dual writes are a bad idea)](https://www.confluent.io/blog/using-logs-to-build-a-solid-data-infrastructure-or-why-dual-writes-are-a-bad-idea/) — the dual-write problem and why log-based integration fixes it.
+- [Confluent: Exactly-Once Semantics Are Possible in Kafka](https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/) — how idempotent producers + transactions achieve exactly-once within Kafka.
+- [microservices.io — Transactional Outbox Pattern](https://microservices.io/patterns/data/transactional-outbox.html) — the canonical pattern for reliably publishing events alongside a DB write.
+- [Benchmarking Apache Kafka: 2 Million Writes Per Second on Three Cheap Machines](https://engineering.linkedin.com/kafka/benchmarking-apache-kafka-2-million-writes-second-three-cheap-machines) — LinkedIn's classic post on Kafka's throughput characteristics.
+- [Uber Engineering: Enabling Seamless Kafka Async Queuing with Consumer Proxy](https://www.uber.com/en-US/blog/kafka-async-queuing-with-consumer-proxy/) — how Uber operates Kafka at massive scale for async work.
+- [DDIA — Designing Data-Intensive Applications, Ch. 11 (Stream Processing)](https://dataintensive.net/) — Martin Kleppmann's definitive treatment of messaging, logs, and stream processing.
+- [Kafka in 100 Seconds + Full Course (video)](https://www.youtube.com/watch?v=uvb00oaa3k8) — quick visual intro; pair with Confluent's free "Apache Kafka 101" course at [developer.confluent.io/courses](https://developer.confluent.io/courses/).
+
+## 🗺️ Learning Plan — Google & Learn (Step by Step)
+
+1. **Why async messaging exists (coupling problems).** Understand temporal decoupling, load leveling, and failure isolation. `` `why use a message queue vs synchronous API call` ``
+2. **Core vocabulary.** Producer, consumer, broker, queue vs. topic, ack/nack, offset, consumer group. `` `message queue producer consumer broker topic explained` ``
+3. **Messaging patterns.** Point-to-point work queues, publish/subscribe fan-out, request/reply. `` `point to point vs publish subscribe messaging patterns` ``
+4. **Delivery guarantees.** At-most-once, at-least-once, exactly-once and their trade-offs. `` `at least once vs exactly once delivery semantics` ``
+5. **Idempotency.** Make consumers safe under redelivery using idempotency keys and dedup tables. `` `idempotent consumer message deduplication pattern` ``
+6. **Ordering & partitioning.** Why global ordering is expensive; partition/key-based ordering. `` `kafka partition key ordering guarantees explained` ``
+7. **Dead-letter queues & poison messages.** Retry limits, DLQ routing, and replay. `` `dead letter queue poison message retry strategy` ``
+8. **Backpressure & consumer lag.** Prefetch, bounded queues, autoscaling on lag. `` `backpressure consumer lag message queue monitoring` ``
+9. **Deep dive: Kafka internals.** Partitions, replication, offsets, consumer groups, retention. `` `apache kafka architecture partitions replication offsets` ``
+10. **Deep dive: RabbitMQ internals.** Exchanges, bindings, routing keys, acks, prefetch. `` `rabbitmq exchange binding routing key tutorial` ``
+11. **Managed queues.** SQS Standard vs. FIFO, visibility timeout, SNS+SQS fan-out. `` `amazon sqs fifo vs standard visibility timeout` ``
+12. **Reliable DB + event publishing.** Dual-write problem, transactional outbox, CDC/Debezium. `` `transactional outbox pattern debezium cdc kafka` ``
+13. **Choosing a broker.** Compare Kafka vs. RabbitMQ vs. Pulsar vs. SQS by throughput, ordering, retention, ops. `` `kafka vs rabbitmq vs pulsar vs sqs when to use` ``
+14. **Hands-on: build a toy work queue.** Run RabbitMQ or Redis in Docker and write a producer/consumer with retries + DLQ. `` `rabbitmq docker python work queue tutorial with dead letter` ``
+15. **Hands-on: deploy Kafka locally & replay.** Spin up Kafka/Redpanda in Docker, produce/consume, and replay from an offset. `` `run kafka locally docker compose produce consume replay offset` ``
+
+**✅ You'll know you understand this when:** you can (1) explain why you'd choose at-least-once + idempotency over exactly-once for a real system, (2) design a queue-backed flow with a DLQ, key-based ordering, and consumer-lag monitoring, and (3) stand up a broker locally and demonstrate redelivery + replay yourself.
