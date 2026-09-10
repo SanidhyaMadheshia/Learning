@@ -1,0 +1,152 @@
+{
+  "step": 12,
+  "slug": "12-greedy",
+  "title": "Greedy Algorithms [Easy, Medium/Hard]",
+  "sub_steps": [
+    {
+      "sub_step": "Easy Problems",
+      "problems": [
+        {
+          "id": "2834",
+          "name": "Assign Cookies",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/assign-cookies",
+          "youtube": "https://youtu.be/DIX2p7vb9co?si=GofAIDimue-Av0Fi",
+          "leetcode": "https://leetcode.com/problems/assign-cookies/",
+          "editorial": "/plus/dsa/problems/assign-cookies?tab=editorial"
+        },
+        {
+          "id": "489",
+          "name": "Fractional Knapsack",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/fractional-knapsack-problem-greedy-approach/",
+          "youtube": "https://youtu.be/1ibsQrnuEEg?si=8R2By3wpHo0zZVHE",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "543",
+          "name": "Lemonade Change",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/Greedy/lemonade-change",
+          "youtube": "https://youtu.be/n_tmibEhO6Q?si=q1NW8MfPy0QU6fIl",
+          "leetcode": "https://leetcode.com/problems/lemonade-change/",
+          "editorial": "/plus/dsa/problems/lemonade-change?tab=editorial"
+        },
+        {
+          "id": "545",
+          "name": "Valid Paranthesis Checker",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/valid-paranthesis-checker",
+          "youtube": "https://youtu.be/cHT6sG_hUZI?si=XRHeyh7jOaLaTy3g",
+          "leetcode": "https://leetcode.com/problems/valid-parenthesis-string/",
+          "editorial": "/plus/dsa/problems/valid-paranthesis-checker?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Medium/Hard",
+      "problems": [
+        {
+          "id": "549",
+          "name": "N meetings in one room",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/n-meetings-in-one-room/",
+          "youtube": "https://youtu.be/mKfhTotEguk?si=2RELeq18mpmIIN3Q",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/n-meetings-in-one-room?tab=editorial"
+        },
+        {
+          "id": "542",
+          "name": "Jump Game - I",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/Greedy/jump-game-i",
+          "youtube": "https://youtu.be/tZAa_jJ3SwQ?si=voKd7n9VTLDRRNzJ",
+          "leetcode": "https://leetcode.com/problems/jump-game/",
+          "editorial": "/plus/dsa/problems/jump-game---i?tab=editorial"
+        },
+        {
+          "id": "595",
+          "name": "Jump Game II",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/jump-game-2",
+          "youtube": "https://youtu.be/7SBVnw7GSTk?si=9uUouBELh9K3m2jZ",
+          "leetcode": "https://leetcode.com/problems/jump-game-ii/",
+          "editorial": ""
+        },
+        {
+          "id": "548",
+          "name": "Minimum number of platforms required for a railway",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/minimum-number-of-platforms-required-for-a-railway/",
+          "youtube": "https://youtu.be/AsGzwR_FWok?si=165acXU_dtqOHuo9",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/minimum-number-of-platforms-required-for-a-railway?tab=editorial"
+        },
+        {
+          "id": "547",
+          "name": "Job sequencing Problem",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/job-sequencing-problem/",
+          "youtube": "https://youtu.be/QbwltemZbRg?si=wvcemJ5BLPlTRmkG",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/job-sequencing-problem?tab=editorial"
+        },
+        {
+          "id": "544",
+          "name": "Candy",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/candy",
+          "youtube": "https://youtu.be/IIqVFvKE6RY?si=EjmuXZJNLQLUkEd7",
+          "leetcode": "https://leetcode.com/problems/candy/",
+          "editorial": "/plus/dsa/problems/candy?tab=editorial"
+        },
+        {
+          "id": "551",
+          "name": "Shortest Job First",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/Greedy/shortest-job-first-or-sjf-cpu-scheduling",
+          "youtube": "https://youtu.be/3-QbX1iDbXs?si=IH8QZUblr01F7UoQ",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/shortest-job-first?tab=editorial"
+        },
+        {
+          "id": "2859",
+          "name": "Program for Least Recently Used (LRU) Page Replacement Algorithm",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/program-for-least-recently-used-lru-page-replacement-algorithm",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/lru-cache?tab=editorial"
+        },
+        {
+          "id": "546",
+          "name": "Insert Interval",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/insert-new-interval",
+          "youtube": "https://youtu.be/xxRE-46OCC8?si=a7aPuIw16zDx2lAa",
+          "leetcode": "https://leetcode.com/problems/insert-interval/",
+          "editorial": "/plus/dsa/problems/insert-interval?tab=editorial"
+        },
+        {
+          "id": "712",
+          "name": "Merge Intervals",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/merge-overlapping-sub-intervals/",
+          "youtube": "https://www.youtube.com/watch?v=2JzRBPFYbKE&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=6",
+          "leetcode": "https://leetcode.com/problems/merge-intervals/",
+          "editorial": ""
+        },
+        {
+          "id": "550",
+          "name": "Non-overlapping Intervals",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/non-overlapping-intervals",
+          "youtube": "https://youtu.be/HDHQ8lAWakY?si=JVtLqboGdpUTOVjf",
+          "leetcode": "https://leetcode.com/problems/non-overlapping-intervals/",
+          "editorial": "/plus/dsa/problems/non-overlapping-intervals?tab=editorial"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "step": 14,
+  "slug": "14-binary-search-trees",
+  "title": "Binary Search Trees [Concept and Problems]",
+  "sub_steps": [
+    {
+      "sub_step": "Concepts",
+      "problems": [
+        {
+          "id": "1153",
+          "name": "Introduction to BST",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/binary-search-tree/introduction-to-binary-search-trees/",
+          "youtube": "https://youtu.be/p7-9UvDQZ3w",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/introduction-to-bst"
+        },
+        {
+          "id": "2780",
+          "name": "Search in a Binary Search Tree",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/search-in-a-binary-search-tree-2/",
+          "youtube": "https://youtu.be/KcNt6v_56cc",
+          "leetcode": "https://leetcode.com/problems/search-in-a-binary-search-tree/",
+          "editorial": "/plus/dsa/problems/search-in-bst?tab=editorial"
+        },
+        {
+          "id": "2398",
+          "name": "Find Min/Max in BST",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/find-minmax-in-a-bst",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": ""
+        }
+      ]
+    },
+    {
+      "sub_step": "Practice Problems",
+      "problems": [
+        {
+          "id": "107",
+          "name": "Floor and Ceil in a BST",
+          "difficulty": "Easy",
+          "article": "",
+          "youtube": "https://www.youtube.com/watch?v=xm_W1ub-K-w&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=43",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/floor-and-ceil-in-a-bst?tab=editorial"
+        },
+        {
+          "id": "2778",
+          "name": "Floor in a Binary Search Tree",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/binary-search-tree/floor-in-a-binary-search-tree/",
+          "youtube": "https://youtu.be/xm_W1ub-K-w",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/floor-and-ceil-in-a-bst?tab=editorial"
+        },
+        {
+          "id": "104",
+          "name": "Insert a given node in BST",
+          "difficulty": "Medium",
+          "article": "",
+          "youtube": "https://youtu.be/FiFiNvM29ps",
+          "leetcode": "https://leetcode.com/problems/insert-into-a-binary-search-tree/",
+          "editorial": "/plus/dsa/problems/insert-a-given-node-in-bst?tab=editorial"
+        },
+        {
+          "id": "102",
+          "name": "Delete a node in BST",
+          "difficulty": "Medium",
+          "article": "",
+          "youtube": "https://youtu.be/kouxiP_H5WE",
+          "leetcode": "https://leetcode.com/problems/delete-node-in-a-bst/",
+          "editorial": "/plus/dsa/problems/delete-a-node-in-bst?tab=editorial"
+        },
+        {
+          "id": "105",
+          "name": "Kth Smallest and Largest element in BST",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/kth-largest-smallest-element-in-binary-search-tree/",
+          "youtube": "https://youtu.be/9TJYWh0adfk",
+          "leetcode": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+          "editorial": "/plus/dsa/problems/kth-smallest-and-largest-element-in-bst?tab=editorial"
+        },
+        {
+          "id": "100",
+          "name": "Check if a tree is a BST or not",
+          "difficulty": "Medium",
+          "article": "",
+          "youtube": "https://youtu.be/f-sj7I5oXEI",
+          "leetcode": "https://leetcode.com/problems/validate-binary-search-tree/",
+          "editorial": "/plus/dsa/problems/check-if-a-tree-is-a-bst-or-not?tab=editorial"
+        },
+        {
+          "id": "106",
+          "name": "LCA in BST",
+          "difficulty": "Medium",
+          "article": "",
+          "youtube": "https://youtu.be/cX_kPV_foZc",
+          "leetcode": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+          "editorial": "/plus/dsa/problems/lca-in-bst?tab=editorial"
+        },
+        {
+          "id": "101",
+          "name": "Construct a BST from a preorder traversal",
+          "difficulty": "Medium",
+          "article": "",
+          "youtube": "https://youtu.be/UmJT3j26t1I",
+          "leetcode": "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/",
+          "editorial": "/plus/dsa/problems/construct-a-bst-from-a-preorder-traversal?tab=editorial"
+        },
+        {
+          "id": "2775",
+          "name": "Inorder Successor/Predecessor in BST",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/inorder-successorpredecessor-in-bst",
+          "youtube": "https://youtu.be/SXKAD2svfmI",
+          "leetcode": "https://leetcode.com/problems/inorder-successor-in-bst/",
+          "editorial": "/plus/dsa/problems/inorder-successor-and-predecessor-in-bst?tab=editorial"
+        },
+        {
+          "id": "2772",
+          "name": "Merge 2 BST's",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/bst-iterator",
+          "youtube": "https://youtu.be/D2jMcmxU4bs",
+          "leetcode": "https://leetcode.com/problems/binary-search-tree-iterator/",
+          "editorial": "/plus/dsa/problems/bst-iterator?tab=editorial"
+        },
+        {
+          "id": "2774",
+          "name": "Two Sum In BST | Check if there exists a pair with Sum K",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/two-sum-in-bst-check-if-there-exists-a-pair-with-sum-k",
+          "youtube": "https://youtu.be/ssL3sHwPeb4",
+          "leetcode": "https://leetcode.com/problems/two-sum-iv-input-is-a-bst/",
+          "editorial": "/plus/dsa/problems/two-sum-in-bst?tab=editorial"
+        },
+        {
+          "id": "97",
+          "name": "Correct BST with two nodes swapped",
+          "difficulty": "Hard",
+          "article": "",
+          "youtube": "https://youtu.be/ZWGW7FminDM",
+          "leetcode": "https://leetcode.com/problems/recover-binary-search-tree/",
+          "editorial": "/plus/dsa/problems/correct-bst-with-two-nodes-swapped?tab=editorial"
+        },
+        {
+          "id": "98",
+          "name": "Largest BST in Binary Tree",
+          "difficulty": "Hard",
+          "article": "",
+          "youtube": "https://youtu.be/X0oXMdtUDwo",
+          "leetcode": "https://leetcode.com/problems/maximum-sum-bst-in-binary-tree/",
+          "editorial": "/plus/dsa/problems/largest-bst-in-binary-tree?tab=editorial"
+        }
+      ]
+    }
+  ]
+}

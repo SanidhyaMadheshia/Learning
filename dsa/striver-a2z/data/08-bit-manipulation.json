@@ -1,0 +1,184 @@
+{
+  "step": 8,
+  "slug": "08-bit-manipulation",
+  "title": "Bit Manipulation [Concepts & Problems]",
+  "sub_steps": [
+    {
+      "sub_step": "Learn Bit Manipulation",
+      "problems": [
+        {
+          "id": "1155",
+          "name": "Introduction to Bits and Tricks",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/introduction-to-bit-manipulation-theory",
+          "youtube": "https://youtu.be/qQd-ViW7bfk?si=QtdNaRhHmZb08Mr8",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/introduction-to-bits-and-tricks?tab=editorial"
+        },
+        {
+          "id": "177",
+          "name": "Check if the i-th bit is Set or Not",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/check-if-the-i-th-bit-is-set-or-not",
+          "youtube": "https://youtu.be/nttpF8kwgd4?si=x9o8PsYaA2XVZ9rV",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/check-if-the-i-th-bit-is-set-or-not?tab=editorial"
+        },
+        {
+          "id": "171",
+          "name": "Check if a Number is Odd or Not",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/check-if-a-number-is-odd-or-not",
+          "youtube": "https://youtu.be/nttpF8kwgd4?si=x9o8PsYaA2XVZ9rV",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/check-if-a-number-is-odd-or-not?tab=editorial"
+        },
+        {
+          "id": "172",
+          "name": "Check if a Number is Power of 2 or Not",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/check-if-a-number-is-power-of-2-or-not",
+          "youtube": "https://youtu.be/nttpF8kwgd4?si=x9o8PsYaA2XVZ9rV",
+          "leetcode": "https://leetcode.com/problems/power-of-two/",
+          "editorial": "/plus/dsa/problems/check-if-a-number-is-power-of-2-or-not?tab=editorial"
+        },
+        {
+          "id": "243",
+          "name": "Count the Number of Set Bits",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/count-the-number-of-set-bits",
+          "youtube": "https://youtu.be/nttpF8kwgd4?si=x9o8PsYaA2XVZ9rV",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/count-the-number-of-set-bits?tab=editorial"
+        },
+        {
+          "id": "2410",
+          "name": "Set/Unset the rightmost unset bit",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/set-the-rightmost-bit",
+          "youtube": "https://youtu.be/nttpF8kwgd4?si=x9o8PsYaA2XVZ9rV",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "1005",
+          "name": "Swap Two Numbers",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/swap-two-numbers",
+          "youtube": "https://youtu.be/nttpF8kwgd4?si=x9o8PsYaA2XVZ9rV",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "140",
+          "name": "Divide two numbers without multiplication and division",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/divide-two-integers-without-using-multiplication-division-and-mod-operator",
+          "youtube": "https://youtu.be/pBD4B1tzgVc?si=G9c5pEE-RrzeU6sz",
+          "leetcode": "https://leetcode.com/problems/divide-two-integers/",
+          "editorial": "/plus/dsa/problems/divide-two-numbers-without-multiplication-and-division?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Interview Problems",
+      "problems": [
+        {
+          "id": "141",
+          "name": "Minimum Bit Flips to Convert Number",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/count-number-of-bits-to-be-flipped-to-convert-a-to-b",
+          "youtube": "https://youtu.be/OOdrmcfZXd8?si=rnkRVz1UiVBKWC69",
+          "leetcode": "https://leetcode.com/problems/minimum-bit-flips-to-convert-number/",
+          "editorial": "/plus/dsa/problems/minimum-bit-flips-to-convert-number?tab=editorial"
+        },
+        {
+          "id": "143",
+          "name": "Single Number - I",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/arrays/find-the-number-that-appears-once-and-the-other-numbers-twice/",
+          "youtube": "https://youtu.be/bYWLJb3vCWY?t=1369",
+          "leetcode": "https://leetcode.com/problems/single-number/",
+          "editorial": "/plus/dsa/problems/single-number---i?tab=editorial"
+        },
+        {
+          "id": "142",
+          "name": "Power Set Bit Manipulation",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/bit-manipulation/power-set-bit-manipulation",
+          "youtube": "https://youtu.be/LqKaUv1G3_I?si=UXU_T5OsHiokPRvP",
+          "leetcode": "https://leetcode.com/problems/subsets/",
+          "editorial": "/plus/dsa/problems/power-set-bit-manipulation?tab=editorial"
+        },
+        {
+          "id": "146",
+          "name": "XOR of numbers in a given range",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/find-xor-of-numbers-from-l-to-r",
+          "youtube": "https://youtu.be/WqGb7159h7Q?si=uGUEbNUUaIN_6Vvr",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/xor-of-numbers-in-a-given-range?tab=editorial"
+        },
+        {
+          "id": "145",
+          "name": "Single Number - III",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/find-the-two-numbers-appearing-odd-number-of-times",
+          "youtube": "https://youtu.be/UA5JnV1J2sI?si=VFBRJyb3boZvx_r1",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/single-number---iii?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Advanced Maths",
+      "problems": [
+        {
+          "id": "2853",
+          "name": "Print Prime Factors of a Number",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/find-the-two-numbers-appearing-odd-number-of-times",
+          "youtube": "https://youtu.be/LT7XhVdeRyg?si=6HkjQokJRPTFai21",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/prime-factorisation-of-a-number?tab=editorial"
+        },
+        {
+          "id": "370",
+          "name": "Divisors of a Number",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/print-all-divisors-of-a-given-number/",
+          "youtube": "https://youtu.be/1xNbjMdbjug?t=1580",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/divisors-of-a-number?tab=editorial"
+        },
+        {
+          "id": "651",
+          "name": "Count primes in range L to R",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/sieve-of-eratosthenes",
+          "youtube": "https://youtu.be/g5Fuxn_AvSk?si=fv6Q-Po7wrMW0a5n",
+          "leetcode": "https://leetcode.com/problems/count-primes/",
+          "editorial": "/plus/dsa/problems/count-primes-in-range-l-to-r?tab=editorial"
+        },
+        {
+          "id": "652",
+          "name": "Prime factorisation of a Number",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/find-the-two-numbers-appearing-odd-number-of-times",
+          "youtube": "https://youtu.be/LT7XhVdeRyg?si=6HkjQokJRPTFai21",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/prime-factorisation-of-a-number?tab=editorial"
+        },
+        {
+          "id": "877",
+          "name": "Pow(x,n)",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/implement-powxn-x-raised-to-the-power-n/",
+          "youtube": "https://youtu.be/l0YC3876qxg",
+          "leetcode": "https://leetcode.com/problems/powx-n/",
+          "editorial": "/plus/dsa/problems/pow(x,n)?tab=editorial"
+        }
+      ]
+    }
+  ]
+}

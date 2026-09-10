@@ -1,0 +1,80 @@
+{
+  "step": 17,
+  "slug": "17-tries",
+  "title": "Tries",
+  "sub_steps": [
+    {
+      "sub_step": "Theory",
+      "problems": [
+        {
+          "id": "1028",
+          "name": "Trie Implementation and Operations",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/implement-trie-1/",
+          "youtube": "https://www.youtube.com/watch?v=dBGUmUQhjaM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp",
+          "leetcode": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+          "editorial": "/plus/dsa/problems/trie-implementation-and-operations?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Problems",
+      "problems": [
+        {
+          "id": "1027",
+          "name": "Trie Implementation and Advanced Operations",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/implement-trie-ii/",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/trie-implementation-and-advanced-operations?tab=editorial"
+        },
+        {
+          "id": "1023",
+          "name": "Longest Word with All Prefixes",
+          "difficulty": "Medium",
+          "article": "",
+          "youtube": "https://www.youtube.com/watch?v=AWnBa91lThI&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=3",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/longest-word-with-all-prefixes?tab=editorial"
+        },
+        {
+          "id": "1026",
+          "name": "Number of distinct substrings in a string",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/number-of-distinct-substrings-in-a-string-using-trie/",
+          "youtube": "https://www.youtube.com/watch?v=RV0QeTyHZxo&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=4",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/number-of-distinct-substrings-in-a-string?tab=editorial"
+        },
+        {
+          "id": "2390",
+          "name": "Bit PreRequisites for TRIE Problems",
+          "difficulty": "Easy",
+          "article": "",
+          "youtube": "https://youtu.be/5iyuU4hQFrw",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "1024",
+          "name": "Maximum XOR of two numbers in an array",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/maximum-xor-of-two-numbers-in-an-array/",
+          "youtube": "https://www.youtube.com/watch?v=EIhAwfHubE8&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=6",
+          "leetcode": "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/",
+          "editorial": "/plus/dsa/problems/maximum-xor-of-two-numbers-in-an-array?tab=editorial"
+        },
+        {
+          "id": "1025",
+          "name": "Maximum Xor with an element from an array",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/trie/maximum-xor-queries-trie/",
+          "youtube": "https://www.youtube.com/watch?v=Q8LhG9Pi5KM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=7",
+          "leetcode": "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/",
+          "editorial": "/plus/dsa/problems/maximum-xor-with-an-element-from-an-array?tab=editorial"
+        }
+      ]
+    }
+  ]
+}

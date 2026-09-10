@@ -1,0 +1,175 @@
+{
+  "step": 11,
+  "slug": "11-heaps",
+  "title": "Heaps [Learning, Medium, Hard Problems]",
+  "sub_steps": [
+    {
+      "sub_step": "Learning",
+      "problems": [
+        {
+          "id": "1223",
+          "name": "Heaps (Theory Video)",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/introduction-to-priority-queues-using-binary-heaps",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/heaps-theory"
+        },
+        {
+          "id": "576",
+          "name": "Implement Min Heap",
+          "difficulty": "Medium",
+          "article": "",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/implement-min-heap?tab=editorial"
+        },
+        {
+          "id": "571",
+          "name": "Check if an array represents a min heap ",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/check-if-an-array-represents-a-min-heap",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/check-if-an-array-represents-a-min-heap-?tab=editorial"
+        },
+        {
+          "id": "572",
+          "name": "Convert Min Heap to Max Heap",
+          "difficulty": "Medium",
+          "article": "",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/convert-min-heap-to-max-heap?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Medium Problems",
+      "problems": [
+        {
+          "id": "578",
+          "name": "K-th Largest element in an array",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/kth-largest-smallest-element-in-an-array/",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "2840",
+          "name": "Kth smallest element in an array [use priority queue]",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/kth-largest-smallest-element-in-an-array/",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/kth-smallest-element-in-an-array?tab=editorial"
+        },
+        {
+          "id": "2409",
+          "name": "Sort K sorted array",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/sort-k-sorted-array",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "569",
+          "name": "Merge K sorted Lists",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/merge-m-sorted-lists",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/merge-k-sorted-lists/",
+          "editorial": ""
+        },
+        {
+          "id": "898",
+          "name": "Replace Elements by Their Rank",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/replace-elements-by-its-rank-in-the-array/",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "1008",
+          "name": "Task Scheduler",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/task-scheduler",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/task-scheduler/",
+          "editorial": ""
+        },
+        {
+          "id": "556",
+          "name": "Hand of Straights",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/hands-of-straights",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/hand-of-straights/",
+          "editorial": ""
+        }
+      ]
+    },
+    {
+      "sub_step": "Hard Problems",
+      "problems": [
+        {
+          "id": "565",
+          "name": "Design Twitter",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/design-twitter",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/design-twitter/",
+          "editorial": ""
+        },
+        {
+          "id": "755",
+          "name": "Minimum Cost to Connect Sticks",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/minimum-cost-to-connect-sticks",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/minimum-cost-to-connect-sticks?tab=editorial"
+        },
+        {
+          "id": "2838",
+          "name": "Kth largest element in a stream of running integers",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/kth-largest-element-in-a-stream-of-running-integers",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/kth-largest-element-in-a-stream/#:~:text=Implement%20KthLargest%20class%3A,largest%20element%20in%20the%20stream.",
+          "editorial": "/plus/dsa/problems/kth-largest-element-in-a-stream-of-running-integers?tab=editorial"
+        },
+        {
+          "id": "568",
+          "name": "Maximum Sum Combination",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/maximum-sum-combination",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "566",
+          "name": "Find Median from Data Stream",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/find-median-from-data-stream",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/find-median-from-data-stream/",
+          "editorial": ""
+        },
+        {
+          "id": "1018",
+          "name": "Top K Frequent Elements",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/top-k-frequent-elements",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/top-k-frequent-elements/",
+          "editorial": ""
+        }
+      ]
+    }
+  ]
+}

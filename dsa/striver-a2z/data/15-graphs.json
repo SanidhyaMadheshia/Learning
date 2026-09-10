@@ -1,0 +1,514 @@
+{
+  "step": 15,
+  "slug": "15-graphs",
+  "title": "Graphs [Concepts & Problems]",
+  "sub_steps": [
+    {
+      "sub_step": "Learning",
+      "problems": [
+        {
+          "id": "1222",
+          "name": "Introduction to Graph",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/graph-representation-in-java",
+          "youtube": "https://youtu.be/3oI-34aPMWM",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/introduction-to-graph?tab=editorial"
+        },
+        {
+          "id": "2870",
+          "name": "Graph Representation | C++",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/graph/graph-representation-in-c/",
+          "youtube": "https://youtu.be/3oI-34aPMWM",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/introduction-to-graph?tab=editorial"
+        },
+        {
+          "id": "2871",
+          "name": "Graph Representation | Java",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/graph-representation-in-java",
+          "youtube": "https://youtu.be/3oI-34aPMWM",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/introduction-to-graph?tab=editorial"
+        },
+        {
+          "id": "528",
+          "name": "Connected Components",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/connected-components",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/connected-components?tab=editorial"
+        },
+        {
+          "id": "529",
+          "name": "Traversal Techniques",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/depth-first-search-dfs/",
+          "youtube": "https://youtu.be/Qzf1a--rhp8",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/traversal-techniques?tab=editorial"
+        },
+        {
+          "id": "2831",
+          "name": "DFS",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/depth-first-search-dfs/",
+          "youtube": "https://youtu.be/Qzf1a--rhp8",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/traversal-techniques?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Problems on BFS/DFS",
+      "problems": [
+        {
+          "id": "535",
+          "name": "Number of provinces",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/number-of-provinces/",
+          "youtube": "https://youtu.be/ACzkVtewUYA",
+          "leetcode": "https://leetcode.com/problems/number-of-provinces/#:~:text=A%20province%20is%20a%20group,the%20total%20number%20of%20provinces.",
+          "editorial": "/plus/dsa/problems/number-of-provinces?tab=editorial"
+        },
+        {
+          "id": "2830",
+          "name": "Connected Components Problem in Matrix",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/connected-components",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/connected-components?tab=editorial"
+        },
+        {
+          "id": "536",
+          "name": "Rotten Oranges",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/rotten-oranges-min-time-to-rot-all-oranges-bfs/",
+          "youtube": "https://www.youtube.com/watch?v=yf3oUhkvqA0",
+          "leetcode": "https://leetcode.com/problems/rotting-oranges/",
+          "editorial": "/plus/dsa/problems/rotten-oranges?tab=editorial"
+        },
+        {
+          "id": "531",
+          "name": "Flood fill algorithm",
+          "difficulty": "Medium",
+          "article": "",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/flood-fill/",
+          "editorial": "/plus/dsa/problems/flood-fill-algorithm?tab=editorial"
+        },
+        {
+          "id": "2817",
+          "name": "Cycle Detection in Undirected Graph (bfs)",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-bfs/",
+          "youtube": "https://youtu.be/BPlrALf1LDU",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/detect-a-cycle-in-an-undirected-graph?tab=editorial"
+        },
+        {
+          "id": "501",
+          "name": "Detect a cycle in an undirected graph",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-dfs/",
+          "youtube": "https://youtu.be/zQ3zgFypzX4",
+          "leetcode": "https://leetcode.com/problems/course-schedule/",
+          "editorial": "/plus/dsa/problems/detect-a-cycle-in-an-undirected-graph?tab=editorial"
+        },
+        {
+          "id": "530",
+          "name": "Distance of nearest cell having one",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/graph/distance-of-nearest-cell-having-1/",
+          "youtube": "https://youtu.be/edXdVwkYHF8",
+          "leetcode": "https://leetcode.com/problems/01-matrix/",
+          "editorial": "/plus/dsa/problems/distance-of-nearest-cell-having-one?tab=editorial"
+        },
+        {
+          "id": "537",
+          "name": "Surrounded Regions",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/graph/surrounded-regions-replace-os-with-xs/",
+          "youtube": "https://youtu.be/BtdgAys4yMk",
+          "leetcode": "https://leetcode.com/problems/surrounded-regions/",
+          "editorial": "/plus/dsa/problems/surrounded-regions?tab=editorial"
+        },
+        {
+          "id": "533",
+          "name": "Number of enclaves",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/graph/number-of-enclaves/",
+          "youtube": "https://youtu.be/rxKcepXQgU4",
+          "leetcode": "https://leetcode.com/problems/number-of-enclaves/",
+          "editorial": "/plus/dsa/problems/number-of-enclaves?tab=editorial"
+        },
+        {
+          "id": "509",
+          "name": "Word ladder I",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/graph/word-ladder-i-g-29/",
+          "youtube": "https://youtu.be/tRPda0rcf8E",
+          "leetcode": "https://leetcode.com/problems/word-ladder/",
+          "editorial": "/plus/dsa/problems/word-ladder-i?tab=editorial"
+        },
+        {
+          "id": "510",
+          "name": "Word ladder II",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/graph/g-30-word-ladder-ii/",
+          "youtube": "https://youtu.be/AD4SFl7tu7I?si=EpcJQTWm2YeURvEG",
+          "leetcode": "https://leetcode.com/problems/word-ladder-ii/",
+          "editorial": "/plus/dsa/problems/word-ladder-ii?tab=editorial"
+        },
+        {
+          "id": "534",
+          "name": "Number of islands",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/number-of-distinct-islands/",
+          "youtube": "https://www.youtube.com/watch?v=muncqlKJrH0&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=8",
+          "leetcode": "https://leetcode.com/problems/number-of-islands/",
+          "editorial": "/plus/dsa/problems/number-of-islands?tab=editorial"
+        },
+        {
+          "id": "2813",
+          "name": "Bipartite Graph (DFS)",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/graph/bipartite-graph-dfs-implementation/",
+          "youtube": "https://youtu.be/KG5YFfR0j8A",
+          "leetcode": "https://leetcode.com/problems/is-graph-bipartite/",
+          "editorial": "/plus/dsa/problems/bipartite-graph?tab=editorial"
+        },
+        {
+          "id": "2814",
+          "name": "Cycle Detection in Directed Graph (DFS)",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/detect-cycle-in-a-directed-graph-using-dfs-g-19/",
+          "youtube": "https://youtu.be/9twcmtQj4DU",
+          "leetcode": "https://leetcode.com/problems/course-schedule-ii/discuss/293048/detecting-cycle-in-directed-graph-problem",
+          "editorial": "/plus/dsa/problems/detect-a-cycle-in-a-directed-graph?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Topo Sort and Problems",
+      "problems": [
+        {
+          "id": "2822",
+          "name": "Topo Sort",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/topological-sort-algorithm-dfs-g-21/",
+          "youtube": "https://youtu.be/5lZ0iJMrUMk",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/topological-sort-or-kahns-algorithm?tab=editorial"
+        },
+        {
+          "id": "502",
+          "name": "Topological sort or Kahn's algorithm",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/topological-sort-algorithm-dfs-g-21/",
+          "youtube": "https://youtu.be/5lZ0iJMrUMk",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/topological-sort-or-kahns-algorithm?tab=editorial"
+        },
+        {
+          "id": "500",
+          "name": "Detect a cycle in a directed graph",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/detect-a-cycle-in-directed-graph-topological-sort-kahns-algorithm-g-23/",
+          "youtube": "https://www.youtube.com/watch?v=uzVUw90ZFIg&list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&index=12",
+          "leetcode": "https://leetcode.com/problems/course-schedule/",
+          "editorial": "/plus/dsa/problems/detect-a-cycle-in-a-directed-graph?tab=editorial"
+        },
+        {
+          "id": "504",
+          "name": "Course Schedule I",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/course-schedule-i-and-ii-pre-requisite-tasks-topological-sort-g-24/",
+          "youtube": "https://youtu.be/WAOfKpxYHR8",
+          "leetcode": "https://leetcode.com/problems/course-schedule/",
+          "editorial": "/plus/dsa/problems/course-schedule-i?tab=editorial"
+        },
+        {
+          "id": "505",
+          "name": "Course Schedule II",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/course-schedule-i-and-ii-pre-requisite-tasks-topological-sort-g-24/",
+          "youtube": "https://youtu.be/WAOfKpxYHR8",
+          "leetcode": "https://leetcode.com/problems/course-schedule-ii/",
+          "editorial": "/plus/dsa/problems/course-schedule-ii?tab=editorial"
+        },
+        {
+          "id": "506",
+          "name": "Find eventual safe states",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/find-eventual-safe-states-bfs-topological-sort-g-25/",
+          "youtube": "https://youtu.be/2gtg3VsDGyc",
+          "leetcode": "https://leetcode.com/problems/find-eventual-safe-states/",
+          "editorial": "/plus/dsa/problems/find-eventual-safe-states?tab=editorial"
+        },
+        {
+          "id": "503",
+          "name": "Alien Dictionary",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/alien-dictionary-topological-sort-g-26/",
+          "youtube": "https://youtu.be/U3N_je7tWAs",
+          "leetcode": "https://leetcode.com/problems/alien-dictionary/solution/",
+          "editorial": "/plus/dsa/problems/alient-dictionary?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Shortest Path Algorithms and Problems",
+      "problems": [
+        {
+          "id": "508",
+          "name": "Shortest path in undirected graph with unit weights",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/shortest-path-in-undirected-graph-with-unit-distance-g-28/",
+          "youtube": "https://www.youtube.com/watch?v=C4gxoTaI71U&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=28",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/shortest-path-in-undirected-graph-with-unit-weights?tab=editorial"
+        },
+        {
+          "id": "507",
+          "name": "Shortest path in DAG",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/shortest-path-in-directed-acyclic-graph-topological-sort-g-27/",
+          "youtube": "https://www.youtube.com/watch?v=ZUFQfFaU-8U&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=27",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/shortest-path-in-dag?tab=editorial"
+        },
+        {
+          "id": "2827",
+          "name": "Djisktra's Algorithm",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/dijkstras-algorithm-using-set-g-33/",
+          "youtube": "https://www.youtube.com/watch?v=rp1SMw7HSO8&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=35",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/dijkstra's-algorithm?tab=editorial"
+        },
+        {
+          "id": "2828",
+          "name": "Why priority Queue is used in Djisktra's Algorithm",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/dijkstras-algorithm-using-priority-queue-g-32/",
+          "youtube": "https://www.youtube.com/watch?v=rp1SMw7HSO8&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=35",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/dijkstra's-algorithm?tab=editorial"
+        },
+        {
+          "id": "527",
+          "name": "Shortest Distance in a Binary Maze",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/g-36-shortest-distance-in-a-binary-maze/",
+          "youtube": "https://www.youtube.com/watch?v=U5Mw4eyUmw4&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=36",
+          "leetcode": "https://leetcode.com/problems/shortest-path-in-binary-matrix/",
+          "editorial": "/plus/dsa/problems/shortest-path-with-minimum-effort?tab=editorial"
+        },
+        {
+          "id": "525",
+          "name": "Path with minimum effort",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/g-37-path-with-minimum-effort/",
+          "youtube": "https://youtu.be/0ytpZyiZFhA",
+          "leetcode": "https://leetcode.com/problems/path-with-minimum-effort/",
+          "editorial": "/plus/dsa/problems/path-with-minimum-effort?tab=editorial"
+        },
+        {
+          "id": "519",
+          "name": "Cheapest flight within K stops",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/g-38-cheapest-flights-within-k-stops/",
+          "youtube": "https://youtu.be/9XybHVqTHcQ",
+          "leetcode": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+          "editorial": "/plus/dsa/problems/cheapest-flight-within-k-stops?tab=editorial"
+        },
+        {
+          "id": "764",
+          "name": "Network Delay Time",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/network-delay-time",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/network-delay-time/",
+          "editorial": "/plus/dsa/problems/network-delay-time?tab=editorial"
+        },
+        {
+          "id": "524",
+          "name": "Number of ways to arrive at destination",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/g-40-number-of-ways-to-arrive-at-destination/",
+          "youtube": "https://youtu.be/_-0mx0SmYxA",
+          "leetcode": "https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/",
+          "editorial": "/plus/dsa/problems/number-of-ways-to-arrive-at-destination?tab=editorial"
+        },
+        {
+          "id": "523",
+          "name": "Minimum multiplications to reach end",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/graph/g-39-minimum-multiplications-to-reach-end/",
+          "youtube": "https://www.youtube.com/watch?v=_BvEJ3VIDWw&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=39",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/minimum-multiplications-to-reach-end?tab=editorial"
+        },
+        {
+          "id": "2826",
+          "name": "Bellman Ford Algorithm",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/bellman-ford-algorithm-g-41/",
+          "youtube": "https://youtu.be/0vVofAhAYjc",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/bellman-ford-algorithm?tab=editorial"
+        },
+        {
+          "id": "522",
+          "name": "Floyd warshall algorithm",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/floyd-warshall-algorithm-g-42/",
+          "youtube": "https://www.youtube.com/watch?v=YbY8cVwWAvw&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=42",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/floyd-warshall-algorithm?tab=editorial"
+        },
+        {
+          "id": "521",
+          "name": "Find the city with the smallest number of neighbors",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/find-the-city-with-the-smallest-number-of-neighbours-at-a-threshold-distance-g-43/",
+          "youtube": "https://youtu.be/9XybHVqTHcQ",
+          "leetcode": "https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/",
+          "editorial": "/plus/dsa/problems/find-the-city-with-the-smallest-number-of-neighbors?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "MinimumSpanningTree/Disjoint Set and Problems",
+      "problems": [
+        {
+          "id": "1221",
+          "name": "MST theory",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/minimum-spanning-tree-theory-g-44/",
+          "youtube": "https://youtu.be/ZSPjZuZWCME",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/mst-theory?tab=editorial"
+        },
+        {
+          "id": "2825",
+          "name": "Prim's Algorithm",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/prims-algorithm-minimum-spanning-tree-c-and-java-g-45/",
+          "youtube": "https://youtu.be/mJcZjjKzeqk",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/find-the-mst-weight?tab=editorial"
+        },
+        {
+          "id": "516",
+          "name": "Disjoint Set ",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/disjoint-set-union-by-rank-union-by-size-path-compression-g-46/",
+          "youtube": "https://youtu.be/aBxjDBC4M1U",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/disjoint-set-?tab=editorial"
+        },
+        {
+          "id": "517",
+          "name": "Find the MST weight",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/prims-algorithm-minimum-spanning-tree-c-and-java-g-45/",
+          "youtube": "https://youtu.be/mJcZjjKzeqk",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/find-the-mst-weight?tab=editorial"
+        },
+        {
+          "id": "515",
+          "name": "Number of operations to make network connected",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/number-of-operations-to-make-network-connected-dsu-g-49/",
+          "youtube": "https://youtu.be/FYrl7iz9_ZU",
+          "leetcode": "https://leetcode.com/problems/number-of-operations-to-make-network-connected/",
+          "editorial": "/plus/dsa/problems/number-of-operations-to-make-network-connected?tab=editorial"
+        },
+        {
+          "id": "513",
+          "name": "Most stones removed with same row or column",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/most-stones-removed-with-same-row-or-column-dsu-g-53/",
+          "youtube": "https://youtu.be/OwMNX8SPavM",
+          "leetcode": "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/",
+          "editorial": "/plus/dsa/problems/most-stones-removed-with-same-row-or-column?tab=editorial"
+        },
+        {
+          "id": "511",
+          "name": "Accounts merge",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/accounts-merge-dsu-g-50/",
+          "youtube": "https://youtu.be/FMwpt_aQOGw",
+          "leetcode": "https://leetcode.com/problems/accounts-merge/",
+          "editorial": "/plus/dsa/problems/accounts-merge?tab=editorial"
+        },
+        {
+          "id": "514",
+          "name": "Number of islands II",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/graph/number-of-islands-ii-online-queries-dsu-g-51/",
+          "youtube": "https://youtu.be/Rn6B-Q4SNyA",
+          "leetcode": "https://leetcode.com/problems/number-of-islands-ii/",
+          "editorial": "/plus/dsa/problems/number-of-islands-ii?tab=editorial"
+        },
+        {
+          "id": "512",
+          "name": "Making a large island",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/making-a-large-island-dsu-g-52/",
+          "youtube": "https://youtu.be/lgiz0Oup6gM",
+          "leetcode": "https://leetcode.com/problems/making-a-large-island/",
+          "editorial": "/plus/dsa/problems/making-a-large-island?tab=editorial"
+        },
+        {
+          "id": "1006",
+          "name": "Swim in Rising Water",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/swim-in-rising-water",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/swim-in-rising-water/",
+          "editorial": "/plus/dsa/problems/swim-in-rising-water?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Other Algorithms",
+      "problems": [
+        {
+          "id": "497",
+          "name": "Bridges in graph",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/graph/bridges-in-graph-using-tarjans-algorithm-of-time-in-and-low-time-g-55/",
+          "youtube": "https://youtu.be/qrAub5z8FeA",
+          "leetcode": "https://leetcode.com/problems/critical-connections-in-a-network/discuss/382385/find-bridges-in-a-graph",
+          "editorial": "/plus/dsa/problems/bridges-in-graph?tab=editorial"
+        },
+        {
+          "id": "496",
+          "name": "Articulation point in graph",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/articulation-point-in-graph-g-56/",
+          "youtube": "https://youtu.be/j1QDfU21iZk",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/articulation-point-in-graph?tab=editorial"
+        },
+        {
+          "id": "498",
+          "name": "Kosaraju's algorithm",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/graph/strongly-connected-components-kosarajus-algorithm-g-54/",
+          "youtube": "https://www.youtube.com/watch?v=V8qIqJxCioo&list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&index=27",
+          "leetcode": "https://leetcode.com/problems/maximum-number-of-non-overlapping-substrings/discuss/766485/kosaraju-algorithm-on",
+          "editorial": "/plus/dsa/problems/kosaraju's-algorithm?tab=editorial"
+        }
+      ]
+    }
+  ]
+}

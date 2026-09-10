@@ -1,0 +1,247 @@
+{
+  "step": 7,
+  "slug": "07-recursion",
+  "title": "Recursion [PatternWise]",
+  "sub_steps": [
+    {
+      "sub_step": "Get a Strong Hold",
+      "problems": [
+        {
+          "id": "2862",
+          "name": "Recursive Implementation of atoi()",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/recursive-implementation-of-atoi",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/string-to-integer-atoi/",
+          "editorial": "/plus/dsa/problems/string-to-integer-atoi?tab=editorial"
+        },
+        {
+          "id": "2855",
+          "name": "Pow(x, n)",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/implement-powxn-x-raised-to-the-power-n/",
+          "youtube": "https://youtu.be/l0YC3876qxg",
+          "leetcode": "https://leetcode.com/problems/powx-n/",
+          "editorial": "/plus/dsa/problems/pow(x,n)?tab=editorial"
+        },
+        {
+          "id": "222",
+          "name": "Count Good Numbers",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/count-good-numbers",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/count-good-numbers/",
+          "editorial": ""
+        },
+        {
+          "id": "2858",
+          "name": "Sort a stack using recursion",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/sort-a-stack",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "901",
+          "name": "Reverse a Stack",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/reverse-a-stack-using-recursion",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": ""
+        }
+      ]
+    },
+    {
+      "sub_step": "Subsequences Pattern",
+      "problems": [
+        {
+          "id": "493",
+          "name": "Generate Binary Strings Without Consecutive 1s",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/generate-all-binary-strings",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "876",
+          "name": "Generate Parentheses",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/generate-parenthesis",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/generate-parentheses/",
+          "editorial": "/plus/dsa/problems/generate-parentheses?tab=editorial"
+        },
+        {
+          "id": "878",
+          "name": "Power Set",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/power-set-print-all-the-possible-subsequences-of-the-string/",
+          "youtube": "https://www.youtube.com/watch?v=b7AYbpM5YrE&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=67",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/power-set?tab=editorial"
+        },
+        {
+          "id": "2400",
+          "name": "Learn All Patterns of Subsequences (Theory)",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/learn-all-patterns-of-subsequences-theory",
+          "youtube": "https://www.youtube.com/watch?v=eQCS_v3bw0Q&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9&index=7",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "880",
+          "name": "Count all subsequences with sum K",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/count-all-subsequences-with-sum-k",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/count-all-subsequences-with-sum-k?tab=editorial"
+        },
+        {
+          "id": "879",
+          "name": "Check if there exists a subsequence with sum K",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/check-if-there-exists-a-subsequence-with-sum-k",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/check-if-there-exists-a-subsequence-with-sum-k?tab=editorial"
+        },
+        {
+          "id": "864",
+          "name": "Combination Sum",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/combination-sum-1/",
+          "youtube": "https://www.youtube.com/watch?v=OyZFFqQtu98&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=49",
+          "leetcode": "https://leetcode.com/problems/combination-sum/",
+          "editorial": "/plus/dsa/problems/combination-sum?tab=editorial"
+        },
+        {
+          "id": "865",
+          "name": "Combination Sum II",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/combination-sum-ii-find-all-unique-combinations/",
+          "youtube": "https://www.youtube.com/watch?v=G1fRTGRxXU8&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=50",
+          "leetcode": "https://leetcode.com/problems/combination-sum-ii/",
+          "editorial": "/plus/dsa/problems/combination-sum-ii?tab=editorial"
+        },
+        {
+          "id": "867",
+          "name": "Subsets I",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/subset-sum-sum-of-all-subsets/",
+          "youtube": "https://www.youtube.com/watch?v=rYkfBRtMJr8&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=52",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/subsets-i?tab=editorial"
+        },
+        {
+          "id": "868",
+          "name": "Subsets II",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/subset-ii-print-all-the-unique-subsets/",
+          "youtube": "https://www.youtube.com/watch?v=RIn3gOkbhQE&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=53",
+          "leetcode": "https://leetcode.com/problems/subsets-ii/",
+          "editorial": "/plus/dsa/problems/subsets-ii?tab=editorial"
+        },
+        {
+          "id": "866",
+          "name": "Combination Sum III",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/combination-sum-iii",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/combination-sum-iii/",
+          "editorial": "/plus/dsa/problems/combination-sum-iii?tab=editorial"
+        },
+        {
+          "id": "875",
+          "name": "Letter Combinations of a Phone Number",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/letter-combinations-of-a-phone-number",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/",
+          "editorial": "/plus/dsa/problems/letter-combinations-of-a-phone-number?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Trying out all Combos / Hard",
+      "problems": [
+        {
+          "id": "871",
+          "name": "Palindrome partitioning",
+          "difficulty": "Hard",
+          "article": "",
+          "youtube": "https://youtu.be/_H8V5hJUGd0",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/palindrome-partitioning?tab=editorial"
+        },
+        {
+          "id": "874",
+          "name": "Word Search",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/word-search-leetcode/",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/word-search/",
+          "editorial": "/plus/dsa/problems/word-search?tab=editorial"
+        },
+        {
+          "id": "870",
+          "name": "N Queen",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/n-queen-problem-return-all-distinct-solutions-to-the-n-queens-puzzle/",
+          "youtube": "https://www.youtube.com/watch?v=i05Ju7AftcM&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=57",
+          "leetcode": "https://leetcode.com/problems/n-queens/",
+          "editorial": "/plus/dsa/problems/n-queen?tab=editorial"
+        },
+        {
+          "id": "872",
+          "name": "Rat in a Maze",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/rat-in-a-maze/",
+          "youtube": "https://www.youtube.com/watch?v=bLGZhJlt4y0&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=60",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/rat-in-a-maze?tab=editorial"
+        },
+        {
+          "id": "4",
+          "name": "Word Break",
+          "difficulty": "Medium",
+          "article": "",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/word-break?tab=editorial"
+        },
+        {
+          "id": "869",
+          "name": "M Coloring Problem",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/m-coloring-problem/",
+          "youtube": "https://www.youtube.com/watch?v=wuVwUK25Rfc&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=59",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/m-coloring-problem?tab=editorial"
+        },
+        {
+          "id": "873",
+          "name": "Sudoku Solver",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/sudoku-solver/",
+          "youtube": "https://www.youtube.com/watch?v=FWAIf_EVUKE&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=58",
+          "leetcode": "https://leetcode.com/problems/sudoku-solver/",
+          "editorial": "/plus/dsa/problems/sudoko-solver?tab=editorial"
+        },
+        {
+          "id": "3",
+          "name": "Expression Add Operators",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/expression-add-operators",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/expression-add-operators/",
+          "editorial": ""
+        }
+      ]
+    }
+  ]
+}

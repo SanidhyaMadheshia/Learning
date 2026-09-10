@@ -1,0 +1,80 @@
+{
+  "step": 2,
+  "slug": "02-sorting-techniques",
+  "title": "Learn Important Sorting Techniques",
+  "sub_steps": [
+    {
+      "sub_step": "Sorting-I",
+      "problems": [
+        {
+          "id": "947",
+          "name": "Selection Sort",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/sorting/selection-sort-algorithm/",
+          "youtube": "https://youtu.be/HGk_ypEuS24?t=167",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/selection-sort?tab=editorial"
+        },
+        {
+          "id": "943",
+          "name": "Bubble Sort",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/bubble-sort-algorithm/",
+          "youtube": "https://youtu.be/HGk_ypEuS24?t=1061",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/bubble-sort?tab=editorial"
+        },
+        {
+          "id": "944",
+          "name": "Insertion Sorting",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/insertion-sort-algorithm/",
+          "youtube": "https://youtu.be/HGk_ypEuS24?t=1900",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/insertion-sorting?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Sorting-II",
+      "problems": [
+        {
+          "id": "945",
+          "name": "Merge Sorting",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/merge-sort-algorithm/",
+          "youtube": "https://youtu.be/ogjf7ORKfd8",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/merge-sorting?tab=editorial"
+        },
+        {
+          "id": "881",
+          "name": "Recursive Bubble Sort",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/arrays/recursive-bubble-sort-algorithm/",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/recursive-bubble-sort?tab=editorial"
+        },
+        {
+          "id": "882",
+          "name": "Recursive Insertion Sort",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/arrays/recursive-insertion-sort-algorithm/",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/recursive-insertion-sort?tab=editorial"
+        },
+        {
+          "id": "946",
+          "name": "Quick Sorting",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/quick-sort-algorithm/",
+          "youtube": "https://youtu.be/WIrA4YexLRQ",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/quick-sorting?tab=editorial"
+        }
+      ]
+    }
+  ]
+}

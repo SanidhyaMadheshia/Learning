@@ -1,0 +1,125 @@
+{
+  "step": 10,
+  "slug": "10-sliding-window-two-pointer",
+  "title": "Sliding Window & Two Pointer Combined Problems",
+  "sub_steps": [
+    {
+      "sub_step": "Medium Problems",
+      "problems": [
+        {
+          "id": "2857",
+          "name": "Longest Substring Without Repeating Characters",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/length-of-longest-substring-without-any-repeating-character/",
+          "youtube": "https://youtu.be/-zSxTJkcdAo?si=I2zfR-vlDMg0zU9z",
+          "leetcode": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+          "editorial": "/plus/dsa/problems/longest-substring-without-repeating-characters?tab=editorial"
+        },
+        {
+          "id": "930",
+          "name": " Max Consecutive Ones III",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/max-consecutive-ones-iii",
+          "youtube": "https://youtu.be/3E4JBHSLpYk?si=SoOW64pP6otEKxBw",
+          "leetcode": "https://leetcode.com/problems/max-consecutive-ones-iii/",
+          "editorial": "/plus/dsa/problems/max-consecutive-ones-iii?tab=editorial"
+        },
+        {
+          "id": "926",
+          "name": " Fruit Into Baskets",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/fruit-into-baskets",
+          "youtube": "https://youtu.be/e3bs0uA1NhQ?si=gR8pO62u-nJeFAXk",
+          "leetcode": "https://leetcode.com/problems/fruit-into-baskets/description/",
+          "editorial": "/plus/dsa/problems/fruit-into-baskets?tab=editorial"
+        },
+        {
+          "id": "927",
+          "name": "Longest Repeating Character Replacement",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/longest-repeating-character-replacement",
+          "youtube": "https://youtu.be/_eNhaDCr6P0?si=pBWcEjozF5poom0p",
+          "leetcode": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+          "editorial": "/plus/dsa/problems/longest-repeating-character-replacement?tab=editorial"
+        },
+        {
+          "id": "923",
+          "name": "Binary Subarrays With Sum",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/binary-subarray-with-sum",
+          "youtube": "https://youtu.be/XnMdNUkX6VM?si=Nyt8EveeLUg8lmty",
+          "leetcode": "https://leetcode.com/problems/binary-subarrays-with-sum/",
+          "editorial": "/plus/dsa/problems/binary-subarrays-with-sum?tab=editorial"
+        },
+        {
+          "id": "924",
+          "name": "Count number of Nice subarrays",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/count-number-of-nice-subarrays",
+          "youtube": "https://youtu.be/j_QOv9OT9Og?si=Oq5-5hyFkzVSOZpP",
+          "leetcode": "https://leetcode.com/problems/count-number-of-nice-subarrays/",
+          "editorial": "/plus/dsa/problems/count-number-of-nice-subarrays?tab=editorial"
+        },
+        {
+          "id": "925",
+          "name": "Number of Substrings Containing All Three Characters",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/number-of-substring-containing-all-three-characters",
+          "youtube": "https://youtu.be/xtqN4qlgr8s?si=kuaLHVOLXhh5Z2tW",
+          "leetcode": "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/",
+          "editorial": "/plus/dsa/problems/number-of-substrings-containing-all-three-characters?tab=editorial"
+        },
+        {
+          "id": "922",
+          "name": "Maximum Points You Can Obtain from Cards ",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/maximum-point-you-can-obtain-from-cards",
+          "youtube": "https://youtu.be/pBWCOCS636U?si=-X64rY67noxvOwrG",
+          "leetcode": "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/",
+          "editorial": "/plus/dsa/problems/maximum-points-you-can-obtain-from-cards-?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Hard Problems",
+      "problems": [
+        {
+          "id": "928",
+          "name": "Longest Substring With At Most K Distinct Characters",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/longest-substring-with-at-most-k-distinct-characters",
+          "youtube": "https://youtu.be/teM9ZsVRQyc?si=Kh0_u6aCkkBU3Q33",
+          "leetcode": "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/",
+          "editorial": "/plus/dsa/problems/longest-substring-with-at-most-k-distinct-characters?tab=editorial"
+        },
+        {
+          "id": "988",
+          "name": "Subarrays with K Different Integers",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/subarray-with-k-different-integers",
+          "youtube": "https://youtu.be/7wYGbV_LsX4?si=KWa48RgLDCvdNqRb",
+          "leetcode": "https://leetcode.com/problems/subarrays-with-k-different-integers/",
+          "editorial": ""
+        },
+        {
+          "id": "931",
+          "name": "Minimum Window Substring ",
+          "difficulty": "Hard",
+          "article": "",
+          "youtube": "https://youtu.be/WJaij9ffOIY?si=-xnsWIH84zWU0ICd",
+          "leetcode": "https://leetcode.com/problems/minimum-window-substring/",
+          "editorial": "/plus/dsa/problems/minimum-window-substring-?tab=editorial"
+        },
+        {
+          "id": "754",
+          "name": "Minimum Window Subsequence",
+          "difficulty": "Hard",
+          "article": "",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/minimum-window-subsequence/",
+          "editorial": "/plus/dsa/problems/minimum-window-subsequence?tab=editorial"
+        }
+      ]
+    }
+  ]
+}

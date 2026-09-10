@@ -1,0 +1,93 @@
+{
+  "step": 18,
+  "slug": "18-strings-advanced",
+  "title": "Strings",
+  "sub_steps": [
+    {
+      "sub_step": "Hard Problems",
+      "problems": [
+        {
+          "id": "983",
+          "name": "Minimum number of bracket reversals to make an expression balanced",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/minimum-number-of-bracket-reversals-needed-to-make-an-expression-balanced",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/",
+          "editorial": "/plus/dsa/problems/minimum-number-of-bracket-reversals-to-make-an-expression-balanced?tab=editorial"
+        },
+        {
+          "id": "982",
+          "name": "Count and say",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/count-and-say",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/count-and-say/",
+          "editorial": "/plus/dsa/problems/count-and-say?tab=editorial"
+        },
+        {
+          "id": "2399",
+          "name": "Hashing In Strings | Theory",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/hashing-in-strings",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "979",
+          "name": "Rabin Karp Algorithm",
+          "difficulty": "Hard",
+          "article": "",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/repeated-string-match/discuss/416144/Rabin-Karp-algorithm-C%2B%2B-implementation",
+          "editorial": "/plus/dsa/problems/rabin-karp-algorithm?tab=editorial"
+        },
+        {
+          "id": "981",
+          "name": "Z function",
+          "difficulty": "Hard",
+          "article": "",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "977",
+          "name": "KMP Algorithm or LPS array",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/kmp-algorithm-or-lps-array",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/implement-strstr/",
+          "editorial": "/plus/dsa/problems/kmp-algorithm-or-lps-array?tab=editorial"
+        },
+        {
+          "id": "980",
+          "name": "Shortest Palindrome",
+          "difficulty": "Hard",
+          "article": "",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "978",
+          "name": "Longest happy prefix",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/longest-happy-prefix",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/longest-happy-prefix/",
+          "editorial": "/plus/dsa/problems/longest-happy-prefix?tab=editorial"
+        },
+        {
+          "id": "231",
+          "name": "Count Palindromic Subsequences",
+          "difficulty": "Medium",
+          "article": "",
+          "youtube": "",
+          "leetcode": "https://leetcode.com/problems/count-palindromic-subsequences/",
+          "editorial": "/plus/dsa/problems/count-palindromic-subsequences?tab=editorial"
+        }
+      ]
+    }
+  ]
+}

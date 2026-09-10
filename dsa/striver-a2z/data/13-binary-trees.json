@@ -1,0 +1,364 @@
+{
+  "step": 13,
+  "slug": "13-binary-trees",
+  "title": "Binary Trees [Traversals, Medium and Hard Problems]",
+  "sub_steps": [
+    {
+      "sub_step": "Traversals",
+      "problems": [
+        {
+          "id": "2865",
+          "name": "Introduction to Trees",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/binary-tree/introduction-to-trees/",
+          "youtube": "https://youtu.be/_ANrF3FJm7I",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/introduction-"
+        },
+        {
+          "id": "2864",
+          "name": "Binary Tree Representation in Java",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/binary-tree/binary-tree-representation-in-java/",
+          "youtube": "https://youtu.be/hyLyW7rP24I",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/introduction-"
+        },
+        {
+          "id": "136",
+          "name": "Pre, Post, Inorder in one traversal",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/preorder-inorder-postorder-traversals-in-one-traversal/",
+          "youtube": "https://youtu.be/ySp2epYvgTE",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/pre,-post,-inorder-in-one-traversal?tab=editorial"
+        },
+        {
+          "id": "137",
+          "name": "Preorder Traversal",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/preorder-traversal-of-binary-tree/",
+          "youtube": "https://youtu.be/RlUu72JrOCQ",
+          "leetcode": "https://leetcode.com/problems/binary-tree-preorder-traversal/",
+          "editorial": "/plus/dsa/problems/preorder-traversal?tab=editorial"
+        },
+        {
+          "id": "2785",
+          "name": "Inorder Traversal of Binary Tree",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/inorder-traversal-of-binary-tree/",
+          "youtube": "https://youtu.be/Z_NEgBgbRVI",
+          "leetcode": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+          "editorial": "/plus/dsa/problems/inorder-traversal?tab=editorial"
+        },
+        {
+          "id": "135",
+          "name": "Postorder Traversal",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/iterative-postorder-traversal-of-binary-tree-using-2-stack",
+          "youtube": "https://youtu.be/2YBhNLodD8Q",
+          "leetcode": "https://leetcode.com/problems/binary-tree-postorder-traversal/",
+          "editorial": "/plus/dsa/problems/postorder-traversal?tab=editorial"
+        },
+        {
+          "id": "134",
+          "name": "Level Order Traversal",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/level-order-traversal-of-a-binary-tree/",
+          "youtube": "https://youtu.be/EoAsWbO7sqg",
+          "leetcode": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+          "editorial": "/plus/dsa/problems/level-order-traversal?tab=editorial"
+        },
+        {
+          "id": "2872",
+          "name": "Iterative Preorder Traversal of Binary Tree",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/iterative-preorder-traversal-of-binary-tree",
+          "youtube": "https://youtu.be/Bfqd8BsPVuw",
+          "leetcode": "https://leetcode.com/problems/binary-tree-preorder-traversal/",
+          "editorial": "/plus/dsa/problems/preorder-traversal?tab=editorial"
+        },
+        {
+          "id": "2786",
+          "name": "Iterative Inorder Traversal of Binary Tree",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/inorder-traversal-of-binary-tree/",
+          "youtube": "https://youtu.be/lxTGsVXjwvM",
+          "leetcode": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+          "editorial": "/plus/dsa/problems/inorder-traversal?tab=editorial"
+        },
+        {
+          "id": "2788",
+          "name": "Post-order Traversal of Binary Tree using 2 stack",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/iterative-postorder-traversal-of-binary-tree-using-2-stack",
+          "youtube": "https://youtu.be/2YBhNLodD8Q",
+          "leetcode": "https://leetcode.com/problems/binary-tree-postorder-traversal/",
+          "editorial": "/plus/dsa/problems/postorder-traversal?tab=editorial"
+        },
+        {
+          "id": "2787",
+          "name": "Post-order Traversal of Binary Tree using 1 stack",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/post-order-traversal-of-binary-tree/",
+          "youtube": "https://youtu.be/NzIGLLwZBS8",
+          "leetcode": "https://leetcode.com/problems/binary-tree-postorder-traversal/",
+          "editorial": "/plus/dsa/problems/postorder-traversal?tab=editorial"
+        },
+        {
+          "id": "2789",
+          "name": "Preorder, Inorder, and Postorder Traversal in one Traversal",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/preorder-inorder-postorder-traversals-in-one-traversal/",
+          "youtube": "https://youtu.be/ySp2epYvgTE",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/pre,-post,-inorder-in-one-traversal?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Medium Problems",
+      "problems": [
+        {
+          "id": "131",
+          "name": "Maximum Depth in BT",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/maximum-depth-of-a-binary-tree/",
+          "youtube": "https://youtu.be/eD3tmO66aBA",
+          "leetcode": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+          "editorial": "/plus/dsa/problems/maximum-depth-in-bt?tab=editorial"
+        },
+        {
+          "id": "127",
+          "name": "Check for balanced binary tree",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/check-if-the-binary-tree-is-balanced-binary-tree/",
+          "youtube": "https://youtu.be/Yt50Jfbd8Po",
+          "leetcode": "https://leetcode.com/problems/balanced-binary-tree/",
+          "editorial": "/plus/dsa/problems/check-for-balanced-binary-tree?tab=editorial"
+        },
+        {
+          "id": "130",
+          "name": "Diameter of Binary Tree",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/calculate-the-diameter-of-a-binary-tree/",
+          "youtube": "https://youtu.be/Rezetez59Nk",
+          "leetcode": "https://leetcode.com/problems/diameter-of-binary-tree/",
+          "editorial": "/plus/dsa/problems/diameter-of-binary-tree?tab=editorial"
+        },
+        {
+          "id": "132",
+          "name": "Maximum path sum ",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/maximum-sum-path-in-binary-tree/",
+          "youtube": "https://youtu.be/WszrfSwMz58",
+          "leetcode": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+          "editorial": "/plus/dsa/problems/maximum-path-sum-?tab=editorial"
+        },
+        {
+          "id": "129",
+          "name": "Check if two trees are identical or not",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/check-if-two-trees-are-identical/",
+          "youtube": "https://youtu.be/BhuvF_-PWS0",
+          "leetcode": "https://leetcode.com/problems/same-tree/",
+          "editorial": "/plus/dsa/problems/check-if-two-trees-are-identical-or-not?tab=editorial"
+        },
+        {
+          "id": "126",
+          "name": "Zig Zag or Spiral Traversal",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/zig-zag-traversal-of-binary-tree/",
+          "youtube": "https://youtu.be/3OXWEdlIGl4",
+          "leetcode": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
+          "editorial": "/plus/dsa/problems/zig-zag-or-spiral-traversal?tab=editorial"
+        },
+        {
+          "id": "116",
+          "name": "Boundary Traversal",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/boundary-traversal-of-a-binary-tree/",
+          "youtube": "https://youtu.be/0ca1nvR0be4",
+          "leetcode": "https://leetcode.com/problems/boundary-of-binary-tree/",
+          "editorial": "/plus/dsa/problems/boundary-traversal?tab=editorial"
+        },
+        {
+          "id": "125",
+          "name": "Vertical Order Traversal",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/vertical-order-traversal-of-binary-tree/",
+          "youtube": "https://youtu.be/q_a6lpbKJdw",
+          "leetcode": "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/",
+          "editorial": "/plus/dsa/problems/vertical-order-traversal?tab=editorial"
+        },
+        {
+          "id": "124",
+          "name": "Top View of BT",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/top-view-of-a-binary-tree/",
+          "youtube": "https://youtu.be/Et9OCDNvJ78",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/top-view-of-bt?tab=editorial"
+        },
+        {
+          "id": "115",
+          "name": "Bottom view of BT",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/bottom-view-of-a-binary-tree/",
+          "youtube": "https://youtu.be/0FtVY6I4pB8",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/bottom-view-of-bt?tab=editorial"
+        },
+        {
+          "id": "2782",
+          "name": "Right/Left View of Binary Tree",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/right-left-view-of-binary-tree/",
+          "youtube": "https://youtu.be/KV4mRzTjlAk",
+          "leetcode": "https://leetcode.com/problems/binary-tree-right-side-view/",
+          "editorial": "/plus/dsa/problems/right-left-view-of-bt?tab=editorial"
+        },
+        {
+          "id": "2784",
+          "name": "Symmetric Binary Tree",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/check-for-symmetrical-binary-tree/",
+          "youtube": "https://www.youtube.com/watch?v=nKggNAiEpBE",
+          "leetcode": "https://leetcode.com/problems/symmetric-tree/",
+          "editorial": "/plus/dsa/problems/check-for-symmetrical-bts?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Hard Problems",
+      "problems": [
+        {
+          "id": "122",
+          "name": "Print root to leaf path in BT",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/print-root-to-node-path-in-a-binary-tree/",
+          "youtube": "https://youtu.be/fmflMqVOC7k",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/print-root-to-note-path-in-bt?tab=editorial"
+        },
+        {
+          "id": "118",
+          "name": "LCA in BT",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/lowest-common-ancestor-for-two-given-nodes/",
+          "youtube": "https://youtu.be/_-QHfMDde90",
+          "leetcode": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+          "editorial": "/plus/dsa/problems/lca-in-bt?tab=editorial"
+        },
+        {
+          "id": "119",
+          "name": "Maximum Width of BT",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/maximum-width-of-a-binary-tree/",
+          "youtube": "https://youtu.be/ZbybYvcVLks",
+          "leetcode": "https://leetcode.com/problems/maximum-width-of-binary-tree/",
+          "editorial": "/plus/dsa/problems/maximum-width-of-bt?tab=editorial"
+        },
+        {
+          "id": "185",
+          "name": "Children Sum Property in Binary Tree",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/check-for-children-sum-property-in-a-binary-tree/",
+          "youtube": "https://youtu.be/fnmisPM6cVo",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/children-sum-property-in-binary-tree?tab=editorial"
+        },
+        {
+          "id": "121",
+          "name": "Print all nodes at a distance of K in BT",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/print-all-the-nodes-at-a-distance-of-k-in-a-binary-tree",
+          "youtube": "https://youtu.be/i9ORlEy6EsI",
+          "leetcode": "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/",
+          "editorial": "/plus/dsa/problems/print-all-nodes-at-a-distance-of-k-in-bt?tab=editorial"
+        },
+        {
+          "id": "120",
+          "name": "Minimum time taken to burn the BT from a given Node",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/minimum-time-taken-to-burn-the-binary-tree-from-a-node",
+          "youtube": "https://youtu.be/2r5wLmQfD6g",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/minimum-time-taken-to-burn-the-bt-from-a-given-node?tab=editorial"
+        },
+        {
+          "id": "117",
+          "name": "Count total nodes in a complete BT",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/binary-tree/count-number-of-nodes-in-a-binary-tree/",
+          "youtube": "https://youtu.be/u-yWemKGWO0",
+          "leetcode": "https://leetcode.com/problems/count-complete-tree-nodes/",
+          "editorial": "/plus/dsa/problems/count-total-nodes-in-a-complete-bt?tab=editorial"
+        },
+        {
+          "id": "111",
+          "name": "Requirements needed to construct a unique BT",
+          "difficulty": "Medium",
+          "article": "",
+          "youtube": "https://youtu.be/9GMECGQgWrQ",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/requirements-needed-to-construct-a-unique-bt?tab=editorial"
+        },
+        {
+          "id": "110",
+          "name": "Construct a BT from Preorder and Inorder",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/construct-a-binary-tree-from-inorder-and-preorder-traversal/",
+          "youtube": "https://youtu.be/aZNaLrVebKQ",
+          "leetcode": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+          "editorial": "/plus/dsa/problems/construct-a-bt-from-preorder-and-inorder?tab=editorial"
+        },
+        {
+          "id": "2781",
+          "name": "Construct the Binary Tree from Postorder and Inorder Traversal",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/construct-binary-tree-from-inorder-and-postorder-traversal/",
+          "youtube": "https://youtu.be/LgLRTaEMRVc",
+          "leetcode": "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/",
+          "editorial": "/plus/dsa/problems/construct-a-bt-from-postorder-and-inorder?tab=editorial"
+        },
+        {
+          "id": "112",
+          "name": "Serialize and De-serialize BT",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/serialize-and-deserialize-a-binary-tree/",
+          "youtube": "https://youtu.be/-YbXySKJsX8",
+          "leetcode": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+          "editorial": "/plus/dsa/problems/serialize-and-de-serialize-bt?tab=editorial"
+        },
+        {
+          "id": "2791",
+          "name": "Morris Preorder Traversal of a Binary Tree",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/morris-preorder-traversal-of-a-binary-tree/",
+          "youtube": "https://youtu.be/80Zug6D1_r4",
+          "leetcode": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+          "editorial": "/plus/dsa/problems/morris-preorder-traversal-?tab=editorial"
+        },
+        {
+          "id": "2792",
+          "name": "Morris Inorder Traversal of a Binary Tree",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/morris-inorder-traversal-of-a-binary-tree/",
+          "youtube": "https://youtu.be/80Zug6D1_r4",
+          "leetcode": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+          "editorial": "/plus/dsa/problems/morris-inorder-traversal-?tab=editorial"
+        },
+        {
+          "id": "486",
+          "name": "Flatten Binary Tree to Linked List",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/flatten-binary-tree-to-linked-list/",
+          "youtube": "https://youtu.be/sWf7k1x9XR4",
+          "leetcode": "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/",
+          "editorial": "/plus/dsa/problems/flatten-binary-tree-to-linked-list?tab=editorial"
+        }
+      ]
+    }
+  ]
+}

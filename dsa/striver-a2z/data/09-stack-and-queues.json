@@ -1,0 +1,297 @@
+{
+  "step": 9,
+  "slug": "09-stack-and-queues",
+  "title": "Stack and Queues [Learning, Pre-In-Post-fix, Monotonic Stack, Implementation]",
+  "sub_steps": [
+    {
+      "sub_step": "Learning",
+      "problems": [
+        {
+          "id": "390",
+          "name": "Implement Stack using Arrays",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/implement-stack-using-array/",
+          "youtube": "https://youtu.be/tqQ5fTamIN4?si=ofLt8Zt1ZvhikZ6w",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/implement-stack-using-arrays?tab=editorial"
+        },
+        {
+          "id": "387",
+          "name": "Implement Queue using Arrays",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/implement-queue-using-array/",
+          "youtube": "https://youtu.be/tqQ5fTamIN4?si=ofLt8Zt1ZvhikZ6w",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/implement-queue-using-arrays?tab=editorial"
+        },
+        {
+          "id": "392",
+          "name": "Implement Stack using Queue",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/implement-stack-using-single-queue",
+          "youtube": "https://youtu.be/tqQ5fTamIN4?si=ofLt8Zt1ZvhikZ6w",
+          "leetcode": "https://leetcode.com/problems/implement-stack-using-queues/",
+          "editorial": "/plus/dsa/problems/implement-stack-using-queue?tab=editorial"
+        },
+        {
+          "id": "389",
+          "name": "Implement Queue using Stack",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/implement-queue-using-stack/",
+          "youtube": "https://youtu.be/tqQ5fTamIN4?si=ofLt8Zt1ZvhikZ6w",
+          "leetcode": "https://leetcode.com/problems/implement-queue-using-stacks/",
+          "editorial": "/plus/dsa/problems/implement-queue-using-stack?tab=editorial"
+        },
+        {
+          "id": "391",
+          "name": "Implement stack using Linkedlist",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/implement-stack-using-linked-list/",
+          "youtube": "https://youtu.be/tqQ5fTamIN4?si=ofLt8Zt1ZvhikZ6w",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/implement-stack-using-linkedlist?tab=editorial"
+        },
+        {
+          "id": "388",
+          "name": "Implement queue using Linkedlist",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/implement-queue-using-linked-list/",
+          "youtube": "https://youtu.be/tqQ5fTamIN4?si=ofLt8Zt1ZvhikZ6w",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/implement-queue-using-linkedlist?tab=editorial"
+        },
+        {
+          "id": "966",
+          "name": "Balanced Paranthesis",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/check-for-balanced-parentheses/",
+          "youtube": "https://youtu.be/xwjS0iZhw4I?si=UoyKpFn4Q3nf5h2R",
+          "leetcode": "https://leetcode.com/problems/valid-parentheses/",
+          "editorial": "/plus/dsa/problems/balanced-paranthesis?tab=editorial"
+        },
+        {
+          "id": "958",
+          "name": "Implement Min Stack",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/implement-min-stack-o2n-and-on-space-complexity/",
+          "youtube": "https://youtu.be/NdDIaH91P0g?si=4_Jbsq5trFvfSdUY",
+          "leetcode": "https://leetcode.com/problems/min-stack/",
+          "editorial": "/plus/dsa/problems/implement-min-stack?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Prefix, Infix, PostFix Conversion Problems",
+      "problems": [
+        {
+          "id": "586",
+          "name": "Infix to Postfix Conversion",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/infix-to-postfix/",
+          "youtube": "https://youtu.be/4pIc9UBHJtk?si=ryeVvQWpCgwbTQrh",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "848",
+          "name": "Prefix to Infix Conversion",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/prefix-to-infix-conversion",
+          "youtube": "https://youtu.be/4pIc9UBHJtk?si=ryeVvQWpCgwbTQrh",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "849",
+          "name": "Prefix to Postfix Conversion",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/prefix-to-postfix-conversion",
+          "youtube": "https://youtu.be/4pIc9UBHJtk?si=0pWtyDC1GhbiYP3P",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "825",
+          "name": "Postfix to Prefix Conversion",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/postfix-to-prefix-conversion",
+          "youtube": "https://youtu.be/4pIc9UBHJtk?si=0pWtyDC1GhbiYP3P",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "824",
+          "name": "Postfix to Infix Conversion",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/postfix-to-infix",
+          "youtube": "https://youtu.be/4pIc9UBHJtk?si=0pWtyDC1GhbiYP3P",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "587",
+          "name": "Infix to Prefix Conversion",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/infix-to-prefix/",
+          "youtube": "https://youtu.be/4pIc9UBHJtk?si=0pWtyDC1GhbiYP3P",
+          "leetcode": "",
+          "editorial": ""
+        }
+      ]
+    },
+    {
+      "sub_step": "Monotonic Stack/Queue Problems [VVV. Imp]",
+      "problems": [
+        {
+          "id": "968",
+          "name": "Next Greater Element",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/next-greater-element-using-stack/",
+          "youtube": "https://youtu.be/e7XQLtOQM3I?si=QdcHpTtx6gAHsext",
+          "leetcode": "https://leetcode.com/problems/next-greater-element-i/",
+          "editorial": "/plus/dsa/problems/next-greater-element?tab=editorial"
+        },
+        {
+          "id": "969",
+          "name": "Next Greater Element - 2",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/next-greater-element-2",
+          "youtube": "https://youtu.be/7PrncD7v9YQ?si=UkBc7eVy9HGlBpeW",
+          "leetcode": "https://leetcode.com/problems/next-greater-element-ii/",
+          "editorial": "/plus/dsa/problems/next-greater-element---2?tab=editorial"
+        },
+        {
+          "id": "768",
+          "name": "Next Smaller Element",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/next-smaller-element",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "285",
+          "name": "Number of Greater Elements to the Right",
+          "difficulty": "Easy",
+          "article": "https://takeuforward.org/data-structure/number-of-nges-to-the-right",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": ""
+        },
+        {
+          "id": "965",
+          "name": "Trapping Rainwater",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/trapping-rainwater/",
+          "youtube": "https://youtu.be/1_5VuquLbXg?si=NFG6df318_6OtGvg",
+          "leetcode": "https://leetcode.com/problems/trapping-rain-water/",
+          "editorial": "/plus/dsa/problems/trapping-rainwater?tab=editorial"
+        },
+        {
+          "id": "971",
+          "name": "Sum of Subarray Minimums",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/sum-of-subarray-minimums",
+          "youtube": "https://youtu.be/v0e8p9JCgRc?si=XAU7ekECgS5nboRw",
+          "leetcode": "https://leetcode.com/problems/sum-of-subarray-minimums/",
+          "editorial": "/plus/dsa/problems/sum-of-subarray-minimums?tab=editorial"
+        },
+        {
+          "id": "967",
+          "name": "Asteroid Collision",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/asteroid-collision",
+          "youtube": "https://youtu.be/_eYGqw_VDR4?si=YyxibcHq800RqgIQ",
+          "leetcode": "https://leetcode.com/problems/asteroid-collision/",
+          "editorial": "/plus/dsa/problems/asteroid-collision?tab=editorial"
+        },
+        {
+          "id": "972",
+          "name": "Sum of Subarray Ranges",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/sum-of-subarray-ranges",
+          "youtube": "https://youtu.be/gIrMptNPf5M?si=Q_GHuBvzZVs27X_U",
+          "leetcode": "https://leetcode.com/problems/sum-of-subarray-ranges/",
+          "editorial": "/plus/dsa/problems/sum-of-subarray-ranges?tab=editorial"
+        },
+        {
+          "id": "970",
+          "name": "Remove K Digits",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/remove-k-digits",
+          "youtube": "https://youtu.be/jmbuRzYPGrg?si=WN387gwQ7aXWkUao",
+          "leetcode": "https://leetcode.com/problems/remove-k-digits/",
+          "editorial": "/plus/dsa/problems/remove-k-digits?tab=editorial"
+        },
+        {
+          "id": "959",
+          "name": "Largest rectangle in a histogram",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/area-of-largest-rectangle-in-histogram/",
+          "youtube": "https://youtu.be/Bzat9vgD0fs?si=DiBlLejXcr6EJoyB",
+          "leetcode": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+          "editorial": "/plus/dsa/problems/largest-rectangle-in-a-histogram?tab=editorial"
+        },
+        {
+          "id": "962",
+          "name": "Maximum Rectangles",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/maximum-rectangle-area-with-all-1s-dp-on-rectangles-dp-55/",
+          "youtube": "https://youtu.be/tOylVCugy9k",
+          "leetcode": "https://leetcode.com/problems/maximal-rectangle/",
+          "editorial": "/plus/dsa/problems/maximum-rectangles?tab=editorial"
+        }
+      ]
+    },
+    {
+      "sub_step": "Implementation Problems",
+      "problems": [
+        {
+          "id": "963",
+          "name": "Sliding Window Maximum",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/sliding-window-maximum/",
+          "youtube": "https://youtu.be/NwBvene4Imo?si=eU1PY-bcQfk5wdog",
+          "leetcode": "https://leetcode.com/problems/sliding-window-maximum/",
+          "editorial": "/plus/dsa/problems/sliding-window-maximum?tab=editorial"
+        },
+        {
+          "id": "964",
+          "name": "Stock span problem",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/stock-span-problem",
+          "youtube": "https://youtu.be/eay-zoSRkVc?si=deNNe5i38BOAntha",
+          "leetcode": "https://leetcode.com/problems/online-stock-span/",
+          "editorial": "/plus/dsa/problems/stock-span-problem?tab=editorial"
+        },
+        {
+          "id": "957",
+          "name": "Celebrity Problem",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/celebrity-problem",
+          "youtube": "https://youtu.be/cEadsbTeze4?si=olXYfOs7l-SEn2zl",
+          "leetcode": "https://leetcode.com/accounts/login/?next=/problems/find-the-celebrity/",
+          "editorial": "/plus/dsa/problems/celebrity-problem?tab=editorial"
+        },
+        {
+          "id": "961",
+          "name": "LRU Cache",
+          "difficulty": "Medium",
+          "article": "https://takeuforward.org/data-structure/program-for-least-recently-used-lru-page-replacement-algorithm",
+          "youtube": "",
+          "leetcode": "",
+          "editorial": "/plus/dsa/problems/lru-cache?tab=editorial"
+        },
+        {
+          "id": "960",
+          "name": "LFU Cache",
+          "difficulty": "Hard",
+          "article": "https://takeuforward.org/data-structure/lfu-cache",
+          "youtube": "https://www.youtube.com/watch?v=0PSB9y8ehbk&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=79",
+          "leetcode": "https://leetcode.com/problems/lfu-cache/",
+          "editorial": "/plus/dsa/problems/lfu-cache?tab=editorial"
+        }
+      ]
+    }
+  ]
+}
